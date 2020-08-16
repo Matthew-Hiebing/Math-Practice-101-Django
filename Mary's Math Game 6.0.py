@@ -397,5 +397,5 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 			guessesTaken += 1
 			print("\nWrong, try again if you have guesses left.")
 
-else: #If the user takes two guesses and still answers incorectly the game is ended.
+else: # If the user takes two guesses the game will end.
 	print("Sorry, you are out of guesses")
