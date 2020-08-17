@@ -4,7 +4,7 @@ import operator #Imports the operator module for using the operators:add, sub, t
 
 operatorChoices = {"+":operator.add, "-":operator.sub, "/":operator.truediv, "*":operator.mul}
 op = random.choice(["+", "*", "/", "-"])
-num1 = random.randint(1,12)
+num1 = random.randint(0,12)
 num2 = random.randint(1, 12)
 result = operatorChoices[op](num1,num2)
 guessesTaken = 0 #Program starts with 0 guesses, each time you get an incorrect answer it adds "1" to this count until you reach "2", then you're out of guesses and the program ends.
@@ -85,8 +85,8 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 							continue
 				if op == "/":
 					import random
-					num1 = random.randint(1,12)
-					num2 = random.randint(1,12)
+					num1 = random.randint(0,12)
+					num2 = random.choice([1, 2, 3, 4, 5, 6, 7, 8, 9 , 10, 11, 12])
 					x = num2 * num1
 					result = x/num2
 					print(str(x), op, str(num2))
@@ -101,8 +101,8 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 							import operator
 							operatorChoices = {"+":operator.add, "-":operator.sub, "/":operator.truediv, "*":operator.mul}
 							op = random.choice(["+", "*", "/", "-"])
-							num1 = random.randint(1,12)
-							num2 = random.randint(1, 12)
+							num1 = random.randint(0,12)
+							num2 = random.choice([1, 2, 3, 4, 5, 6, 7, 8, 9 , 10, 11, 12])
 							result = operatorChoices[op](num1,num2)
 							continue
 		if answer != result: # If the user does not answer correctly it adds a guess to guessesTaken and returns you to the beginning.  
@@ -183,8 +183,8 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 							continue
 				if op == "/":
 					import random
-					num1 = random.randint(1,12)
-					num2 = random.randint(1,12)
+					num1 = random.randint(0,12)
+					num2 = random.choice([1, 2, 3, 4, 5, 6, 7, 8, 9 , 10, 11, 12])
 					x = num2 * num1
 					result = x/num2
 					print(str(x), op, str(num2))
@@ -259,8 +259,8 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 							continue
 				if op == "/":
 					import random
-					num1 = random.randint(1,12)
-					num2 = random.randint(1,12)
+					num1 = random.randint(0,12)
+					num2 = random.choice([1, 2, 3, 4, 5, 6, 7, 8, 9 , 10, 11, 12])
 					x = num2 * num1
 					result = x/num2
 					print(str(x), op, str(num2))
@@ -299,8 +299,8 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 
 	if op == "/": #If the random op is "/" it runs through this if loop.
 		import random
-		num1 = random.randint(1,12)
-		num2 = random.randint(1,12)
+		num1 = random.randint(0,12)
+		num2 = random.choice([1, 2, 3, 4, 5, 6, 7, 8, 9 , 10, 11, 12])
 		x = num2 * num1
 		result = x/num2
 		print(str(x), op, str(num2))
@@ -315,8 +315,8 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 				import operator
 				operatorChoices = {"+":operator.add, "-":operator.sub, "/":operator.truediv, "*":operator.mul}
 				op = random.choice(["+", "*", "/", "-"])
-				num1 = random.randint(1,12)
-				num2 = random.randint(1, 12)
+				num1 = random.randint(0,12)
+				num2 = random.choice([1, 2, 3, 4, 5, 6, 7, 8, 9 , 10, 11, 12])
 				result = operatorChoices[op](num1,num2)
 				if op == "+":
 					print(str(num1), op, str(num2))
@@ -373,8 +373,8 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 							continue
 				if op == "/":
 					import random
-					num1 = random.randint(1,12)
-					num2 = random.randint(1,12)
+					num1 = random.randint(0,12)
+					num2 = random.choice([1, 2, 3, 4, 5, 6, 7, 8, 9 , 10, 11, 12])
 					x = num2 * num1
 					result = x/num2
 					print(str(x), op, str(num2))
