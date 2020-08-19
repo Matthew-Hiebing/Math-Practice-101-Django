@@ -90,8 +90,7 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 					num2 = random.choice([1, 2, 3, 4, 5, 6, 7, 8, 9 , 10, 11, 12])
 					x = num2 * num1
 					result = x/num2
-					print(str(x), op, str(n
-						um2))
+					print(str(x), op, str(num2))
 					answer = int(input())
 					if answer == result:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
