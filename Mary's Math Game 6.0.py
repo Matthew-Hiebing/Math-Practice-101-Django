@@ -400,3 +400,4 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 
 else: # If the user takes two guesses the game will end.
 	print("Sorry, you are out of guesses")
+	print("Ask Mary to start again if you want.")
