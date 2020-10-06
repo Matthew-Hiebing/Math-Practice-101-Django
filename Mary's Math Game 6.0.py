@@ -10,8 +10,7 @@ num2 = random.randint(1, 12)
 result = operatorChoices[op](num1,num2)
 guessesTaken = 0 #Program starts with 0 guesses, each time you get an incorrect answer it adds "1" to this count until you reach "2", then you're out of guesses and the program ends.
 
-print("Hello brave Math soldier, welcome to Math121. In this game you will be presented a math problem that you will need to solve.")  
-print("It will be a random choice of addition, and multiplication. You will have 2 guesses for each problem, after that, GAMEOVER!. Here's your first problem: ")
+print("Hello brave Math soldier, welcome to Math 101. In this game you will be presented a math problem that you will need to solve. \nIt will be a random choice of addition, and multiplication. You will have 2 guesses for each problem, after that, GAMEOVER!. \nHere's your first problem: ")
 
 while guessesTaken <= 2: #The while loop will continue to work until guessesTaken is <2.
 	if op == "+": #If the random op is "+" it runs through this if loop.
