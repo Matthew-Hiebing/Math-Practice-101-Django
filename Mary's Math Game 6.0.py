@@ -78,7 +78,7 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 							result = operatorChoices[op](num1,num2)
 							continue
 				if op == "-":
-					num1, num2 = sorted((random.randint(1,12), random.randint(1,12)), reverse=True)
+					num1, num2 = sorted((random.randint(1,12), random.randint(1,12)), reverse = True)
 					result = num1 - num2
 					print(str(num1), op, str(num2))
 					answer = int(input())
@@ -599,4 +599,4 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 
 else: # If the user takes two guesses the game will end.
 	print("Sorry, you are out of guesses")
-	print("Ask Mary to start the game up again if you want.")
+	print("Ask Mary to start again if you want.")
