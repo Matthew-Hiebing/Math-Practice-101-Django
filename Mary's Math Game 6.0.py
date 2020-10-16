@@ -37,10 +37,10 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 		userAnswer = int(input())
 		if userAnswer == result: # If the user answers correctly it allows you to keep play.
 			print("\nCorrect!  Do you want to play again? Please type Yes or No.")
-			response = str(input())
-			if any(word in response for word in noResponses): # If user says "no" the game will end.
+			userResponse = str(input())
+			if any(word in userResponse for word in noResponses): # If user says "no" the game will end.
 				break
-			if any(word in response for word in yesResponses): # If user answers correctly and wants to play again another random op is generated and another set of 4 if statements is presented.
+			if any(word in userResponse for word in yesResponses): # If user answers correctly and wants to play again another random op is generated and another set of 4 if statements is presented.
 				import random   #Re-importing random, operator, operator choices, and integers makes sure the user doesn't get the same integers if they answer correctly and want to play again.
 				import operator #If you don't re-import these items the next question will use the same integers that you started with before the while loop began.
 				operatorChoices = {
@@ -63,10 +63,10 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 					userAnswer = int(input())
 					if userAnswer == result:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
-						response = str(input())
-						if (response == "No") or (response == "no") or (response == "N") or (response == "n"):
+						userResponse = str(input())
+						if any(word in userResponse for word in noResponses):
 							break
-						if (response == "Yes") or (response == "yes") or (response == "Y") or (response == "y"): # If the user answers correctly and wants to play again it generates a random op and integers and starts you back from the beginning.
+						if any(word in userResponse for word in yesResponses):
 							import random   # This last loop of re-importing random operators and integers ensures you don't get the same numbers when you go back to the beginning of the while loop.
 							import operator
 							operatorChoices = {
@@ -92,10 +92,10 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 					userAnswer = int(input())
 					if userAnswer == result:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
-						response = str(input())
-						if (response == "No") or (response == "no") or (response == "N") or (response == "n"):
+						userResponse = str(input())
+						if any(word in userResponse for word in noResponses):
 							break
-						if (response == "Yes") or (response == "yes") or (response == "Y") or (response == "y"): #If user answers correctly and wants to play again they go through the code below.
+						if any(word in userResponse for word in yesResponses):
 							import random
 							import operator
 							operatorChoices = {
@@ -119,10 +119,10 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 					userAnswer = int(input())
 					if userAnswer == result:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
-						response = str(input())
-						if (response == "No") or (response == "no") or (response == "N") or (response == "n"):
+						userResponse = str(input())
+						if any(word in userResponse for word in noResponses):
 							break
-						if (response == "Yes") or (response == "yes") or (response == "Y") or (response == "y"): #If user answers correctly and wants to play again they go through the code below.
+						if any(word in userResponse for word in yesResponses):
 							import random
 							import operator
 							operatorChoices = {
@@ -150,10 +150,10 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 					userAnswer = int(input())
 					if userAnswer == result:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
-						response = str(input())
-						if (response == "No") or (response == "no") or (response == "N") or (response == "n"):
+						userResponse = str(input())
+						if any(word in userResponse for word in noResponses):
 							break
-						if (response == "Yes") or (response == "yes") or (response == "Y") or (response == "y"): #If user answers correctly and wants to play again they go through the code below.
+						if any(word in userResponse for word in yesResponses):
 							import random
 							import operator
 							operatorChoices = {
@@ -184,10 +184,10 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 		userAnswer = int(input())
 		if userAnswer == result:
 			print("\nCorrect!  Do you want to play again? Please type Yes or No.")
-			response = str(input())
-			if (response == "No") or (response == "no") or (response == "N") or (response == "n"):
+			userResponse = str(input())
+			if any(word in userResponse for word in noResponses):
 				break
-			if (response == "Yes") or (response == "yes") or (response == "Y") or (response == "y"):
+			if any(word in userResponse for word in yesResponses):
 				import random
 				import operator
 				operatorChoices = {
@@ -210,10 +210,10 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 					userAnswer = int(input())
 					if userAnswer == result:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
-						response = str(input())
-						if (response == "No") or (response == "no") or (response == "N") or (response == "n"):
+						userResponse = str(input())
+						if any(word in userResponse for word in noResponses):
 							break
-						if (response == "Yes") or (response == "yes") or (response == "Y") or (response == "y"):
+						if any(word in userResponse for word in yesResponses):
 							import random
 							import operator
 							operatorChoices = {
@@ -239,10 +239,10 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 					userAnswer = int(input())
 					if userAnswer == result:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
-						response = str(input())
-						if (response == "No") or (response == "no") or (response == "N") or (response == "n"):
+						userResponse = str(input())
+						if any(word in userResponse for word in noResponses):
 							break
-						if (response == "Yes") or (response == "yes") or (response == "Y") or (response == "y"):
+						if any(word in userResponse for word in yesResponses):
 							import random
 							import operator
 							operatorChoices = {
@@ -266,10 +266,10 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 					userAnswer = int(input())
 					if userAnswer == result:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
-						response = str(input())
-						if (response == "No") or (response == "no") or (response == "N") or (response == "n"):
+						userResponse = str(input())
+						if any(word in userResponse for word in noResponses):
 							break
-						if (response == "Yes") or (response == "yes") or (response == "Y") or (response == "y"):
+						if any(word in userResponse for word in yesResponses):
 							import random
 							import operator
 							operatorChoices = {
@@ -297,10 +297,10 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 					userAnswer = int(input())
 					if userAnswer == result:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
-						response = str(input())
-						if (response == "No") or (response == "no") or (response == "N") or (response == "n"):
+						userResponse = str(input())
+						if any(word in userResponse for word in noResponses):
 							break
-						if (response == "Yes") or (response == "yes") or (response == "Y") or (response == "y"):
+						if any(word in userResponse for word in yesResponses):
 							import random
 							import operator
 							operatorChoices = {
@@ -328,10 +328,10 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 		userAnswer = int(input())
 		if userAnswer == result:
 			print("\nCorrect!  Do you want to play again? Please type Yes or No.")
-			response = str(input())
-			if (response == "No") or (response == "no") or (response == "N") or (response == "n"):
+			userResponse = str(input())
+			if any(word in userResponse for word in noResponses):
 				break
-			if (response == "Yes") or (response == "yes") or (response == "Y") or (response == "y"):
+			if any(word in userResponse for word in yesResponses):
 				import random
 				import operator
 				operatorChoices = {
@@ -354,10 +354,10 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 					userAnswer = int(input())
 					if userAnswer == result:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
-						response = str(input())
-						if (response == "No") or (response == "no") or (response == "N") or (response == "n"):
+						userResponse = str(input())
+						if any(word in userResponse for word in noResponses):
 							break
-						if (response == "Yes") or (response == "yes") or (response == "Y") or (response == "y"):
+						if any(word in userResponse for word in yesResponses):
 							import random
 							import operator
 							operatorChoices = {
@@ -381,10 +381,10 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 					userAnswer = int(input())
 					if userAnswer == result:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
-						response = str(input())
-						if (response == "No") or (response == "no") or (response == "N") or (response == "n"):
+						userResponse = str(input())
+						if any(word in userResponse for word in noResponses):
 							break
-						if (response == "Yes") or (response == "yes") or (response == "Y") or (response == "y"):
+						if any(word in userResponse for word in yesResponses):
 							import random
 							import operator
 							operatorChoices = {
@@ -412,10 +412,10 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 					userAnswer = int(input())
 					if userAnswer == result:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
-						response = str(input())
-						if (response == "No") or (response == "no") or (response == "N") or (response == "n"):
+						userResponse = str(input())
+						if any(word in userResponse for word in noResponses):
 							break
-						if (response == "Yes") or (response == "yes") or (response == "Y") or (response == "y"):
+						if any(word in userResponse for word in yesResponses):
 							continue
 				if op == "-":
 					num1, num2 = sorted((random.randint(1, 12), random.randint(1, 12)), reverse=True)
@@ -424,10 +424,10 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 					userAnswer = int(input())
 					if userAnswer == result:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
-						response = str(input())
-						if (response == "No") or (response == "no") or (response == "N") or (response == "n"):
+						userResponse = str(input())
+						if any(word in userResponse for word in noResponses):
 							break
-						if (response == "Yes") or (response == "yes") or (response == "Y") or (response == "y"):
+						if any(word in userResponse for word in yesResponses):
 							import random
 							import operator
 							operatorChoices = {
@@ -459,10 +459,10 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 		userAnswer = int(input())
 		if userAnswer == result:
 			print("\nCorrect!  Do you want to play again? Please type Yes or No.")
-			response = str(input())
-			if (response == "No") or (response == "no") or (response == "N") or (response == "n"):
+			userResponse = str(input())
+			if any(word in userResponse for word in noResponses):
 				break
-			if (response == "Yes") or (response == "yes") or (response == "Y") or (response == "y"):
+			if any(word in userResponse for word in yesResponses):
 				import random
 				import operator
 				operatorChoices = {
@@ -485,10 +485,10 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 					userAnswer = int(input())
 					if userAnswer == result:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
-						response = str(input())
-						if (response == "No") or (response == "no") or (response == "N") or (response == "n"):
+						userResponse = str(input())
+						if any(word in userResponse for word in noResponses):
 							break
-						if (response == "Yes") or (response == "yes") or (response == "Y") or (response == "y"):
+						if any(word in userResponse for word in yesResponses):
 							import random
 							import operator
 							operatorChoices = {
@@ -514,10 +514,10 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 					userAnswer = int(input())
 					if userAnswer == result:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
-						response = str(input())
-						if (response == "No") or (response == "no") or (response == "N") or (response == "n"):
+						userResponse = str(input())
+						if any(word in userResponse for word in noResponses):
 							break
-						if (response == "Yes") or (response == "yes") or (response == "Y") or (response == "y"):
+						if any(word in userResponse for word in yesResponses):
 							import random
 							import operator
 							operatorChoices = {
@@ -541,10 +541,10 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 					userAnswer = int(input())
 					if userAnswer == result:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
-						response = str(input())
-						if (response == "No") or (response == "no") or (response == "N") or (response == "n"):
+						userResponse = str(input())
+						if any(word in userResponse for word in noResponses):
 							break
-						if (response == "Yes") or (response == "yes") or (response == "Y") or (response == "y"):
+						if any(word in userResponse for word in yesResponses):
 							import random
 							import operator
 							operatorChoices = {
@@ -572,10 +572,10 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 					userAnswer = int(input())
 					if userAnswer == result:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
-						response = str(input())
-						if (response == "No") or (response == "no") or (response == "N") or (response == "n"):
+						userResponse = str(input())
+						if any(word in userResponse for word in noResponses):
 							break
-						if (response == "Yes") or (response == "yes") or (response == "Y") or (response == "y"):
+						if any(word in userResponse for word in yesResponses):
 							import random
 							import operator
 							operatorChoices = {
