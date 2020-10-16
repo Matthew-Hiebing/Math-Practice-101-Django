@@ -3,11 +3,10 @@
 import random #Imports the random module for generating random integers
 import operator #Imports the operator module using the operators:add, sub, truediv, and, mul
 
-print("Hello brave student, welcome to Math 101. In this game you will"
-" be presented a random math problem that you will need to solve.  It"
-" will be a random choice of addition, subtraction, multiplication, and"
-" division. You will have 2 guesses for each problem, after that,"
-" GAMEOVER! \n\nHere's your first problem: ")
+num1 = random.randint(0, 12)
+num2 = random.randint(1, 12)
+result = operatorChoices[op](num1,num2)
+guessesTaken = 0 #Program starts with 0 guesses, each time you get an incorrect answer it adds "1" to this count until you reach "2", then you're out of guesses and the program ends.
 
 operatorChoices = {
 	"+":operator.add,
@@ -26,10 +25,11 @@ op = random.choice([
 noResponses = ["No","no","N","n"]
 yesResponses = ["Yes","yes","Y","y"]
 
-num1 = random.randint(0, 12)
-num2 = random.randint(1, 12)
-result = operatorChoices[op](num1,num2)
-guessesTaken = 0 #Program starts with 0 guesses, each time you get an incorrect answer it adds "1" to this count until you reach "2", then you're out of guesses and the program ends.
+print("Hello brave student, welcome to Math 101. In this game you will"
+" be presented a random math problem that you will need to solve.  It"
+" will be a random choice of addition, subtraction, multiplication, and"
+" division. You will have 2 guesses for each problem, after that,"
+" GAMEOVER! \n\nHere's your first problem: ")
 
 while guessesTaken <= 2: #The while loop will continue to work until guessesTaken is <=2.
 	if op == "+": #If the operator is "+" it runs through the loop below.
