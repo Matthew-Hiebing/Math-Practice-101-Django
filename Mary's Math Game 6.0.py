@@ -3,11 +3,6 @@
 import random #Imports the random module for generating random integers
 import operator #Imports the operator module using the operators:add, sub, truediv, and, mul
 
-num1 = random.randint(0, 12)
-num2 = random.randint(1, 12)
-result = operatorChoices[op](num1,num2)
-guessesTaken = 0 #Program starts with 0 guesses, each time you get an incorrect answer it adds "1" to this count until you reach "2", then you're out of guesses and the program ends.
-
 operatorChoices = {
 	"+":operator.add,
 	"-":operator.sub,
@@ -25,6 +20,11 @@ op = random.choice([
 noResponses = ["No","no","N","n"]
 yesResponses = ["Yes","yes","Y","y"]
 
+num1 = random.randint(0, 12)
+num2 = random.randint(1, 12)
+problemResult = operatorChoices[op](num1,num2)
+guessesTaken = 0 #Program starts with 0 guesses, each time you get an incorrect answer it adds "1" to this count until you reach "2", then you're out of guesses and the program ends.
+
 print("Hello brave student, welcome to Math 101. In this game you will"
 " be presented a random math problem that you will need to solve.  It"
 " will be a random choice of addition, subtraction, multiplication, and"
@@ -35,7 +35,7 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 	if op == "+": #If the operator is "+" it runs through the loop below.
 		print(str(num1), op, str(num2))
 		userAnswer = int(input())
-		if userAnswer == result: # If the user answers correctly it allows you to keep play.
+		if userAnswer == problemResult: # If the user answers correctly it allows you to keep play.
 			print("\nCorrect!  Do you want to play again? Please type Yes or No.")
 			userResponse = str(input())
 			if any(word in userResponse for word in noResponses): # If user says "no" the game will end.
@@ -57,11 +57,11 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 				])
 				num1 = random.randint(0, 12)
 				num2 = random.randint(1, 12)
-				result = operatorChoices[op](num1,num2)
+				problemResult = operatorChoices[op](num1,num2)
 				if op == "+":
 					print(str(num1), op, str(num2))
 					userAnswer = int(input())
-					if userAnswer == result:
+					if userAnswer == problemResult:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
 						userResponse = str(input())
 						if any(word in userResponse for word in noResponses):
@@ -83,14 +83,14 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 							])
 							num1 = random.randint(0, 12)
 							num2 = random.randint(1, 12)
-							result = operatorChoices[op](num1,num2)
+							problemResult = operatorChoices[op](num1,num2)
 							continue
 				if op == "-":
 					num1, num2 = sorted((random.randint(1,12), random.randint(1,12)), reverse = True)
-					result = num1 - num2
+					problemResult = num1 - num2
 					print(str(num1), op, str(num2))
 					userAnswer = int(input())
-					if userAnswer == result:
+					if userAnswer == problemResult:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
 						userResponse = str(input())
 						if any(word in userResponse for word in noResponses):
@@ -112,12 +112,12 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 							])
 							num1 = random.randint(0, 12)
 							num2 = random.randint(1, 12)
-							result = operatorChoices[op](num1,num2)
+							problemResult = operatorChoices[op](num1,num2)
 							continue
 				if op == "*":
 					print(str(num1), op, str(num2))
 					userAnswer = int(input())
-					if userAnswer == result:
+					if userAnswer == problemResult:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
 						userResponse = str(input())
 						if any(word in userResponse for word in noResponses):
@@ -139,16 +139,16 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 							])
 							num1 = random.randint(0, 12)
 							num2 = random.randint(1, 12)
-							result = operatorChoices[op](num1,num2)
+							problemResult = operatorChoices[op](num1,num2)
 							continue
 				if op == "/":
 					import random
 					num1 = random.randint(0, 12)
 					num2 = random.randint(1, 12)
-					result = (num2 * num1)/num2
+					problemResult = (num2 * num1)/num2
 					print(str(num2 * num1), op, str(num2))
 					userAnswer = int(input())
-					if userAnswer == result:
+					if userAnswer == problemResult:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
 						userResponse = str(input())
 						if any(word in userResponse for word in noResponses):
@@ -170,19 +170,19 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 							])
 							num1 = random.randint(0, 12)
 							num2 = random.randint(1, 12)
-							result = operatorChoices[op](num1,num2)
+							problemResult = operatorChoices[op](num1,num2)
 							continue
-		if userAnswer != result: # If the user does not answer correctly it adds a guess to guessesTaken and returns you to the beginning.
+		if userAnswer != problemResult: # If the user does not answer correctly it adds a guess to guessesTaken and returns you to the beginning.
 							 # If you don't answer correctly it asks you to re-answer the same problem you got wrong, the script only re-generates new integers if you get the answer correct.
 			guessesTaken += 1
 			print("\nWrong, try again if you have guesses left.")
 
 	if op == "-": #If the operator is "-" it runs through the loop below.
 		num1, num2 = sorted((random.randint(1, 12), random.randint(1, 12)), reverse=True)
-		result = num1 - num2
+		problemResult = num1 - num2
 		print(str(num1), op, str(num2))
 		userAnswer = int(input())
-		if userAnswer == result:
+		if userAnswer == problemResult:
 			print("\nCorrect!  Do you want to play again? Please type Yes or No.")
 			userResponse = str(input())
 			if any(word in userResponse for word in noResponses):
@@ -204,11 +204,11 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 				])
 				num1 = random.randint(1, 12)
 				num2 = random.randint(1, 12)
-				result = operatorChoices[op](num1,num2)
+				problemResult = operatorChoices[op](num1,num2)
 				if op == "+":
 					print(str(num1), op, str(num2))
 					userAnswer = int(input())
-					if userAnswer == result:
+					if userAnswer == problemResult:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
 						userResponse = str(input())
 						if any(word in userResponse for word in noResponses):
@@ -230,14 +230,14 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 							])
 							num1 = random.randint(1, 12)
 							num2 = random.randint(1, 12)
-							result = operatorChoices[op](num1,num2)
+							problemResult = operatorChoices[op](num1,num2)
 							continue
 				if op == "-":
 					num1, num2 = sorted((random.randint(1, 12), random.randint(1, 12)), reverse=True)
-					result = num1 - num2
+					problemResult = num1 - num2
 					print(str(num1), op, str(num2))
 					userAnswer = int(input())
-					if userAnswer == result:
+					if userAnswer == problemResult:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
 						userResponse = str(input())
 						if any(word in userResponse for word in noResponses):
@@ -259,12 +259,12 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 							])
 							num1 = random.randint(1, 12)
 							num2 = random.randint(1, 12)
-							result = operatorChoices[op](num1,num2)
+							problemResult = operatorChoices[op](num1,num2)
 							continue
 				if op == "*":
 					print(str(num1), op, str(num2))
 					userAnswer = int(input())
-					if userAnswer == result:
+					if userAnswer == problemResult:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
 						userResponse = str(input())
 						if any(word in userResponse for word in noResponses):
@@ -286,16 +286,16 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 							])
 							num1 = random.randint(1,12)
 							num2 = random.randint(1, 12)
-							result = operatorChoices[op](num1,num2)
+							problemResult = operatorChoices[op](num1,num2)
 							continue
 				if op == "/":
 					import random
 					num1 = random.randint(0, 12)
 					num2 = random.randint(1, 12)
-					result = (num2 * num1)/num2
+					problemResult = (num2 * num1)/num2
 					print(str(num2 * num1), op, str(num2))
 					userAnswer = int(input())
-					if userAnswer == result:
+					if userAnswer == problemResult:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
 						userResponse = str(input())
 						if any(word in userResponse for word in noResponses):
@@ -317,16 +317,16 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 							])
 							num1 = random.randint(1, 12)
 							num2 = random.randint(1, 12)
-							result = operatorChoices[op](num1,num2)
+							problemResult = operatorChoices[op](num1,num2)
 							continue
-		if userAnswer != result:
+		if userAnswer != problemResult:
 			guessesTaken += 1
 			print("\nWrong, try again if you have guesses left.")
 
 	if op == "*": #If the random op is "*" it runs through this if loop.
 		print(str(num1), op, str(num2))
 		userAnswer = int(input())
-		if userAnswer == result:
+		if userAnswer == problemResult:
 			print("\nCorrect!  Do you want to play again? Please type Yes or No.")
 			userResponse = str(input())
 			if any(word in userResponse for word in noResponses):
@@ -348,11 +348,11 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 				])
 				num1 = random.randint(1, 12)
 				num2 = random.randint(1, 12)
-				result = operatorChoices[op](num1,num2)
+				problemResult = operatorChoices[op](num1,num2)
 				if op == "+":
 					print(str(num1), op, str(num2))
 					userAnswer = int(input())
-					if userAnswer == result:
+					if userAnswer == problemResult:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
 						userResponse = str(input())
 						if any(word in userResponse for word in noResponses):
@@ -374,12 +374,12 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 							])
 							num1 = random.randint(1, 12)
 							num2 = random.randint(1, 12)
-							result = operatorChoices[op](num1,num2)
+							problemResult = operatorChoices[op](num1,num2)
 							continue
 				if op == "*":
 					print(str(num1), op, str(num2))
 					userAnswer = int(input())
-					if userAnswer == result:
+					if userAnswer == problemResult:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
 						userResponse = str(input())
 						if any(word in userResponse for word in noResponses):
@@ -401,16 +401,16 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 							])
 							num1 = random.randint(1, 12)
 							num2 = random.randint(1, 12)
-							result = operatorChoices[op](num1,num2)
+							problemResult = operatorChoices[op](num1,num2)
 							continue
 				if op == "/":
 					import random
 					num1 = random.randint(0, 12)
 					num2 = random.randint(1, 12)
-					result = (num2 * num1)/num2
+					problemResult = (num2 * num1)/num2
 					print(str(num2 * num1), op, str(num2))
 					userAnswer = int(input())
-					if userAnswer == result:
+					if userAnswer == problemResult:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
 						userResponse = str(input())
 						if any(word in userResponse for word in noResponses):
@@ -419,10 +419,10 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 							continue
 				if op == "-":
 					num1, num2 = sorted((random.randint(1, 12), random.randint(1, 12)), reverse=True)
-					result = num1 - num2
+					problemResult = num1 - num2
 					print(str(num1), op, str(num2))
 					userAnswer = int(input())
-					if userAnswer == result:
+					if userAnswer == problemResult:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
 						userResponse = str(input())
 						if any(word in userResponse for word in noResponses):
@@ -444,9 +444,9 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 							])
 							num1 = random.randint(1, 12)
 							num2 = random.randint(1, 12)
-							result = operatorChoices[op](num1,num2)
+							problemResult = operatorChoices[op](num1,num2)
 							continue
-		if userAnswer != result:
+		if userAnswer != problemResult:
 			guessesTaken += 1
 			print("\nWrong, try again if you have guesses left.")
 
@@ -454,10 +454,10 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 		import random
 		num1 = random.randint(0, 12)
 		num2 = random.randint(1, 12)
-		result = (num2 * num1)/num2
+		problemResult = (num2 * num1)/num2
 		print(str(num2 * num1), op, str(num2))
 		userAnswer = int(input())
-		if userAnswer == result:
+		if userAnswer == problemResult:
 			print("\nCorrect!  Do you want to play again? Please type Yes or No.")
 			userResponse = str(input())
 			if any(word in userResponse for word in noResponses):
@@ -479,11 +479,11 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 				])
 				num1 = random.randint(0, 12)
 				num2 = random.randint(1, 12)
-				result = operatorChoices[op](num1,num2)
+				problemResult = operatorChoices[op](num1,num2)
 				if op == "+":
 					print(str(num1), op, str(num2))
 					userAnswer = int(input())
-					if userAnswer == result:
+					if userAnswer == problemResult:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
 						userResponse = str(input())
 						if any(word in userResponse for word in noResponses):
@@ -505,14 +505,14 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 							])
 							num1 = random.randint(1, 12)
 							num2 = random.randint(1, 12)
-							result = operatorChoices[op](num1,num2)
+							problemResult = operatorChoices[op](num1,num2)
 							continue
 				if op == "-":
 					num1, num2 = sorted((random.randint(1, 12), random.randint(1, 12)), reverse=True)
-					result = num1 - num2
+					problemResult = num1 - num2
 					print(str(num1), op, str(num2))
 					userAnswer = int(input())
-					if userAnswer == result:
+					if userAnswer == problemResult:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
 						userResponse = str(input())
 						if any(word in userResponse for word in noResponses):
@@ -534,12 +534,12 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 							])
 							num1 = random.randint(1, 12)
 							num2 = random.randint(1, 12)
-							result = operatorChoices[op](num1,num2)
+							problemResult = operatorChoices[op](num1,num2)
 							continue
 				if op == "*":
 					print(str(num1), op, str(num2))
 					userAnswer = int(input())
-					if userAnswer == result:
+					if userAnswer == problemResult:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
 						userResponse = str(input())
 						if any(word in userResponse for word in noResponses):
@@ -561,16 +561,16 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 							])
 							num1 = random.randint(1, 12)
 							num2 = random.randint(1, 12)
-							result = operatorChoices[op](num1,num2)
+							problemResult = operatorChoices[op](num1,num2)
 							continue
 				if op == "/":
 					import random
 					num1 = random.randint(0, 12)
 					num2 = random.randint(1, 12)
-					result = (num2 * num1)/num2
+					problemResult = (num2 * num1)/num2
 					print(str(num2 * num1), op, str(num2))
 					userAnswer = int(input())
-					if userAnswer == result:
+					if userAnswer == problemResult:
 						print("\nCorrect!  Do you want to play again? Please type Yes or No.")
 						userResponse = str(input())
 						if any(word in userResponse for word in noResponses):
@@ -592,9 +592,9 @@ while guessesTaken <= 2: #The while loop will continue to work until guessesTake
 							])
 							num1 = random.randint(1, 12)
 							num2 = random.randint(1, 12)
-							result = operatorChoices[op](num1,num2)
+							problemResult = operatorChoices[op](num1,num2)
 							continue
-		if userAnswer != result:
+		if userAnswer != problemResult:
 			guessesTaken += 1
 			print("\nWrong, try again if you have guesses left.")
 
