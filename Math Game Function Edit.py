@@ -1,3 +1,4 @@
+#-----------------------------------------------------------------------------#
 def multiplication():
 
     import random
@@ -18,7 +19,7 @@ def multiplication():
             if userResponse.lower()[0] == 'n':
                 break
             if userResponse.lower()[0] == 'y':
-                continue
+                random_operator()
 
         if userAnswer != problemResult:
             count += 1
@@ -29,9 +30,6 @@ def multiplication():
             if count >= 2:
                 print("Sorry, you are out of guesses")
                 break
-
-
-#multiplication()
 
 
 #-----------------------------------------------------------------------------#
@@ -55,7 +53,7 @@ def addition():
             if userResponse.lower()[0] == 'n':
                 break
             if userResponse.lower()[0] == 'y':
-                continue
+                random_operator()
 
         if userAnswer != problemResult:
             count += 1
@@ -65,9 +63,6 @@ def addition():
 
             if count >= 2:
                 break
-
-
-#addition()
 
 
 #-----------------------------------------------------------------------------#
@@ -91,7 +86,7 @@ def division():
             if userResponse.lower()[0] == 'n':
                 break
             if userResponse.lower()[0] == 'y':
-                continue
+                random_operator()
 
         if userAnswer != problemResult:
             count += 1
@@ -101,9 +96,6 @@ def division():
 
             if count >= 2:
                 break
-
-
-#division()
 
 
 #-----------------------------------------------------------------------------#
@@ -126,7 +118,7 @@ def subtraction():
             if userResponse.lower()[0] == 'n':
                 break
             if userResponse.lower()[0] == 'y':
-                continue
+                random_operator()
 
         if userAnswer != problemResult:
             count += 1
@@ -138,4 +130,23 @@ def subtraction():
                 break
 
 
-subtraction()
+#-----------------------------------------------------------------------------#
+import random
+
+operators = [multiplication(), division(), subtraction(), division()]
+
+print("Hello brave student, welcome to Math 101. In this game you will"
+" be presented a random math problem that you will need to solve.  It"
+" will be a random choice of addition, subtraction, multiplication, and"
+" division. You will have 2 guesses for each problem, after that,"
+" GAMEOVER!")
+
+if input("\nAre you ready to start? ").lower()[0] == y:
+    random_operator()
+else:
+    False
+
+
+
+def random_operator():
+    random.choice(operators)
