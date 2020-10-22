@@ -1,4 +1,7 @@
 #-----------------------------------------------------------------------------#
+from random import choice
+
+#-----------------------------------------------------------------------------#
 def multiplication():
 
     import random
@@ -16,10 +19,13 @@ def multiplication():
         if userAnswer == problemResult:
             print("\nCorrect!  Do you want to play again? Please enter yes or no.")
             userResponse = str(input())
+            if userResponse.lower()[0] == 'y':
+                operators = [multiplication, division, subtraction, addition]
+                random_func = choice(operators)
+                random_func()
+
             if userResponse.lower()[0] == 'n':
                 break
-            if userResponse.lower()[0] == 'y':
-                random_operator()
 
         if userAnswer != problemResult:
             count += 1
@@ -52,8 +58,11 @@ def addition():
             userResponse = str(input())
             if userResponse.lower()[0] == 'n':
                 break
+
             if userResponse.lower()[0] == 'y':
-                random_operator()
+                operators = [multiplication, division, subtraction, addition]
+                random_func = choice(operators)
+                random_func()
 
         if userAnswer != problemResult:
             count += 1
@@ -83,10 +92,13 @@ def division():
         if userAnswer == problemResult:
             print("\nCorrect!  Do you want to play again? Please enter yes or no.")
             userResponse = str(input())
+            if userResponse.lower()[0] == 'y':
+                operators = [multiplication, division, subtraction, addition]
+                random_func = choice(operators)
+                random_func()
+
             if userResponse.lower()[0] == 'n':
                 break
-            if userResponse.lower()[0] == 'y':
-                random_operator()
 
         if userAnswer != problemResult:
             count += 1
@@ -106,7 +118,7 @@ def subtraction():
 
     while True:
         num1, num2 = sorted((random.randint(0, 12), random.randint(0, 12)), reverse=True)
-        problemResult = num1 - num2
+        problemResult = (num2 * num1) - num2
 
 
         print(str(num2 * num1), '-', str(num2))
@@ -115,10 +127,13 @@ def subtraction():
         if userAnswer == problemResult:
             print("\nCorrect!  Do you want to play again? Please enter yes or no.")
             userResponse = str(input())
+            if userResponse.lower()[0] == 'y':
+                operators = [multiplication, division, subtraction, addition]
+                random_func = choice(operators)
+                random_func()
+
             if userResponse.lower()[0] == 'n':
                 break
-            if userResponse.lower()[0] == 'y':
-                random_operator()
 
         if userAnswer != problemResult:
             count += 1
@@ -130,23 +145,21 @@ def subtraction():
                 break
 
 
-#-----------------------------------------------------------------------------#
-import random
-
-operators = [multiplication(), division(), subtraction(), division()]
-
+#-------------------------------GAME START------------------------------------#
 print("Hello brave student, welcome to Math 101. In this game you will"
 " be presented a random math problem that you will need to solve.  It"
-" will be a random choice of addition, subtraction, multiplication, and"
-" division. You will have 2 guesses for each problem, after that,"
+" will be a random choice of subtraction, addition, division, and"
+" multiplication. You will have 2 guesses per problem, after that,"
 " GAMEOVER!")
 
-if input("\nAre you ready to start? ").lower()[0] == y:
-    random_operator()
+operators = [multiplication, division, subtraction, addition]
+random_func = choice(operators)
+
+
+if input("\nAre you ready to start? ").lower()[0] == 'y':
+    random_func()
 else:
     False
 
 
 
-def random_operator():
-    random.choice(operators)
