@@ -14,8 +14,7 @@ def multiplication():
         print("\nCorrect!  Do you want to play again? Please enter yes or no.")
         userResponse = str(input())
         if userResponse.lower()[0] == 'y':
-            operators = [multiplication, division, subtraction, addition]
-            random_func = choice(operators)
+            random_func = choice([multiplication, division, subtraction, addition])
             random_func()
         elif userResponse.lower()[0] == 'n':
             False
@@ -30,8 +29,7 @@ def multiplication():
             print(str(num1), '*', str(num2))
             userAnswer = int(input())
             if userAnswer == problemResult:
-                operators = [multiplication, division, subtraction, addition]
-                random_func = choice(operators)
+                random_func = choice([multiplication, division, subtraction, addition])
                 random_func()
         else:
             print("Sorry, you are out of guesses")
@@ -52,8 +50,7 @@ def addition():
         print("\nCorrect!  Do you want to play again? Please enter yes or no.")
         userResponse = str(input())
         if userResponse.lower()[0] == 'y':
-            operators = [multiplication, division, subtraction, addition]
-            random_func = choice(operators)
+            random_func = choice([multiplication, division, subtraction, addition])
             random_func()
         elif userResponse.lower()[0] == 'n':
             False
@@ -68,8 +65,7 @@ def addition():
             print(str(num1), '+', str(num2))
             userAnswer = int(input())
             if userAnswer == problemResult:
-                operators = [multiplication, division, subtraction, addition]
-                random_func = choice(operators)
+                random_func = choice([multiplication, division, subtraction, addition])
                 random_func()
         else:
             print("Sorry, you are out of guesses")
@@ -90,8 +86,7 @@ def division():
         print("\nCorrect!  Do you want to play again? Please enter yes or no.")
         userResponse = str(input())
         if userResponse.lower()[0] == 'y':
-            operators = [multiplication, division, subtraction, addition]
-            random_func = choice(operators)
+            random_func = choice([multiplication, division, subtraction, addition])
             random_func()
         elif userResponse.lower()[0] == 'n':
             False
@@ -106,8 +101,7 @@ def division():
             print(str(num2 * num1), '/', str(num2))
             userAnswer = int(input())
             if userAnswer == problemResult:
-                operators = [multiplication, division, subtraction, addition]
-                random_func = choice(operators)
+                random_func = choice([multiplication, division, subtraction, addition])
                 random_func()
         else:
             print("Sorry, you are out of guesses")
@@ -127,8 +121,7 @@ def subtraction():
         print("\nCorrect!  Do you want to play again? Please enter yes or no.")
         userResponse = str(input())
         if userResponse.lower()[0] == 'y':
-            operators = [multiplication, division, subtraction, addition]
-            random_func = choice(operators)
+            random_func = choice([multiplication, division, subtraction, addition])
             random_func()
         elif userResponse.lower()[0] == 'n':
             False
@@ -143,8 +136,7 @@ def subtraction():
             print(str(num2 * num1), '-', str(num2))
             userAnswer = int(input())
             if userAnswer == problemResult:
-                operators = [multiplication, division, subtraction, addition]
-                random_func = choice(operators)
+                random_func = choice([multiplication, division, subtraction, addition])
                 random_func()
         else:
             print("Sorry, you are out of guesses")
@@ -156,10 +148,10 @@ print("Hello brave student, welcome to Math 101. In this game you will be"
 " random choice of subtraction, addition, division, and multiplication. You"
 " will have 2 guesses per problem, after that, GAMEOVER!")
 
-from random import choice
 import random
-operators = [multiplication, division, subtraction, addition]
-random_func = choice(operators)
+from random import choice
+
+random_func = choice([multiplication, division, subtraction, addition])
 
 if input("\nAre you ready to start? ").lower()[0] == 'y':
     random_func()
