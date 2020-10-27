@@ -1,11 +1,10 @@
 #-----------------------------------------------------------------------------#
 
-def multiplication():
-    num1 = random.randint(0, 12)
-    num2 = random.randint(0, 12)
-    problemResult = num1 * num2
+def subtraction():
+    num1,num2 =sorted((random.randint(0,12),random.randint(0,12)),reverse=True)
+    problemResult = (num2 * num1) - num2
 
-    print(str(num1), '*', str(num2))
+    print(str(num2 * num1), '-', str(num2))
     userAnswer = int(input())
 
     if userAnswer == problemResult:
@@ -29,7 +28,7 @@ def multiplication():
         while count < 2:
             count += 1
             print("Sorry, that was not the correct answer.  Please try again.")
-            print(str(num1), '*', str(num2))
+            print(str(num2 * num1), '-', str(num2))
             userAnswer = int(input())
             if userAnswer == problemResult:
                 random_func = choice([
@@ -132,11 +131,12 @@ def division():
 
 #-----------------------------------------------------------------------------#
 
-def subtraction():
-    num1,num2 =sorted((random.randint(0,12),random.randint(0,12)),reverse=True)
-    problemResult = (num2 * num1) - num2
+def multiplication():
+    num1 = random.randint(0, 12)
+    num2 = random.randint(0, 12)
+    problemResult = num1 * num2
 
-    print(str(num2 * num1), '-', str(num2))
+    print(str(num1), '*', str(num2))
     userAnswer = int(input())
 
     if userAnswer == problemResult:
@@ -160,7 +160,7 @@ def subtraction():
         while count < 2:
             count += 1
             print("Sorry, that was not the correct answer.  Please try again.")
-            print(str(num2 * num1), '-', str(num2))
+            print(str(num1), '*', str(num2))
             userAnswer = int(input())
             if userAnswer == problemResult:
                 random_func = choice([
