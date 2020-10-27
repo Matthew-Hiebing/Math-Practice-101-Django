@@ -1,11 +1,9 @@
 #-----------------------------------------------------------------------------#
 
 def multiplication():
-
     num1 = random.randint(0, 12)
     num2 = random.randint(0, 12)
     problemResult = num1 * num2
-
 
     print(str(num1), '*', str(num2))
     userAnswer = int(input())
@@ -47,11 +45,9 @@ def multiplication():
 #-----------------------------------------------------------------------------#
 
 def addition():
-
     num1 = random.randint(0, 12)
     num2 = random.randint(0, 12)
     problemResult = num1 + num2
-
 
     print(str(num1), '+', str(num2))
     userAnswer = int(input())
@@ -93,11 +89,9 @@ def addition():
 #-----------------------------------------------------------------------------#
 
 def division():
-
     num1 = random.randint(0, 12)
     num2 = random.randint(1, 12)
     problemResult = (num2 * num1)/num2
-
 
     print(str(num2 * num1), '/', str(num2))
     userAnswer = int(input())
@@ -139,10 +133,8 @@ def division():
 #-----------------------------------------------------------------------------#
 
 def subtraction():
-
     num1,num2 =sorted((random.randint(0,12),random.randint(0,12)),reverse=True)
     problemResult = (num2 * num1) - num2
-
 
     print(str(num2 * num1), '-', str(num2))
     userAnswer = int(input())
