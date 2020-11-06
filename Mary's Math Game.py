@@ -52,7 +52,7 @@ def addition():
     userAnswer = int(input())
 
     if userAnswer == problemResult:
-        print("\nCorrect!  Do you want to play again? Please enter yes or no.")
+        print("\nCorrect!  Do you want to play again? Please enter  or no.")
         userResponse = str(input())
         if userResponse.lower()[0] == 'y':
             random_func = choice([
@@ -193,7 +193,7 @@ random_func = choice([
 if input("\nAre you ready to start? ").lower()[0] == 'y':
     random_func()
 else:
-    pirnt("All right, another time then!")
+    print("All right, another time then!")
     False
 
 
