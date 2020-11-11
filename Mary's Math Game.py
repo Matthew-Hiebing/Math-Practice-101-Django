@@ -195,10 +195,3 @@ if input("\nAre you ready to start? ").lower()[0] == 'y':
 else:
     print("All right, another time then!")
     False
-
-
-
-# I added this line to show what a change looks like.
-
-
-
