@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,12 +10,19 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href= "{% static 'CSS/styling.css' %}">
 
 </head>
 <body class="container">
     <div class= "jumbotron">
         <h1>Welcome to Math 101!</h1>
         {{ welcome_message }}
+        <div>
+            <iframe src="https://giphy.com/embed/DHqth0hVQoIzS" width="480" height="206" frameBorder="0" class="giphy-embed"
+                allowFullScreen></iframe>
+            <p><a href="https://giphy.com/gifs/maths-DHqth0hVQoIzS">via GIPHY</a></p>
+        </div>
+        <img src="{% static 'images/Django.png' %}" alt="Didn't work!">
     </div>
 </body>
 </html>

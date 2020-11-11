@@ -7,4 +7,5 @@ def index(request):
                " presented a random math problem that you will need to solve.  It will be a"
                " random choice of subtraction, addition, division, and multiplication. You"
                " will have 2 guesses per problem, after that, GAMEOVER!"}  # Template we want to use shown as the dictionary key.
-    return render(request,'index.html',context=my_dict)
+
+    return render(request,'landingPage/index.html',context=my_dict)
