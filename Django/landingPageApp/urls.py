@@ -1,5 +1,5 @@
 from django.urls import path
-from landingPage import views
+from landingPageApp import views
 
 urlpatterns = [
     path('',views.index,name='index'),

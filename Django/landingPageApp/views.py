@@ -8,6 +8,6 @@ def index(request):
                " random choice of subtraction, addition, division, and multiplication. You"
                " will have 2 guesses per problem, after that, GAMEOVER!"}  # Template we want to use shown as the dictionary key.
 
-    return render(request,'landingPage/index.html',context=my_dict)
+    return render(request,'landingPageHTML/index.html',context=my_dict) #landingPage is referring to the "landingPage" folder in the "static" folder.
 
 
