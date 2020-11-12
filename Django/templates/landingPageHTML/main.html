@@ -15,13 +15,19 @@
 
     <link rel="stylesheet" href="{% static 'css/styling.css' %}"/>
 
-<h2>TEST TEXT</h2>
 </head>
 <body class="container">
     <div class= "jumbotron">
         <h1>Welcome to Math 101!</h1>
         {{ welcome_message }}
-        <img src="{% static 'images/Django.png' %}" alt="Didn't work!">
+            <!-- <img src="{% static 'images/Django.png' %}" alt="Didn't work!"> -->
+
+        <br>
+        <p>Ready to play?
+            <br>
+            <button type="button" class="btn btn-primary btn-lg">Yes!</button>
+            <button type="button" class="btn btn-secondary btn-lg">No</button>
+        </p>
     </div>
 </body>
 </html>
