@@ -9,3 +9,5 @@ def index(request):
                " will have 2 guesses per problem, after that, GAMEOVER!"}  # Template we want to use shown as the dictionary key.
 
     return render(request,'landingPage/index.html',context=my_dict)
+
+
