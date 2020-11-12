@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from landingPageApp import views
 from django.conf.urls import include
+from landingPageApp import views
+
 
 urlpatterns = [
-    path('',views.index,name='index'),
+    path('',views.index,name='main-view'),
     path('landingPageApp/',include('landingPageApp.urls')),
     path('admin/', admin.site.urls),
 ]
