@@ -16,12 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
-from landingPageApp import views
+from landingPageApp import views # 'langingPageApp' can also be replaced by '.' indicating that the folder is in the same directory.
 
 
 urlpatterns = [
-    path('', views.return_html, name='main-view'),
-    # path('',views.index,name='main-view'),
-    path('landingPageApp/',include('landingPageApp.urls')),
+    path('homepage/', include('landingPageApp.urls')), # Redirects you from "http://127.0.0.1:8000/" to "http://127.0.0.1:8000/homepage"
     path('admin/', admin.site.urls),
+    # path('', views.return_html, name='main-view'),
+    # path('',views.index,name='main-view'),
 ]
