@@ -20,7 +20,8 @@ from landingPageApp import views
 
 
 urlpatterns = [
-    path('',views.index,name='main-view'),
+    path('', views.return_html, name='main-view'),
+    # path('',views.index,name='main-view'),
     path('landingPageApp/',include('landingPageApp.urls')),
     path('admin/', admin.site.urls),
 ]
