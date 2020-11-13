@@ -27,15 +27,18 @@
         <p>In this game you will be
             presented a random math problem that you will need to solve. It will be a
             random choice of subtraction, addition, division, and multiplication. You
-            will have 2 guesses per problem, after that, GAMEOVER! Ready to play? Click yes to coninue.</p>
+            will have 2 guesses per problem, after that, GAMEOVER! Ready to play?</p>
 
-        <button type="button" class="btn btn-primary btn-lg">Yes!</button>
-        <button type="button" class="btn btn-secondary btn-lg">No</button>
+        <button type="button" class="btn btn-primary btn-lg">START</button>
+        <button type="button" class="btn btn-secondary btn-lg">STOP</button>
         </p>
         <p>{{ problemResult }}</p>
         <p>
             <button type="button" class="btn btn-lg btn-primary" disabled>Yes!</button>
             <button type="button" class="btn btn-secondary btn-lg" disabled>No Thanks</button>
+        <form method="get" action="#">
+            <input type="submit" value="Start?" name="Next"/>
+        </form>
     </div>
 </body>
 </html>

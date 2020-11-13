@@ -15,9 +15,13 @@ import random
 #     return render(request,'landingPageHTML/main.html',context=my_dict) #"landingPage" is referring to the landingPage folder in the static folder.
 
 
-def return_html(request):
-    num1 = random.randint(0, 12)
-    num2 = random.randint(0, 12)
-    problemResult = num1 * num2
+# def return_html(request):
+#     num1 = random.randint(0, 12)
+#     num2 = random.randint(0, 12)
+#     problemResult = num1 * num2
 
-    return render(request, 'landingPageHTML/main.html', {"problemResult" : problemResult})
+#     return render(request, 'landingPageHTML/main.html', {"problemResult" : problemResult})
+
+def return_html(request):
+    print(request.GET)
+    return render(request, 'landingPageHTML/test.html')
