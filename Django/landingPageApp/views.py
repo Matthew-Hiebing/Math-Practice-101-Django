@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 import datetime
+import random
 
 # Create your views here.
 
@@ -15,4 +16,8 @@ import datetime
 
 
 def return_html(request):
-    return render(request, 'landingPageHTML/test.html')
+    num1 = random.randint(0, 12)
+    num2 = random.randint(0, 12)
+    problemResult = num1 * num2
+
+    return render(request, 'landingPageHTML/main.html', {"problemResult" : problemResult})
