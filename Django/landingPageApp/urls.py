@@ -2,6 +2,6 @@ from django.urls import path
 from landingPageApp import views
 
 urlpatterns = [
-    path('', views.test, name='landingPage-view'), # calls return_html function in views.py file.
-    path('game/',views.return_html, name='gamePage-view'),
+    path('', views.landing_page_html, name='landingPage-view'), # calls return_html function in views.py file.
+    path('game/',views.game_html, name='gamePage-view'),
 ]

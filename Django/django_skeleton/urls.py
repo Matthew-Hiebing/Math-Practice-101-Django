@@ -20,10 +20,6 @@ from landingPageApp import views # 'langingPageApp' can also be replaced by '.' 
 
 
 urlpatterns = [
-    # path('', views.return_html, name='landingPage-view'), # calls return_html function in views.py file.
     path('', include('landingPageApp.urls')), # Redirects you from "http://127.0.0.1:8000/" to "http://127.0.0.1:8000/homepage"
     path('admin/', admin.site.urls, name='admin-page-view'),
-    # path('', views.return_html, name='main-view'),
-    # path('',views.index,name='main-view'),
-
 ]

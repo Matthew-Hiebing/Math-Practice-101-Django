@@ -6,24 +6,13 @@ import random
 
 # Create your views here.
 
-# def index(request):
-#     my_dict = {'welcome_message': "Hello brave student, welcome to Math 101. In this game you will be"
-#                " presented a random math problem that you will need to solve.  It will be a"
-#                " random choice of subtraction, addition, division, and multiplication. You"
-#                " will have 2 guesses per problem, after that, GAMEOVER!"}  # Template we want to use shown as the dictionary key.
+def landing_page_html(request):
+    return render(request, 'landing_page.html')
 
-#     return render(request,'landingPageHTML/main.html',context=my_dict) #"landingPage" is referring to the landingPage folder in the static folder.
-
-def test(request):
-    return render(request, 'landingPageHTML/test.html')
-
-def return_html(request):
+def game_html(request):
     num1 = random.randint(0, 12)
     num2 = random.randint(0, 12)
     problemResult = num1 * num2
 
-    return render(request, 'landingPageHTML/main.html', {"problemResult" : problemResult})
+    return render(request, 'game.html', {"problemResult" : problemResult})
 
-# def return_html(request):
-#     print(request.GET)
-#     return render(request, 'landingPageHTML/test.html')
