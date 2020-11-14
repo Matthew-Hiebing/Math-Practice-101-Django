@@ -16,11 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
-from landingPageApp import views # 'langingPageApp' can also be replaced by '.' indicating that the folder is in the same directory.
+from landing_page_app import views # 'langingPageApp' can also be replaced by '.' indicating that the folder is in the same directory.
 
 
 urlpatterns = [
-    path('', views.landing_page_html, name='landingPage-view'), # calls return_html function in views.py file.
-    path('game/',views.game_html, name='gamePage-view'),
-    path('admin/', admin.site.urls, name='admin-page-view'),
+    path('', views.landing_page, name='landing_page_view'), # calls return_html function in views.py file.
+    path('game/',views.game, name='game_page_view'),
+    path('admin/', admin.site.urls, name='admin_page_view'),
 ]
