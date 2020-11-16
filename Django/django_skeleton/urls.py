@@ -22,5 +22,6 @@ from landing_page_app import views # 'langingPageApp' can also be replaced by '.
 urlpatterns = [
     path('', views.landing_page, name='landing_page_view'), # calls return_html function in views.py file.
     path('game/',views.game, name='game_page_view'),
+    path('new_user/',views.users, name='new_user_page_view'),
     path('admin/', admin.site.urls, name='admin_page_view'),
 ]
