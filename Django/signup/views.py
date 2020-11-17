@@ -13,4 +13,4 @@ def users(request):
             return homepage(request)
         else:
             print("Error, form invalid")
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'signup/signup.html', {'form': form})
