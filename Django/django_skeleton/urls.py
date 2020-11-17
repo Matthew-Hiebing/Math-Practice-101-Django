@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from landing_page_app import views # 'langingPageApp' can also be replaced by '.' indicating that the folder is in the same directory.
+from homepage import views # 'langingPageApp' can also be replaced by '.' indicating that the folder is in the same directory.
 
 
 urlpatterns = [
-    path('', views.landing_page, name='landing_page_view'),
     path('admin/', admin.site.urls, name='admin_page_view'),
-    path('game/',views.game, name='game_page_view'),
-    path('registration/',views.users, name='registration_page_view'),
+    path('game/', include('game.urls')),
+    path('signup/',include('signup.urls')),
+    path('', views.homepage, name='homepage_view'),
+
 ]
