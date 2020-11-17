@@ -183,7 +183,7 @@ print("Hello brave student, welcome to Math 101. In this game you will be"
 import random
 from random import choice
 
-random_func = choice([
+random_func = random.choice([
     multiplication,
     division,
     subtraction,

@@ -14,14 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from django.conf.urls import include
+from django.urls import include, path
 from landing_page_app import views # 'langingPageApp' can also be replaced by '.' indicating that the folder is in the same directory.
 
 
 urlpatterns = [
-    path('', views.landing_page, name='landing_page_view'), # calls return_html function in views.py file.
-    path('game/',views.game, name='game_page_view'),
-    path('new_user/',views.users, name='new_user_page_view'),
+    path('', views.landing_page, name='landing_page_view'),
     path('admin/', admin.site.urls, name='admin_page_view'),
+    path('game/',views.game, name='game_page_view'),
+    path('registration/',views.users, name='registration_page_view'),
 ]
