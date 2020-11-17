@@ -20,6 +20,7 @@ from homepage import views # 'langingPageApp' can also be replaced by '.' indica
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin_page_view'),
+    path('accounts/',include('accounts.urls')),
     path('game/', include('game.urls')),
     path('signup/',include('signup.urls')),
     path('', views.homepage, name='homepage_view'),
