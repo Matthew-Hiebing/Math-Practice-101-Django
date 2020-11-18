@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from homepage import views
+from game.models import Score
 
 # Create your views here.
 def signup_view(request):
@@ -9,6 +10,9 @@ def signup_view(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
+            # Create a new blank game_score row for each user
+            new_game_score = Score(user=user, number_of_correct_answers=0, number_of_incorrect_answers=0, total_questions_answered=0)
+            new_game_score.save()
             # log in the user
             login(request, user)
             return redirect(views.homepage)
