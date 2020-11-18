@@ -23,19 +23,27 @@
             <a class="navbar-brand" href="http://127.0.0.1:8000/">Home</a>
             <a class="navbar-brand" href="/game">Game</a>
             <!-- <a class="navbar-brand" href="/signup">Signup</a> -->
-            <a class="navbar-brand" href="/accounts/signup/">Signup</a>
-            <a class="navbar-brand" href="/accounts/login/">Login</a>
-            <a class="navbar-brand" href="/admin">Admin</a>
+            <!-- <a class="navbar-brand" href="/accounts/signup/">Signup</a>
+            <a class="navbar-brand" href="/accounts/login/">Login</a> -->
+            {% if request.user.is_superuser %}
+                <a class="navbar-brand" href="/admin">Admin</a>
+            {% else %}
+            {% endif %}
         </div>
     </nav>
         <div class='jumbotron'>
             {% block content %}
             {% endblock %}
         </div>
+    {% if user.is_authenticated %}
     <form class='logout-link' action="{% url 'accounts:logout' %}" method='POST'>
         {% csrf_token %}
         <button type='submit'>Logout</button>
     </form>
+    {% else %}
+        <button><a href="{% url 'accounts:login' %}">Login</a></button>
+        <button><a href="{% url 'accounts:signup' %}">Signup</a></button>
+    {% endif %}
 </body>
 
 </html>
