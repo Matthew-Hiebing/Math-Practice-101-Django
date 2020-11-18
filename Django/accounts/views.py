@@ -3,6 +3,11 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from homepage import views
 
+# Super User Information:
+# User Matthew.Hiebing
+# Email: Matthew.Hiebing@gmail.com
+# Password: testpass1029
+
 # Create your views here.
 def signup_view(request):
     if request.method == 'POST':
@@ -17,7 +22,6 @@ def signup_view(request):
     return render(request,'accounts/signup.html',{'form':form})
 
 
-
 def login_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
@@ -25,7 +29,10 @@ def login_view(request):
             # log in the user
             user = form.get_user()
             login(request, user)
-            return redirect(views.homepage)
+            if 'next' in request.POST:
+                return redirect(request.POST.get('next'))
+            else:
+                return redirect(views.homepage)
     else:
         form = AuthenticationForm(request.POST)
     return render(request,'accounts/login.html',{'form':form})
