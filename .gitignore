@@ -1,18 +1,21 @@
-# Django
-*.pyc
+# Django #
 *.log
 *.pot
-__pycache__
+*.pyc
+__pycache__/
+local_settings.py
 db.sqlite3
+db.sqlite3-journal
+media
 
-# Backup Files
+# Backup Files #
 *.bak
 
 # Python
 *.py[cod]
 *$py.class
 
-# Environments
+# Environments #
 .env
 .venv
 env/
@@ -21,7 +24,7 @@ ENV/
 env.bak/
 venv.bak/
 
-# mypy
+# mypy #
 .mypy_cache/
 
 # Visual Studio Code #
