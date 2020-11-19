@@ -14,9 +14,9 @@ class Score(models.Model):
     problems, and the total number of problems they attempted.
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    number_of_incorrect_answers = models.IntegerField(default='0',null=True)
-    number_of_correct_answers = models.IntegerField(default='0',null=False)
-    total_questions_answered = models.IntegerField(default='0',null=False)
+    number_of_incorrect_answers = models.IntegerField(default=0,null=False)
+    number_of_correct_answers = models.IntegerField(default=0,null=False)
+    total_questions_answered = models.IntegerField(default=0,null=False)
 
 
 class Records(models.Model):
@@ -26,7 +26,8 @@ class Records(models.Model):
     ===
     This class records the characteristics of the game while the user is
     playing.  It records the date/time for each problem, the problem they were
-    given, their answer, and the true answer.
+    given, their answer, and the true answer.  The user will only be given math
+    problems that require a whole number answer.
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     math_problem = models.CharField(null=False,max_length=10)
