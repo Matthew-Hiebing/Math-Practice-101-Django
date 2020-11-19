@@ -1,5 +1,6 @@
 {% extends 'global/base_layout.html' %}
 {% load static %}
+{% load bootstrap4 %}
 
 {% block title %}Game{% endblock %}
 
@@ -20,9 +21,8 @@
     <button type="button" class="btn btn-secondary btn-lg" disabled>No Thanks</button>
 
     <form action="" method='GET'><br>
-        <label for="your name">Type your answer here:</label>
-        <input type="text" name="WOW" id="your name">
-        <button type="submit" class="btn btn-primary btn-sm">Enter</button>
+        <input type="text" placeholder="Type your answer here">
+        <button type="submit" class="btn btn-primary btn-sm">Go!</button>
     </form>
 {% endblock %}
 

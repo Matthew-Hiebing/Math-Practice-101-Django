@@ -30,17 +30,18 @@
         <div class='jumbotron'>
             {% block content %}
             {% endblock %}
+
+            {% if user.is_authenticated %}
+            <form class='logout-link' action="{% url 'accounts:logout' %}" method='POST'>
+                {% csrf_token %}
+                <p>{{ request.user.username }} is the current user.</p>
+                <button id="logout" type='submit' class="btn btn-dark">Logout</button>
+            </form>
+            {% else %}
+                <button type="button" class="btn btn-dark"><a id="login" href="{% url 'accounts:login' %}">Login Page</a></button>
+                <button type="button" class="btn btn-dark"><a id="signup" href="{% url 'accounts:signup' %}">Signup Page</a></button>
+            {% endif %}
         </div>
-    {% if user.is_authenticated %}
-    <form class='logout-link' action="{% url 'accounts:logout' %}" method='POST'>
-        {% csrf_token %}
-        <p>{{ request.user.username }} is the current user.</p>
-        <button id="logout" type='submit' class="btn btn-dark">Logout</button>
-    </form>
-    {% else %}
-        <button type="button" class="btn btn-dark"><a id="login" href="{% url 'accounts:login' %}">Login Page</a></button>
-        <button type="button" class="btn btn-dark"><a id="signup" href="{% url 'accounts:signup' %}">Signup Page</a></button>
-    {% endif %}
 </body>
 
 </html>
