@@ -14,8 +14,9 @@ class Score(models.Model):
     problems, and the total number of problems they attempted.
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    number_of_incorrect_answers = models.IntegerField(null=True)
-    total_questions_answered = models.IntegerField(null=False)
+    number_of_incorrect_answers = models.IntegerField(default='0',null=True)
+    number_of_correct_answers = models.IntegerField(default='0',null=False)
+    total_questions_answered = models.IntegerField(default='0',null=False)
 
 
 class Records(models.Model):
@@ -28,7 +29,7 @@ class Records(models.Model):
     given, their answer, and the true answer.
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    math_problem = models.CharField(null=False)
+    math_problem = models.CharField(null=False,max_length=10)
     date_time = models.DateTimeField(null=False)
-    user_answer = models.IntegerField(null=False,max_length=3)
+    user_answer = models.IntegerField(null=False)
     answer = models.IntegerField(null=False)
