@@ -2,38 +2,34 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
+
+
 class Score(models.Model):
-  """
+    """
     ===
-    Emission Localization Heatmap
+    Scoring System
     ===
-    In order to generate a 2D overview of the spatial distribution
-    of where the methane leaks are likely to be located, we
-    present a 2D heatmap. The heatmap is constructed from a large
-    collection of points that have an associated "probability" to
-    them.
+    This class creates a row for each new user that contains their user_id,
+    number of correctly answered problems, number of incorrectly answered
+    problems, and the total number of problems they attempted.
+    """
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    number_of_incorrect_answers = models.IntegerField(default='0',null=True)
+    number_of_correct_answers = models.IntegerField(default='0',null=False)
+    total_questions_answered = models.IntegerField(default='0',null=False)
 
-    This data structure is a 2-Dimensional spatial distribution,
-    it contains geolocation (latitudes, longitudes) information
-    as well as the probability of a particular chemical species
-    to be present at that geographic location.
-    
-    ===
-    Fields
-    ===
 
-    - `location [GeoJSON Point](latitude, longitude)`
-    - `probability [float]`
-    
+class Records(models.Model):
+    """
     ===
-    Relationships
+    User Gaming Records
     ===
-
-    - HeatmapProbabilityPoint belongs to Emission (Many to One)
-    Individual probability point that together form localization
-    probability heatmaps.
-  """
-  user = models.ForeignKey(User, on_delete=models.CASCADE)
-  number_of_correct_answers = models.IntegerField(null=True)
-  number_of_incorrect_answers = models.IntegerField(null=True)
-  total_questions_answered = models.IntegerField(null=False)
+    This class records the characteristics of the game while the user is
+    playing.  It records the date/time for each problem, the problem they were
+    given, their answer, and the true answer.
+    """
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    math_problem = models.CharField(null=False,max_length=10)
+    date_time = models.DateTimeField(null=False)
+    user_answer = models.IntegerField(null=False)
+    answer = models.IntegerField(null=False)

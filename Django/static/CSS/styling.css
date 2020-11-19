@@ -1,7 +1,14 @@
-h2{
-    color: blue;
-}
-
 h1{
     color: black;
+}
+
+label{
+    padding-right: 5px;
+}
+
+#login,
+#signup,
+#logout
+{
+    color: white;
 }
