@@ -1,5 +1,5 @@
 # Math Game Website :woman_teacher:
-This repo contains Python code for a simple math game a Django-run front- and back-end folder to host the code.  The goal is to create a website that hots a simple math game for Mary's 3rd grade students.  The website will allow them to login, play the game, and see their stats.
+This repo contains Python code for a simple math game using Django as the backend.  The goal is to create a website that hots a simple math game for Mary's 3rd grade students.  The website will allow them to login, play the game, and see their stats.
 
 ## Installation
 ```bash
