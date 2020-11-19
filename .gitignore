@@ -1,4 +1,4 @@
-### Django ###
+# Django #
 *.log
 *.pot
 *.pyc
@@ -8,14 +8,14 @@ db.sqlite3
 db.sqlite3-journal
 media
 
-# Backup Files
+# Backup Files #
 *.bak
 
 # Python
 *.py[cod]
 *$py.class
 
-# Environments
+# Environments #
 .env
 .venv
 env/
@@ -24,7 +24,7 @@ ENV/
 env.bak/
 venv.bak/
 
-# mypy
+# mypy #
 .mypy_cache/
 
 # Visual Studio Code #
