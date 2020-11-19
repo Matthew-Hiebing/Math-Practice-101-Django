@@ -9,7 +9,7 @@ class Score(models.Model):
     ===
     Scoring System
     ===
-    This class creates a row for each new user than contains their user_id,
+    This class creates a row for each new user that contains their user_id,
     number of correctly answered problems, number of incorrectly answered
     problems, and the total number of problems they attempted.
   """
