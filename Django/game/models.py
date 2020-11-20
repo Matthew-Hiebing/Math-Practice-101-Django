@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class Score(models.Model):
     """
     ===
-    Scoring System
+        Scoring System
     ===
     This class creates a row for each new user that contains their user_id,
     number of correctly answered problems, number of incorrectly answered
@@ -22,7 +22,7 @@ class Score(models.Model):
 class Records(models.Model):
     """
     ===
-    User Gaming Records
+        User Gaming Records
     ===
     This class records the characteristics of the game while the user is
     playing.  It records the date/time for each problem, the problem they were
