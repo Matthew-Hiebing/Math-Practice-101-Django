@@ -17,7 +17,7 @@ class Score(models.Model):
     total_questions_answered = models.IntegerField(default=0,null=False)
 
 
-class Records(models.Model):
+class Record(models.Model):
     """
     ===
         User Gaming Records
