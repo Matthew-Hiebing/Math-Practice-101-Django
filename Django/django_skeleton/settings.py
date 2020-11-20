@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'bootstrap4',
     'homepage',
     'game',
-    'signup',
     'accounts',
 ]
 
