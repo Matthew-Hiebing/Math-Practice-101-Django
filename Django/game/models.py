@@ -32,3 +32,35 @@ class Record(models.Model):
     date_time = models.DateTimeField(null=False)
     user_answer = models.IntegerField(null=False)
     answer = models.IntegerField(null=False)
+
+
+class SplashScreenPreference(models.Model):
+    """
+    ===
+    User Preference for Splash Screens
+    ===
+    This stores the user's preference's for splash screen visibility.  After
+    the user logs in and navigates to the math page they will be presented a
+    splash screen that will introduce them to the game and provide them a
+    general workflow and rules outline.  The spashscreen will continue to
+    display after each refresh unless the user checks a box saying,"don't show
+    me this anymore".
+
+    The 'display_on_refresh' will stay 'True' until the user ops out of the
+    splash screen.  Once they opt out the boolean will flip to 'False' and they
+    won't see the splash screen anymore.
+    """
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    splash_screen = models.CharField(null=True, max_length=100) # Not sure if this is needed
+    display_on_refresh = models.BooleanField(default=True)
+
+
+class SplashScreen(models.Model):
+    """
+    ===
+    Splash Screen Class
+    ===
+    Defines a splash screen's characteristics.
+    """
+    splash_screen_name = models.CharField(max_length=100)
+    splash_screen_message = models.CharField(max_length=500)
