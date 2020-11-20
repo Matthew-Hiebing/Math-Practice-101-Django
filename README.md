@@ -4,6 +4,7 @@ This repo contains Python code for a simple math game using Django as the backen
 ## Installation
 ```bash
 pip install django # You will need Django for the web development part of this project
+pip install -r requirements.txt # Run this command to install all the necessary packages
 ```
 
 ## Usage
