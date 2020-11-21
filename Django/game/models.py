@@ -60,7 +60,7 @@ class SplashScreen(models.Model):
     ===
     Splash Screen Class
     ===
-    Defines a splash screen's characteristics.
+    Defines splash screen's characteristics.
     """
     splash_screen_name = models.CharField(max_length=100)
     splash_screen_message = models.CharField(max_length=500)
