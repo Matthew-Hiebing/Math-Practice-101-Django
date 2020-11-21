@@ -7,5 +7,5 @@ import random
 def game_logic(request):
     num1 = random.randint(0, 12)
     num2 = random.randint(0, 12)
-    problemResult = num1 * num2
-    return render(request, 'game/game.html', {"problemResult": problemResult})
+    problem_result = num1 * num2
+    return render(request, 'game/game.html', {"problem_result": problem_result})
