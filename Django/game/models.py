@@ -31,7 +31,7 @@ class Record(models.Model):
     math_problem = models.CharField(null=False,max_length=10)
     date_time = models.DateTimeField(null=False)
     user_answer = models.IntegerField(null=False)
-    answer = models.IntegerField(null=False)
+    true_answer = models.IntegerField(null=False)
 
 
 class SplashScreenPreference(models.Model):
