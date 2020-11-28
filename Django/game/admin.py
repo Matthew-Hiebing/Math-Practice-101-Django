@@ -1,7 +1,7 @@
 from django.contrib import admin
-
-# Register your models here.
 from game import models
+# Register your models here.
+# The below models below will show up in Django's admin page.
 
 admin.site.register(models.Score)
 admin.site.register(models.Record)
