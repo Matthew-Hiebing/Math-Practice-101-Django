@@ -1,10 +1,5 @@
 function addition() {
-    var num1 = Math.random(0,12)
-    var num2 = Math.random(0,12)
-    var problemResult = num1 + num2
-    document.getElementById("game").innerHTML = problemResult
-}
-
-function random() {
-    number = Math.random(0,12)
+    let num1 = Math.floor(Math.random() * 13);
+    let num2 = Math.floor(Math.random() * 13);
+    let problemResult = num1 + num2;
 }

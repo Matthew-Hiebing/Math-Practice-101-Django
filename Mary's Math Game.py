@@ -1,7 +1,7 @@
 #-----------------------------------------------------------------------------#
 
 def subtraction():
-    num1,num2 =sorted((random.randint(0,12),random.randint(0,12)),reverse=True)
+    num1,num2 =sorted((random.randint(0,13),random.randint(0,13)),reverse=True)
     problemResult = (num2 * num1) - num2
 
     print(str(num2 * num1), '-', str(num2))
@@ -44,8 +44,8 @@ def subtraction():
 #-----------------------------------------------------------------------------#
 
 def addition():
-    num1 = random.randint(0, 12)
-    num2 = random.randint(0, 12)
+    num1 = random.randint(0, 1)
+    num2 = random.randint(0, 13)
     problemResult = num1 + num2
 
     print(str(num1), '+', str(num2))
@@ -88,8 +88,8 @@ def addition():
 #-----------------------------------------------------------------------------#
 
 def division():
-    num1 = random.randint(0, 12)
-    num2 = random.randint(1, 12)
+    num1 = random.randint(0, 13)
+    num2 = random.randint(1, 13)
     problemResult = (num2 * num1)/num2
 
     print(str(num2 * num1), '/', str(num2))
@@ -132,8 +132,8 @@ def division():
 #-----------------------------------------------------------------------------#
 
 def multiplication():
-    num1 = random.randint(0, 12)
-    num2 = random.randint(0, 12)
+    num1 = random.randint(0, 13)
+    num2 = random.randint(0, 13)
     problemResult = num1 * num2
 
     print(str(num1), '*', str(num2))
