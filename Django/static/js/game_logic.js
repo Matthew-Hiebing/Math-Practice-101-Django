@@ -4,5 +4,4 @@ function addition() {
     let problemResult = num1 + num2;
     alert(num1 + num2)
 }
-
 addition()
