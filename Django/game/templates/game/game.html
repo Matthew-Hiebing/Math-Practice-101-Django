@@ -12,22 +12,24 @@
     random choice of subtraction, addition, division, and multiplication. You
     will have 2 guesses per problem, after that, GAMEOVER! Ready to play?</p>
 
-    <div>
-        <button id="start" type="button" class="btn btn-primary btn-lg">New Problem</button>
-        <script src={% static 'js/game_logic.js' %}></script>
-        <p id="mathProblem">Your problem will appear here</p>
-        <form action="">
-            <input id="user_input" type="text" placeholder="Type your answer here">
-        </form>
-        <br>
-        <button id="c_or_i" type="button" class="btn btn-primary btn-lg"></button>
-    </div>
+<div>
+    <button id="start" type="button" class="btn btn-primary btn-lg">
+        New Problem
+    </button>
+    <script src={% static 'js/game_logic.js' %}></script>
+    <p id="mathProblem">Your problem will appear here</p>
+    <form action="">
+        <input id="user_input" type="text" placeholder="Type your answer here">
+    </form>
+    <br>
+    <button id="c_or_i" type="button" class="btn btn-primary btn-lg"></button>
+</div>
 
-    <!-- <div>
-        <p>Would you like to keep playing?</p>
-        <button type="button" class="btn btn-lg btn-primary" >Yes!</button>
-        <button type="button" class="btn btn-secondary btn-lg" >No Thanks</button>
-    </div> -->
+<!-- <div>
+    <p>Would you like to keep playing?</p>
+    <button type="button" class="btn btn-lg btn-primary" >Yes!</button>
+    <button type="button" class="btn btn-secondary btn-lg" >No Thanks</button>
+</div> -->
 {% endblock %}
 
 

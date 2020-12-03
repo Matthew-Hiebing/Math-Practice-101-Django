@@ -13,7 +13,7 @@ btn.addEventListener('click', () => {
         if (result.toString() === evt.target.value) {
             document.getElementById('c_or_i').innerText = ('Correct!')
         } else {
-            document.getElementById('c_or_i').innerText = ('Incorrect, keep trying')
+            document.getElementById('c_or_i').innerText = ('Incorrect')
         }
     });
 })
