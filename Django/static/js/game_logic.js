@@ -1,9 +1,9 @@
 const btn = document.querySelector('#START')
 
 const randomFunc = [
-    multiplication,
-    division,
-    addition,
+    // multiplication,
+    // division,
+    // addition,
     subtraction,
 ]
 
@@ -42,13 +42,15 @@ function addition() {
 }
 
 function subtraction() {
-    let num1= Math.floor(Math.random() * 13);
+    let num1 = Math.floor(Math.random() * 13);
     let num2 = Math.floor(Math.random() * 13);
-    let numList = [num1,num2];
-    numList.sort(function(a,b){return b-a});
-    let problemResult = numList[0] - numList[1];
-    console.log(numList[0], '-', numList[1], '=', problemResult);
+    let numList = [num1, num2];
+    numList.sort(function (a, b) {
+        return a - b
+    });
+    let problemResult = numList[1] - numList[0];
+    console.log(numList[1], '-', numList[0], '=', problemResult);
     document.getElementById('mathProblem').innerHTML =
-    (`${numList[0]} - ${numList[1]} =`);
+        (`${numList[1]} - ${numList[0]} =`);
 }
 
