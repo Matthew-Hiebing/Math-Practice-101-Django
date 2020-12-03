@@ -1,6 +1,6 @@
-from django.urls import include, path
-from game import views
+from django.urls import path
+from game.views import game
 
 urlpatterns = [
-    path('',views.game_logic, name='game'),
+    path('', game, name='game'),
 ]

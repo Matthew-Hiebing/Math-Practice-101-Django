@@ -5,24 +5,30 @@
 {% block title %}Game{% endblock %}
 
 {% block content %}
-    <h1>Welcome to Math 101!</h1>
-    <hr class="my-4">
-    <p>In this game you will be
-        presented a random math problem that you will need to solve. It will be a
-        random choice of subtraction, addition, division, and multiplication. You
-        will have 2 guesses per problem, after that, GAMEOVER! Ready to play?</p>
+<h1>Welcome to Math 101!</h1>
+<hr class="my-4">
+<p>In this game you will be
+    presented a random math problem that you will need to solve. It will be a
+    random choice of subtraction, addition, division, and multiplication. You
+    will have 2 guesses per problem, after that, GAMEOVER! Ready to play?</p>
 
-    <button type="button" class="btn btn-primary btn-lg">START</button>
-    <button type="button" class="btn btn-secondary btn-lg">STOP</button>
+    <div>
+        <button id="start" type="button" class="btn btn-primary btn-lg">New Problem</button>
+        <script src={% static 'js/game_logic.js' %}></script>
+        <p id="mathProblem">Your problem will appear here</p>
+        <form action="">
+            <input id="user_input" type="text" placeholder="Type your answer here">
+        </form>
+        <br>
+        <button id="c_or_i" type="button" class="btn btn-primary btn-lg"></button>
+    </div>
 
-    <p>{{ problemResult }}</p>
-
-    <button type="button" class="btn btn-lg btn-primary" disabled>Yes!</button>
-    <button type="button" class="btn btn-secondary btn-lg" disabled>No Thanks</button>
-
-    <form action="" method='GET'><br>
-        <input type="text" placeholder="Type your answer here">
-        <button type="submit" class="btn btn-primary btn-sm">Go!</button>
-    </form>
+    <!-- <div>
+        <p>Would you like to keep playing?</p>
+        <button type="button" class="btn btn-lg btn-primary" >Yes!</button>
+        <button type="button" class="btn btn-secondary btn-lg" >No Thanks</button>
+    </div> -->
 {% endblock %}
+
+
 
