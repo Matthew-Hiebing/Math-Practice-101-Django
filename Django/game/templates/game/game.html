@@ -13,26 +13,21 @@
     will have 2 guesses per problem, after that, GAMEOVER! Ready to play?</p>
 
     <div>
-        <button type="button" class="btn btn-primary btn-lg" id="START">Press here for your first problem</button>
+        <button id="start" type="button" class="btn btn-primary btn-lg">New Problem</button>
         <script src={% static 'js/game_logic.js' %}></script>
         <p id="mathProblem">Your problem will appear here</p>
         <form action="">
-            <input type="text" placeholder="Type your answer here">
+            <input id="user_input" type="text" placeholder="Type your answer here">
         </form>
+        <br>
+        <button id="c_or_i" type="button" class="btn btn-primary btn-lg"></button>
     </div>
-<!--
-    <br>
 
-    <button type="button" class="btn btn-primary btn-lg">START</button>
-    <button type="button" class="btn btn-secondary btn-lg">STOP</button>
-
-    <p>{{ problem_result }}</p> -->
-
-    <div>
+    <!-- <div>
         <p>Would you like to keep playing?</p>
         <button type="button" class="btn btn-lg btn-primary" >Yes!</button>
         <button type="button" class="btn btn-secondary btn-lg" >No Thanks</button>
-    </div>
+    </div> -->
 {% endblock %}
 
 
