@@ -2,9 +2,9 @@ const btn = document.querySelector('#start')
 
 const randomFunc = [
     multiplication,
-    // division,
-    // addition,
-    // subtraction,
+    division,
+    addition,
+    subtraction,
 ]
 
 btn.addEventListener('click', () => {
@@ -23,7 +23,7 @@ function multiplication() {
     let num2 = Math.floor(Math.random() * 13);
     let problemResult = num1 * num2;
     console.log(num1, '*', num2, '=', problemResult);
-    document.getElementById('mathProblem').innerHTML =
+    document.getElementById('math_problem').innerHTML =
     (`${num1} * ${num2} =`);
     return problemResult
 }
@@ -33,7 +33,7 @@ function division() {
     let num2 = Math.floor(Math.random() * 12) + 1;
     let problemResult = (num1 * num2) / num2;
     console.log(num1 * num2, '/', num2, '=', problemResult);
-    document.getElementById('mathProblem').innerHTML =
+    document.getElementById('math_problem').innerHTML =
     (`${num1 * num2} / ${num2} =`);
     return problemResult
 }
@@ -43,7 +43,7 @@ function addition() {
     let num2 = Math.floor(Math.random() * 13);
     let problemResult = num1 + num2;
     console.log(num1,'+',num2,'=',problemResult);
-    document.getElementById('mathProblem').innerHTML =
+    document.getElementById('math_problem').innerHTML =
     (`${num1} + ${num2} =`);
     return problemResult
 }
@@ -57,7 +57,7 @@ function subtraction() {
     });
     let problemResult = numList[1] - numList[0];
     console.log(numList[1], '-', numList[0], '=', problemResult);
-    document.getElementById('mathProblem').innerHTML =
+    document.getElementById('math_problem').innerHTML =
     (`${numList[1]} - ${numList[0]} =`);
     return problemResult
 }
