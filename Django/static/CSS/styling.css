@@ -1,3 +1,5 @@
+/* In Firefox hold shift and refresh to display CSS changes!!! */
+
 h1{
     color: black;
 }
@@ -12,3 +14,16 @@ label{
 {
     color: white;
 }
+
+#math_problem {
+    color: #036daa;
+    font-size: 800%;
+}
+
+#result_check {
+    height: 75px;
+    width: 205px;
+    color: white;
+}
+
+

@@ -1,5 +1,5 @@
 {% extends 'global/base_layout.html' %}
-<!-- {% load static %} -->
+{% load static %}
 {% load bootstrap4 %}
 
 {% block title %}Game{% endblock %}
@@ -12,19 +12,17 @@
     random choice of subtraction, addition, division, and multiplication. You
     will have 2 guesses per problem, after that, GAMEOVER! Ready to play?</p>
 
-<div>
+<div class="col text-center">
     <button id="start" type="button" class="btn btn-primary btn-lg">
         New Problem
     </button>
-    <script src={% static 'js/game_logic.js' %}></script>
-    <p id="math_problem">Your problem will appear here</p>
+    <p id="math_problem"></p>
     <form action="">
         <input id="user_input" type="text" placeholder="Type your answer here">
     </form>
     <br>
-    <button id="c_or_i" type="button" class="btn btn-primary btn-lg">
-        Results Appear Here
-    </button>
+    <button id="result_check" type="button" class="btn btn-primary btn-lg"></button>
+    <script src={% static 'js/game_logic.js' %}></script>
 </div>
 
 {% endblock %}
