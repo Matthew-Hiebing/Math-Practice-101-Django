@@ -36,4 +36,4 @@ venv.bak/
 .history
 
 # Node #
-node_module/
+node_modules/
