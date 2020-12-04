@@ -12,13 +12,14 @@ def get_splash_screen(request, name):
     # Filter the splash screen preference by splash screen name
     user_preference = user_splash_screen_preferences.\
         filter(splash_screen=name)[0]
-    # Now we actually check what the user wants
+    # Now we check what the user wants
     if user_preference.display_on_refresh is True:
-        # This means that the user does want to see the splash screen
-        # So we need to grab the splash screen from the database
+        # If True, the user prefers to see the splash screen
+        # Grab the splash screen from the database
         splash_screen = SplashScreen.objects.all().filter(
             splash_screen_name=name)[0]
-        # Return a dictionary containing presence and the splash screen message
+        # Return dictionary containing presence of the splash screen and the
+        # splash screen message
         return({
             "presence": True,
             "message": splash_screen.splash_screen_message
@@ -31,10 +32,6 @@ def get_splash_screen(request, name):
 
 @login_required(login_url='/accounts/login/')
 def game(request):
-    # num1 = random.randint(0, 12)
-    # num2 = random.randint(0, 12)
-    # problemResult = num1 * num2
-
     # Grab the splash screen
     splash_screen_dictionary = get_splash_screen(request, name='welcome')
 
