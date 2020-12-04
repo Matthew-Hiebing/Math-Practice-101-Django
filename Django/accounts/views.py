@@ -9,6 +9,7 @@ from game.models import Score
 # Email: Matthew.Hiebing@gmail.com
 # Password: testpass1029
 
+
 # Create your views here.
 def signup_view(request):
     if request.method == 'POST':
@@ -23,7 +24,7 @@ def signup_view(request):
             return redirect(views.homepage)
     else:
         form = UserCreationForm()
-    return render(request,'accounts/signup.html',{'form':form})
+    return render(request, 'accounts/signup.html',{'form':form})
 
 
 def login_view(request):
@@ -36,10 +37,10 @@ def login_view(request):
             if 'next' in request.POST:
                 return redirect(request.POST.get('next'))
             else:
-                return render(request,'accounts/login_successful.html')
+                return render(request, 'accounts/login_successful.html')
     else:
         form = AuthenticationForm(request.POST)
-    return render(request,'accounts/login.html',{'form':form})
+    return render(request, 'accounts/login.html',{'form':form})
 
 
 def logout_view(request):

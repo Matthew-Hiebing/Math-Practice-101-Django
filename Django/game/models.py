@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 # Create your models here.
 class Score(models.Model):
     """
@@ -12,9 +13,9 @@ class Score(models.Model):
     problems, and the total number of problems they attempted.
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    number_of_incorrect_answers = models.IntegerField(default=0,null=False)
-    number_of_correct_answers = models.IntegerField(default=0,null=False)
-    total_questions_answered = models.IntegerField(default=0,null=False)
+    number_of_incorrect_answers = models.IntegerField(default=0, null=False)
+    number_of_correct_answers = models.IntegerField(default=0, null=False)
+    total_questions_answered = models.IntegerField(default=0, null=False)
 
 
 class Record(models.Model):
@@ -28,7 +29,7 @@ class Record(models.Model):
     problems that require a whole number answer.
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    math_problem = models.CharField(null=False,max_length=10)
+    math_problem = models.CharField(null=False, max_length=10)
     date_time = models.DateTimeField(null=False)
     user_answer = models.IntegerField(null=False)
     true_answer = models.IntegerField(null=False)
@@ -51,7 +52,7 @@ class SplashScreenPreference(models.Model):
     won't see the splash screen anymore.
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    splash_screen = models.CharField(null=True, max_length=100) # Not sure if this is needed
+    splash_screen = models.CharField(null=True, max_length=100)
     display_on_refresh = models.BooleanField(default=True)
 
 

@@ -1,4 +1,5 @@
-const btn = document.querySelector('#start')
+const newProblemBtn = document.querySelector('#start');
+const checkBox = document.querySelector('#splash_screen_preference_check_box');
 
 const randomFunc = [
     multiplication,
@@ -7,7 +8,16 @@ const randomFunc = [
     subtraction,
 ]
 
-btn.addEventListener('click', () => {
+checkBox.addEventListener('change', function() {
+    if (this.checked) {
+        console.log("Checkbox is checked");
+    } else {
+        console.log("Checkbox is not checked");
+    }
+});
+
+
+newProblemBtn.addEventListener('click', () => {
     let result = randomFunc[Math.floor(Math.random() * randomFunc.length)]();
     document.querySelector('#user_input').addEventListener('input', evt => {
         if (result.toString() === evt.target.value) {

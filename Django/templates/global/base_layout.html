@@ -31,27 +31,29 @@
             <a class="navbar-brand" href="http://127.0.0.1:8000/">Home</a>
             <a class="navbar-brand" href="/game">Game</a>
             {% if request.user.is_superuser %}
-                <a class="navbar-brand" href="/admin">Admin</a>
+            <a class="navbar-brand" href="/admin">Admin</a>
             {% else %}
             {% endif %}
         </div>
     </nav>
-        <div class='jumbotron'>
-            {% block content %}
-            {% endblock %}
+    <div class='jumbotron'>
+        {% block content %}
+        {% endblock %}
 
-            {% if user.is_authenticated %}
-            <br>
-            <br>
-            <form class='logout-link' action="{% url 'accounts:logout' %}" method='POST'>
-                {% csrf_token %}
-                <button id="logout" type='submit' class="btn btn-dark">Logout</button>
-            </form>
-            {% else %}
-            <button type="button" class="btn btn-dark"><a id="login" href="{% url 'accounts:login' %}">Login Page</a></button>
-            <button type="button" class="btn btn-dark"><a id="signup" href="{% url 'accounts:signup' %}">Signup Page</a></button>
-            {% endif %}
-        </div>
-        <p>{{ request.user.username }} is the current user.</p>
+        {% if user.is_authenticated %}
+        <br>
+        <br>
+        <form class='logout-link' action="{% url 'accounts:logout' %}" method='POST'>
+            {% csrf_token %}
+            <button id="logout" type='submit' class="btn btn-dark">Logout</button>
+        </form>
+        {% else %}
+        <button type="button" class="btn btn-dark"><a id="login" href="{% url 'accounts:login' %}">Login Page</a></button>
+        <button type="button" class="btn btn-dark"><a id="signup" href="{% url 'accounts:signup' %}">Signup Page</a></button>
+        {% endif %}
+    </div>
+    <p>{{ request.user.username }} is the current user.</p>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 </html>
