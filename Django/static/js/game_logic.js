@@ -1,4 +1,4 @@
-const axios = require('axios').default;
+// const axios = require('axios').default;
 const newProblemBtn = document.querySelector('#start');
 const checkBox = document.querySelector('#splash_screen_preference_check_box');
 
@@ -11,18 +11,18 @@ const randomFunc = [
 
 checkBox.addEventListener('change', function() {
     if (this.checked) {
-        axios.get('/PLACEHOLDER')
-        .then(function (response) {
-            // handle success
-            console.log(response);
-        })
-        .catch(function (error) {
-            // handle error
-            console.log(error);
-        })
-        .then(function () {
-            // always executed
-        });
+        axios.get('/admin')
+            .then(function (response) {
+                // handle success
+                console.log(response);
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .then(function () {
+                // always executed
+            });
         console.log("Checkbox is checked");
     } else {
         console.log("Checkbox is not checked");
@@ -57,7 +57,7 @@ function division() {
     let problemResult = (num1 * num2) / num2;
     console.log(num1 * num2, '/', num2, '=', problemResult);
     document.getElementById('math_problem').innerHTML =
-    (`${num1 * num2} / ${num2}`);
+    (`${num1 * num2} ÷ ${num2}`);
     return problemResult
 }
 

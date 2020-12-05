@@ -37,6 +37,9 @@
         </div>
     </nav>
     <div class='jumbotron'>
+        <p id="logged_in_user">
+            {{ request.user.username }} is the current user.
+        </p>
         {% block content %}
         {% endblock %}
 
@@ -52,7 +55,6 @@
         <button type="button" class="btn btn-dark"><a id="signup" href="{% url 'accounts:signup' %}">Signup Page</a></button>
         {% endif %}
     </div>
-    <p>{{ request.user.username }} is the current user.</p>
     <!-- Axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>
