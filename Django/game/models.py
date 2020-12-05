@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class Score(models.Model):
     """
     ===
-    Scoring System
+        Scoring System
     ===
     This class creates a row for each new user that contains their user_id,
     number of correctly answered problems, number of incorrectly answered
@@ -21,7 +21,7 @@ class Score(models.Model):
 class Record(models.Model):
     """
     ===
-    User Gaming Records
+        User Gaming Records
     ===
     This class records the characteristics of the game while the user is
     playing.  It records the date/time for each problem, the problem they were
@@ -38,7 +38,7 @@ class Record(models.Model):
 class SplashScreenPreference(models.Model):
     """
     ===
-    User Preference for Splash Screens
+        User Preference for Splash Screens
     ===
     This stores the user's preferences for splash screen visibility.  After
     the user logs in and navigates to the math page they will be presented a
@@ -55,20 +55,23 @@ class SplashScreenPreference(models.Model):
     splash_screen = models.CharField(null=True, max_length=100)
     display_on_refresh = models.BooleanField(default=True)
 
+    '''
+    A method that finds a splashscreen preference by splash screen name
+    and sets the preference to whatever the user wanted.
+    '''
+
     @staticmethod
     def set_splash_screen_preference(user, params):
-        '''
-        A method that finds a splashscreen preference by splash screen name
-        and sets the preference to whatever the user wanted.
-        '''
+        print(user, params)
         # Find the user object
         user_object = User.objects.filter(username=user)[0]
         # Grab the user's preferences and filter by splash screen name
         # {'splash_screen_name': 'Whatever', 'display_on_refresh': False}
+
         splash_screen_preference_object = user_object.splashscreenpreference_set.all().filter(
             splash_screen=params['splash_screen_name'])[0]
 
-        # Now we set the preference for display on refresh true or false
+        # Now we set the preference for display on refresh tru opr false
         splash_screen_preference_object.display_on_refresh = params[
             'display_on_refresh']
 
@@ -78,7 +81,7 @@ class SplashScreenPreference(models.Model):
 class SplashScreen(models.Model):
     """
     ===
-    Splash Screen Class
+        Splash Screen Class
     ===
     Defines splash screen's characteristics.
     """

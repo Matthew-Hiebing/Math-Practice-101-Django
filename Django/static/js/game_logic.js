@@ -30,7 +30,6 @@ newProblemBtn.addEventListener('click', () => {
     });
 })
 
-
 function multiplication() {
     let num1 = Math.floor(Math.random() * 13);
     let num2 = Math.floor(Math.random() * 13);
@@ -40,7 +39,6 @@ function multiplication() {
     (`${num1} x ${num2}`);
     return problemResult
 }
-
 
 function division() {
     let num1 = Math.floor(Math.random() * 13);
@@ -52,7 +50,6 @@ function division() {
     return problemResult
 }
 
-
 function addition() {
     let num1 = Math.floor(Math.random() * 13);
     let num2 = Math.floor(Math.random() * 13);
@@ -62,7 +59,6 @@ function addition() {
     (`${num1} + ${num2}`);
     return problemResult
 }
-
 
 function subtraction() {
     let num1 = Math.floor(Math.random() * 13);
