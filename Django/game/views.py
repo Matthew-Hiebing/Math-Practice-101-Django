@@ -43,10 +43,6 @@ def game(request):
     })
 
 
-def sudoku(request):
-    get_splash_screen(request, name='sudoku')
-
-
 @csrf_exempt
 def set_splash_screen_preference(request):
     """
@@ -62,7 +58,6 @@ def set_splash_screen_preference(request):
         # Now we eexxute the class method to set the preference
         SplashScreenPreference.set_splash_screen_preference(
             user=request.user, params=params)
-
         return JsonResponse({"status": "The user setting was completed!"})
     else:
         return JsonResponse({"status": "That was not a valid request!"})

@@ -26,6 +26,5 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('game/', include('game.urls')),
     path('', include('homepage.urls')),
-    # API for user preferences
     path('api/user_preferences/set_preference', set_splash_screen_preference),
 ]

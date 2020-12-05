@@ -67,11 +67,13 @@ class SplashScreenPreference(models.Model):
         user_object = User.objects.filter(username=user)[0]
         # Grab the user's preferences and filter by splash screen name
         # {'splash_screen_name': 'Whatever', 'display_on_refresh': False}
+
         splash_screen_preference_object = user_object.splashscreenpreference_set.all().filter(
             splash_screen=params['splash_screen_name'])[0]
 
         # Now we set the preference for display on refresh tru opr false
-        splash_screen_preference_object.display_on_refresh = params['display_on_refresh']
+        splash_screen_preference_object.display_on_refresh = params[
+            'display_on_refresh']
 
         splash_screen_preference_object.save()
 
