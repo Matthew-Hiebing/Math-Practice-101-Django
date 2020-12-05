@@ -34,7 +34,6 @@ def get_splash_screen(request, name):
 def game(request):
     # Grab the splash screen
     splash_screen_dictionary = get_splash_screen(request, name='Math')
-
     return render(request, 'game/game.html', {
         "splash_screen": splash_screen_dictionary
     })

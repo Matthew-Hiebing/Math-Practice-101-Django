@@ -1,3 +1,4 @@
+const axios = require('axios').default;
 const newProblemBtn = document.querySelector('#start');
 const checkBox = document.querySelector('#splash_screen_preference_check_box');
 
@@ -10,6 +11,18 @@ const randomFunc = [
 
 checkBox.addEventListener('change', function() {
     if (this.checked) {
+        axios.get('/PLACEHOLDER')
+        .then(function (response) {
+            // handle success
+            console.log(response);
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        .then(function () {
+            // always executed
+        });
         console.log("Checkbox is checked");
     } else {
         console.log("Checkbox is not checked");
