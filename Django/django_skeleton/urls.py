@@ -14,7 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path, re_path
+from game.views import set_splash_screen_preference
 
 # 'langingPageApp' can also be replaced by '.'
 #  indicating that the older is in the same directory.
@@ -25,4 +26,6 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('game/', include('game.urls')),
     path('', include('homepage.urls')),
+    # API for user preferences
+    path('api/user_preferences/set_preference', set_splash_screen_preference),
 ]

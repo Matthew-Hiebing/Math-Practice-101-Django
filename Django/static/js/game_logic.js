@@ -10,24 +10,13 @@ const randomFunc = [
 ]
 
 checkBox.addEventListener('change', function() {
-    if (this.checked) {
-        axios.get('/admin')
-            .then(function (response) {
-                // handle success
-                console.log(response);
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-            .then(function () {
-                // always executed
-            });
-        console.log("Checkbox is checked");
-    } else {
-        console.log("Checkbox is not checked");
+    console.log(checkBox.checked)
+    axios.post('../api/user_preferences/set_preference', {
+        "splash_screen_name": "Math",
+        "display_on_refresh": !this.checked
+        });
     }
-});
+);
 
 
 newProblemBtn.addEventListener('click', () => {
