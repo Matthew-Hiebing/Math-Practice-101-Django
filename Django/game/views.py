@@ -46,12 +46,8 @@ def game(request):
 @csrf_exempt
 def set_splash_screen_preference(request):
     """
-    ===
-    Set Splash Screen Preference
-    ===
-
-    This function set the splash screen preference of the user
-    based on whether they clicked the checkbox
+    This function sets the splash screen preference of the user
+    based on whether they clicked the checkbox or not.
     """
     if request.method == 'POST':
         params = json.loads(request.body)
