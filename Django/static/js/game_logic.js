@@ -28,7 +28,7 @@ newProblemBtn.addEventListener('click', () => {
             document.getElementById('result_check').innerText = ('Incorrect')
         }
     });
-})
+});
 
 
 function multiplication() {
