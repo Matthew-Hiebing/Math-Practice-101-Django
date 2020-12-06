@@ -42,14 +42,14 @@ class SplashScreenPreference(models.Model):
     ===
     This stores the user's preferences for splash screen visibility.  After
     the user logs in and navigates to the math page they will be presented a
-    splash screen that will introduce them to the game and provide them a
+    splash screen that will introduce them to the game and a
     general outline of the game.  The spashscreen will continue to
-    display after each refresh unless the user checks a box saying, "don't show
-    me this anymore".
+    display after each refresh unless the user checks a box saying, "Don't
+    show this message again.".
 
     The 'display_on_refresh' will reamin 'True' until the user ops out of the
-    splash screen.  Once they opt out the boolean will flip to 'False' and they
-    won't see the splash screen anymore.
+    splash screen.  Once they opt out, the boolean will flip to 'False' and
+    they won't see the splash screen anymore.
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     splash_screen = models.CharField(null=True, max_length=100)
@@ -58,8 +58,8 @@ class SplashScreenPreference(models.Model):
     @staticmethod
     def set_splash_screen_preference(user, params):
         '''
-        A method that finds a splashscreen preference by splash screen name
-        and sets the preference to whatever the user wanted.
+        This static method function finds a splashscreen preference by splash
+        screen name and sets the preference to whatever the user wanted.
         '''
         # Find the user object
         user_object = User.objects.filter(username=user)[0]
@@ -85,3 +85,6 @@ class SplashScreen(models.Model):
     """
     splash_screen_name = models.CharField(max_length=100)
     splash_screen_message = models.CharField(max_length=500)
+
+    def __str__(self):
+        return self.splash_screen_name + ': ' + self.splash_screen_message

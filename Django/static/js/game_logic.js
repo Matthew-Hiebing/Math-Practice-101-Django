@@ -2,21 +2,22 @@
 const newProblemBtn = document.querySelector('#start');
 const checkBox = document.querySelector('#splash_screen_preference_check_box');
 
-const randomFunc = [
-    multiplication,
-    division,
-    addition,
-    subtraction,
-]
 
 checkBox.addEventListener('change', function() {
     console.log(checkBox.checked)
     axios.post('../api/user_preferences/set_preference', {
         "splash_screen_name": "Math",
         "display_on_refresh": !this.checked
-        });
-    }
+    });
+}
 );
+
+const randomFunc = [
+    multiplication,
+    division,
+    addition,
+    subtraction,
+]
 
 
 newProblemBtn.addEventListener('click', () => {
