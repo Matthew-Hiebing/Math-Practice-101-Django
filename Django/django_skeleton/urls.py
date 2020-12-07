@@ -15,12 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from homepage import views # 'langingPageApp' can also be replaced by '.' indicating that the folder is in the same directory.
+from game.views import set_splash_screen_preference
+
+# 'langingPageApp' can also be replaced by '.'
+#  indicating that the older is in the same directory.
 
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
-    path('accounts/',include('accounts.urls')),
+    path('accounts/', include('accounts.urls')),
     path('game/', include('game.urls')),
     path('', include('homepage.urls')),
+    path('api/user_preferences/set_preference', set_splash_screen_preference),
 ]
