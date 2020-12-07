@@ -7,10 +7,14 @@
 {% block content %}
 <h1>Welcome to Math 101!</h1>
 <hr class="my-4">
-<p>In this game you will be
-    presented a random math problem that you will need to solve. It will be a
-    random choice of subtraction, addition, division, and multiplication. You
-    will have 2 guesses per problem, after that, GAMEOVER! Ready to play?</p>
+
+{% if splash_screen.presence == True %}
+    <div class="alert alert-primary" role="alert">
+        {{ splash_screen.message }}
+        <p id="TEST">
+            <input id="splash_screen_preference_check_box" type="checkbox" value="0" /> Don't show this message again.</p>
+    </div>
+{% endif %}
 
 <div class="col text-center">
     <button id="start" type="button" class="btn btn-primary btn-lg">

@@ -26,4 +26,10 @@ label{
     color: white;
 }
 
+#TEST {
+    text-align: right;
+}
 
+#logged_in_user {
+    text-align: right;
+}
