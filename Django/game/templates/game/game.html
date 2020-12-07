@@ -21,11 +21,12 @@
         New Problem
     </button>
     <p id="math_problem"></p>
-    <form action="">
-        <input id="user_input" type="text" placeholder="Type your answer here">
+    <form id="answerForm">
+        <input id="user_input" type="text" autocomplete="off" placeholder="Type your answer here">
+        <input id="correct_answer" type="hidden">
     </form>
     <br>
-    <button id="result_check" type="button" class="btn btn-primary btn-lg"></button>
+    <button id="result_check" type="button" class="btn btn-primary btn-lg">Check</button>
     <script src={% static 'js/game_logic.js' %}></script>
 </div>
 

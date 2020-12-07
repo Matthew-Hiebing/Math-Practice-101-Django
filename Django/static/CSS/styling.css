@@ -15,6 +15,10 @@ label{
     color: white;
 }
 
+#start {
+    font-size: 150%;
+}
+
 #math_problem {
     color: #036daa;
     font-size: 800%;
@@ -24,10 +28,11 @@ label{
     height: 75px;
     width: 205px;
     color: white;
+    font-size: 150%;
 }
-
-#TEST {
-    text-align: right;
+#result_check:focus {
+    box-shadow: none;
+    outline: none;
 }
 
 #logged_in_user {

@@ -3,13 +3,15 @@ const newProblemBtn = document.querySelector('#start');
 const checkBox = document.querySelector('#splash_screen_preference_check_box');
 
 
-checkBox.addEventListener('change', function() {
-    console.log(checkBox.checked)
-    axios.post('../api/user_preferences/set_preference', {
-        "splash_screen_name": "Math",
-        "display_on_refresh": !this.checked
+if (checkBox) {
+    checkBox.addEventListener('change', function () {
+        console.log(checkBox.checked)
+        axios.post('../api/user_preferences/set_preference', {
+            "splash_screen_name": "Math",
+            "display_on_refresh": !this.checked
+        });
     });
-});
+}
 
 const randomFunc = [
     multiplication,
@@ -19,15 +21,43 @@ const randomFunc = [
 ]
 
 
+let mathProblem = document.querySelector('#math_problem').innerText
+
 newProblemBtn.addEventListener('click', () => {
     let result = randomFunc[Math.floor(Math.random() * randomFunc.length)]();
-    document.querySelector('#user_input').addEventListener('input', evt => {
-        if (result.toString() === evt.target.value) {
-            document.getElementById('result_check').innerText = ('Correct!')
-        } else {
-            document.getElementById('result_check').innerText = ('Incorrect')
-        }
-    });
+    document.querySelector('#correct_answer').setAttribute('value', result);
+    if (document.querySelector('#result_check').textContent = 'Correct!') {
+        document.querySelector('#result_check').classList.remove('btn-success');
+        document.querySelector('#result_check').classList.add('btn');
+        document.querySelector('#result_check').classList.add('btn-primary');
+        document.querySelector('#result_check').classList.add('btn-lg');
+        document.querySelector('#result_check').textContent = 'Check';
+        document.getElementById('answerForm').reset()
+    }
+    if (document.querySelector('#result_check').textContent = 'Incorrect') {
+        document.querySelector('#result_check').classList.remove('btn-danger');
+        document.querySelector('#result_check').classList.add('btn');
+        document.querySelector('#result_check').classList.add('btn-primary');
+        document.querySelector('#result_check').classList.add('btn-lg');
+        document.querySelector('#result_check').textContent = 'Check';
+        document.getElementById('answerForm').reset()
+    }
+});
+
+document.querySelector('#result_check').addEventListener('click', () => {
+    const Button = document.querySelector('#result_check');
+    if (document.querySelector('#correct_answer').getAttribute('value') === document.querySelector('#user_input').value) {
+        Button.classList.remove('btn-primary');
+        Button.classList.remove('btn-lg');
+        Button.classList.add('btn-success');
+        Button.textContent = 'Correct!';
+    } else {
+        Button.classList.remove('btn-primary');
+        Button.classList.remove('btn-lg');
+        Button.classList.add('btn-danger');
+        Button.textContent = 'Incorrect';
+    }
+    // This is where axios request happens
 });
 
 
