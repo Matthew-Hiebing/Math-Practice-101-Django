@@ -9,8 +9,7 @@ checkBox.addEventListener('change', function() {
         "splash_screen_name": "Math",
         "display_on_refresh": !this.checked
     });
-}
-);
+});
 
 const randomFunc = [
     multiplication,
