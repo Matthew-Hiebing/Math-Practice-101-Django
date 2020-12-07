@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from game.views import set_splash_screen_preference
+from game.views import set_splash_screen_preference, submit_score_details
+
 
 # 'langingPageApp' can also be replaced by '.'
 #  indicating that the older is in the same directory.
@@ -27,4 +28,5 @@ urlpatterns = [
     path('game/', include('game.urls')),
     path('', include('homepage.urls')),
     path('api/user_preferences/set_preference', set_splash_screen_preference),
+    path('api/submit_score_details', submit_score_details),
 ]

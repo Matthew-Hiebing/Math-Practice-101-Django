@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from game.models import SplashScreen
-from game.models import SplashScreenPreference
+from game.models import SplashScreen, SplashScreenPreference, Record, Score
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
+import datetime
 
 
 def get_splash_screen(request, name):
@@ -50,7 +50,9 @@ def set_splash_screen_preference(request):
         params = json.loads(request.body)
         # Now we execute the class method to set the preference
         SplashScreenPreference.set_splash_screen_preference(
-            user=request.user, params=params)
+            user=request.user,
+            params=params
+            )
         return JsonResponse({"status": "The user setting was completed!"})
     else:
         return JsonResponse({"status": "That was not a valid request!"})
@@ -67,3 +69,25 @@ def game(request):
     return render(request, 'game/game.html', {
         "splash_screen": splash_screen_dictionary
     })
+
+
+def submit_score_details(request, attempt_params):
+    '''
+    Submits math problem details, the user's answer, and tally's the math
+    problem results.
+    '''
+    Record(user=request.user,
+           math_problem=attempt_params['math_problem'],
+           date_time=datetime.datetime.now(),
+           user_answer=attempt_params['user_answer'],
+           true_answer=attempt_params['true_answer'],
+           )
+
+    Score(user=request.user,
+          number_of_correct_answers=attempt_params
+          ['number_of_correct_answers'],
+          number_of_incorrect_answers=attempt_params
+          ['number_of_incorrect_answers'],
+          total_questions_answered=attempt_params
+          ['total_questions_answered'],
+          )
