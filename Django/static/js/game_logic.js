@@ -11,10 +11,10 @@ if (checkBox) {
 }
 
 
-const mathProblem = document.querySelector('#math_problem').innerText
-const checkButton = document.querySelector('#result_check');
 const newProblemBtn = document.querySelector('#start');
+const mathProblem = document.querySelector('#math_problem').innerText
 const inputForm = document.getElementById('inputForm');
+const checkButton = document.querySelector('#result_check');
 
 newProblemBtn.addEventListener('click', () => {
     let result = randomFunc[Math.floor(Math.random() * randomFunc.length)]();
