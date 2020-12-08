@@ -17,14 +17,18 @@ def signup_view(request):
         if form.is_valid():
             user = form.save()
             # Create a blank_score row for each user when they make an account
-            new_game_score = Score(user=user, number_of_correct_answers=0, number_of_incorrect_answers=0, total_questions_answered=0)
+            new_game_score = Score(user=user,
+                                   number_of_correct_answers=0,
+                                   number_of_incorrect_answers=0,
+                                   total_questions_answered=0
+                                   )
             new_game_score.save()
             # Log the user in
             login(request, user)
             return redirect(views.homepage)
     else:
         form = UserCreationForm()
-    return render(request, 'accounts/signup.html',{'form':form})
+    return render(request, 'accounts/signup.html', {'form': form})
 
 
 def login_view(request):
@@ -40,7 +44,7 @@ def login_view(request):
                 return render(request, 'accounts/login_successful.html')
     else:
         form = AuthenticationForm(request.POST)
-    return render(request, 'accounts/login.html',{'form':form})
+    return render(request, 'accounts/login.html', {'form': form})
 
 
 def logout_view(request):
