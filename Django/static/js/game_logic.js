@@ -26,29 +26,21 @@ const inputForm = document.getElementById('inputForm');
 newProblemBtn.addEventListener('click', () => {
     let result = randomFunc[Math.floor(Math.random() * randomFunc.length)]();
     document.querySelector('#correct_answer').setAttribute('value', result);
-
     if (checkButton.textContent = 'Correct!') {
         checkButton.classList.remove('btn-success');
-        checkButton.classList.add(
-            'btn',
-            'btn-primary',
-            'btn-lg');
+        checkButton.classList.add('btn', 'btn-primary', 'btn-lg');
         checkButton.textContent = 'Check';
         inputForm.reset()
     }
     if (checkButton.textContent = 'Incorrect') {
         checkButton.classList.remove('btn-danger');
-        checkButton.classList.add(
-            'btn',
-            'btn-primary',
-            'btn-lg');
+        checkButton.classList.add('btn', 'btn-primary', 'btn-lg');
         checkButton.textContent = 'Check';
         inputForm.reset()
     }
 });
 
 checkButton.addEventListener('click', () => {
-
     if (document.querySelector('#correct_answer').getAttribute('value') === document.querySelector('#user_input').value) {
         checkButton.classList.remove('btn-primary','btn-lg');
         checkButton.classList.add('btn-success');
