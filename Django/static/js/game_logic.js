@@ -42,7 +42,7 @@ newProblemBtn.addEventListener('click', () => {
 
 checkButton.addEventListener('click', () => {
     if (document.querySelector('#correct_answer').getAttribute('value') === document.querySelector('#user_input').value) {
-        checkButton.classList.remove('btn-primary','btn-lg');
+        checkButton.classList.remove('btn-primary','btn-lg','btn-danger');
         checkButton.classList.add('btn-success');
         checkButton.textContent = 'Correct!';
     } else {
