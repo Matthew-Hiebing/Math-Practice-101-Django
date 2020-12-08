@@ -76,6 +76,10 @@ def submit_score_details(request, attempt_params):
     Submits math problem details, the user's answer, and tally's the math
     problem results.
     '''
+
+    if request.method == 'POST':
+        params = json.loads(request.body)
+
     Record(user=request.user,
            math_problem=attempt_params['math_problem'],
            date_time=datetime.datetime.now(),
