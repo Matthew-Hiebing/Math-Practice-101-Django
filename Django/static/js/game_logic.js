@@ -18,35 +18,36 @@ const randomFunc = [
 ]
 
 
-let mathProblem = document.querySelector('#math_problem').innerText
-
+const mathProblem = document.querySelector('#math_problem').innerText
+const checkButton = document.querySelector('#result_check');
 const newProblemBtn = document.querySelector('#start');
+const inputForm = document.getElementById('inputForm');
+
 newProblemBtn.addEventListener('click', () => {
     let result = randomFunc[Math.floor(Math.random() * randomFunc.length)]();
     document.querySelector('#correct_answer').setAttribute('value', result);
 
-    if (document.querySelector('#result_check').textContent = 'Correct!') {
-        document.querySelector('#result_check').classList.remove('btn-success');
-        document.querySelector('#result_check').classList.add(
+    if (checkButton.textContent = 'Correct!') {
+        checkButton.classList.remove('btn-success');
+        checkButton.classList.add(
             'btn',
             'btn-primary',
             'btn-lg');
-        document.querySelector('#result_check').textContent = 'Check';
-        document.getElementById('answerForm').reset()
+        checkButton.textContent = 'Check';
+        inputForm.reset()
     }
-    if (document.querySelector('#result_check').textContent = 'Incorrect') {
-        document.querySelector('#result_check').classList.remove('btn-danger');
-        document.querySelector('#result_check').classList.add(
+    if (checkButton.textContent = 'Incorrect') {
+        checkButton.classList.remove('btn-danger');
+        checkButton.classList.add(
             'btn',
             'btn-primary',
             'btn-lg');
-        document.querySelector('#result_check').textContent = 'Check';
-        document.getElementById('answerForm').reset()
+        checkButton.textContent = 'Check';
+        inputForm.reset()
     }
 });
 
-document.querySelector('#result_check').addEventListener('click', () => {
-    const checkButton = document.querySelector('#result_check');
+checkButton.addEventListener('click', () => {
 
     if (document.querySelector('#correct_answer').getAttribute('value') === document.querySelector('#user_input').value) {
         checkButton.classList.remove('btn-primary','btn-lg');
