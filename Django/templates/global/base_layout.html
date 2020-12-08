@@ -7,11 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
 
+    <link rel="stylesheet/less" type="text/css" href="{% static 'less/scores.less' %}" />
+    <script src="//cdn.jsdelivr.net/npm/less"></script>
+
     <!-- favicon image -->
     <link rel="shortcut icon" href="{% static 'images/Math.png' %}">
 
     <!-- CSS -->
     <link rel="stylesheet" href="{% static 'css/styling.css' %}">
+    <link rel="stylesheet" href="{% static 'css/scores.css' %}">
 
     <!-- jQuery -->
     <script
@@ -30,8 +34,9 @@
         <div class="container">
             <a class="navbar-brand" href="http://127.0.0.1:8000/">Home</a>
             <a class="navbar-brand" href="/game">Game</a>
+            <a class="navbar-brand" href="/scores">Scores</a>
             {% if request.user.is_superuser %}
-            <a class="navbar-brand" href="/admin">Admin</a>
+                <a class="navbar-brand" href="/admin">Admin</a>
             {% else %}
             {% endif %}
         </div>

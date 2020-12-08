@@ -1,0 +1,22 @@
+{% extends 'global/base_layout.html' %}
+{% load static %}
+
+{% block title %}Scores{% endblock %}
+
+{% block content %}
+<h1>Scores and Results Analysis</h1>
+<hr class="my-2">
+<p>
+    Here you will find your math scores and a quick analysis of your results.
+</p>
+<br>
+<br>
+<br>
+<div class="chart-wrap vertical">
+    <div class="grid">
+        <div class="bar" style="--bar-value:85%;" data-name="Correct" title="Total Correct %"></div>
+        <div class="bar" style="--bar-value:23%;" data-name="Incorrect" title="Total Incorrect %"></div>
+        <div class="bar" style="--bar-value:7%;" data-name="Total Answered" title="Total Problems Answered %"></div>
+    </div>
+</div>
+{% endblock %}
