@@ -10,13 +10,6 @@ if (checkBox) {
     });
 }
 
-const randomFunc = [
-    multiplication,
-    division,
-    addition,
-    subtraction,
-]
-
 
 const mathProblem = document.querySelector('#math_problem').innerText
 const checkButton = document.querySelector('#result_check');
@@ -39,6 +32,13 @@ newProblemBtn.addEventListener('click', () => {
         inputForm.reset()
     }
 });
+
+const randomFunc = [
+    multiplication,
+    division,
+    addition,
+    subtraction,
+]
 
 checkButton.addEventListener('click', () => {
     if (document.querySelector('#correct_answer').getAttribute('value') === document.querySelector('#user_input').value) {
