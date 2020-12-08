@@ -16,7 +16,7 @@ const mathProblem = document.querySelector('#math_problem').innerText
 const inputForm = document.getElementById('inputForm');
 const checkButton = document.querySelector('#result_check');
 
-newProblemBtn.addEventListener('click', () => {
+newProblemBtn.addEventListener('click', function () {
     let result = randomFunc[Math.floor(Math.random() * randomFunc.length)]();
     document.querySelector('#correct_answer').setAttribute('value', result);
     if (checkButton.textContent = 'Correct!') {
@@ -45,6 +45,7 @@ checkButton.addEventListener('click', () => {
         checkButton.classList.remove('btn-primary','btn-lg','btn-danger');
         checkButton.classList.add('btn-success');
         checkButton.textContent = 'Correct!';
+        axios.POST()
     } else {
         checkButton.classList.remove('btn-primary','btn-lg');
         checkButton.classList.add('btn-danger');
