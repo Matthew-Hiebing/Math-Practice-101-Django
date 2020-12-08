@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'homepage',
     'game',
     'accounts',
+    'scores',
 ]
 
 MIDDLEWARE = [
@@ -60,8 +61,7 @@ ROOT_URLCONF = 'django_skeleton.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR
-        ],
+        'DIRS': [TEMPLATE_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -104,7 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
     # },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-        'OPTIONS':{'min_length':9}
+        'OPTIONS': {'min_length': 9}
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',

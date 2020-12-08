@@ -26,6 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('accounts/', include('accounts.urls')),
     path('game/', include('game.urls')),
+    path('scores/', include('scores.urls')),
     path('', include('homepage.urls')),
     path('api/user_preferences/set_preference', set_splash_screen_preference),
     path('api/submit_score_details', submit_score_details),
