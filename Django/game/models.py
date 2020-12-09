@@ -33,6 +33,8 @@ class Record(models.Model):
     date_time = models.DateTimeField(null=False)
     user_answer = models.IntegerField(null=False)
     true_answer = models.IntegerField(null=False)
+    question_status = models.CharField(null=False, max_length=10,
+                                       default='unknown')
 
 
 class SplashScreenPreference(models.Model):
