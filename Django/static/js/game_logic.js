@@ -12,7 +12,6 @@ if (checkBox) {
 
 
 const newProblemBtn = document.querySelector('#start');
-const mathProblem = document.querySelector('#math_problem').innerText
 const inputForm = document.getElementById('inputForm');
 const checkButton = document.querySelector('#result_check');
 
@@ -40,22 +39,39 @@ const randomFunc = [
     subtraction,
 ]
 
+let problem, userInput, correctAnswer, questionStatus;
+
 checkButton.addEventListener('click', function () {
     if (document.querySelector('#correct_answer').getAttribute('value') === document.querySelector('#user_input').value) {
         checkButton.classList.remove('btn-primary','btn-lg','btn-danger');
         checkButton.classList.add('btn-success');
         checkButton.textContent = 'Correct!';
+        questionStatus = 'correct'
 
     } else {
         checkButton.classList.remove('btn-primary','btn-lg');
         checkButton.classList.add('btn-danger');
         checkButton.textContent = 'Incorrect';
+        questionStatus = 'incorrect'
     }
-    axios.POST('api/scoring/submit_score_details', {
-        "math_problem": "problmeResult",
-        "user_answer": "document.querySelector('#user_input').value",
-        "true_answer": "result"
-    })
+
+    problem = document.querySelector('p#math_problem').innerText
+    userInput = document.querySelector('input#user_input').value
+    correctAnswer = document.querySelector('input#correct_answer').value
+
+    if (userInput == "") {
+        console.log("No answer provided yet")
+        // Display an alert with class danger
+    } else {
+        let payload = {
+            "math_problem": problem,
+            "user_answer": userInput,
+            "true_answer": correctAnswer,
+            "question_status": questionStatus
+        }
+        console.log(payload);
+        axios.post('../api/scoring/submit_score_details', payload)
+    }
 });
 
 
