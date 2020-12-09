@@ -45,17 +45,17 @@ checkButton.addEventListener('click', function () {
         checkButton.classList.remove('btn-primary','btn-lg','btn-danger');
         checkButton.classList.add('btn-success');
         checkButton.textContent = 'Correct!';
-        axios.POST('api/scoring/submit_score_details', {
-            "math_problem": "problmeResult",
-            "user_answer": "document.querySelector('#user_input').value",
-            "true_answer": "result"
-        })
+
     } else {
         checkButton.classList.remove('btn-primary','btn-lg');
         checkButton.classList.add('btn-danger');
         checkButton.textContent = 'Incorrect';
     }
-    // This is where axios request happens
+    axios.POST('api/scoring/submit_score_details', {
+        "math_problem": "problmeResult",
+        "user_answer": "document.querySelector('#user_input').value",
+        "true_answer": "result"
+    })
 });
 
 
