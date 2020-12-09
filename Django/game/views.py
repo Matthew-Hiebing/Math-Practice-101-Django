@@ -71,7 +71,9 @@ def game(request):
     })
 
 
-def submit_score_details(request, attempt_params):
+@login_required(login_url='/accounts/login/')
+@csrf_exempt
+def submit_score_details(request):
     '''
     Submits math problem details, the user's answer, and tally's the math
     problem results.
@@ -80,18 +82,21 @@ def submit_score_details(request, attempt_params):
     if request.method == 'POST':
         params = json.loads(request.body)
 
-    Record(user=request.user,
-           math_problem=attempt_params['math_problem'],
-           date_time=datetime.datetime.now(),
-           user_answer=attempt_params['user_answer'],
-           true_answer=attempt_params['true_answer'],
-           )
+    record = Record(user=request.user,
+                    math_problem=params['math_problem'],
+                    date_time=datetime.datetime.now(),
+                    user_answer=params['user_answer'],
+                    true_answer=params['true_answer'],
+                    question_status=params['question_status'])
+    record.save()
 
-    Score(user=request.user,
-          number_of_correct_answers=attempt_params
-          ['number_of_correct_answers'],
-          number_of_incorrect_answers=attempt_params
-          ['number_of_incorrect_answers'],
-          total_questions_answered=attempt_params
-          ['total_questions_answered'],
-          )
+    # request.user.recompute_score(record)
+
+    # Score(user=request.user,
+    #       number_of_correct_answers=attempt_params
+    #       ['number_of_correct_answers'],
+    #       number_of_incorrect_answers=attempt_params
+    #       ['number_of_incorrect_answers'],
+    #       total_questions_answered=attempt_params
+    #       ['total_questions_answered'],
+    #       )
