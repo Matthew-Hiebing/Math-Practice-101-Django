@@ -55,7 +55,7 @@ def set_splash_screen_preference(request):
             )
         return JsonResponse({"status": "The user setting was completed!"})
     else:
-        return JsonResponse({"status": "That was not a valid request!"})
+        return JsonResponse({"status": "That was not a valid request"})
 
 
 @login_required(login_url='/accounts/login/')
@@ -81,14 +81,16 @@ def submit_score_details(request):
 
     if request.method == 'POST':
         params = json.loads(request.body)
-
-    record = Record(user=request.user,
-                    math_problem=params['math_problem'],
-                    date_time=datetime.datetime.now(),
-                    user_answer=params['user_answer'],
-                    true_answer=params['true_answer'],
-                    question_status=params['question_status'])
-    record.save()
+        record = Record(user=request.user,
+                        math_problem=params['math_problem'],
+                        date_time=datetime.datetime.now(),
+                        user_answer=params['user_answer'],
+                        true_answer=params['true_answer'],
+                        question_status=params['question_status'])
+        record.save()
+        return JsonResponse({"status": "The score details were sent!"})
+    else:
+        return JsonResponse({"status": "That was not a valid request"})
 
     # request.user.recompute_score(record)
 
