@@ -29,5 +29,5 @@ urlpatterns = [
     path('scores/', include('scores.urls')),
     path('', include('homepage.urls')),
     path('api/user_preferences/set_preference', set_splash_screen_preference),
-    path('api/submit_score_details', submit_score_details),
+    path('api/scoring/submit_score_details', submit_score_details),
 ]

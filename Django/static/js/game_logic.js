@@ -45,7 +45,7 @@ checkButton.addEventListener('click', function () {
         checkButton.classList.remove('btn-primary','btn-lg','btn-danger');
         checkButton.classList.add('btn-success');
         checkButton.textContent = 'Correct!';
-        axios.POST('api/submit_score_details', {
+        axios.POST('api/scoring/submit_score_details', {
             "math_problem": "problmeResult",
             "user_answer": "document.querySelector('#user_input').value",
             "true_answer": "result"
