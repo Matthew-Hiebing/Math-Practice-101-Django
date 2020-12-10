@@ -51,16 +51,15 @@ checkButton.addEventListener('click', function () {
     if (userInput == "") {
         console.log("No input entered, POST not sent.")
     } else {
-        let payload = {
-            "csrfmiddlewaretoken": my_token,
+        axios.post('../api/scoring/submit_score_details', {
+            "X-CSRF-Token": CSRF_TOKEN,
             "math_problem": problem,
             "user_answer": userInput,
             "true_answer": correctAnswer,
             "question_status": questionStatus,
-        }
-        console.log(payload);
-        axios.post('../api/scoring/submit_score_details', payload)
-    }
+        });
+        console.log(CSRF_TOKEN, problem,userInput, correctAnswer, questionStatus);
+    };
 });
 
 
