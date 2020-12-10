@@ -72,7 +72,7 @@ def game(request):
 
 
 @login_required(login_url='/accounts/login/')
-# @csrf_exempt
+@csrf_exempt
 def submit_score_details(request):
     '''
     Submits math problem details, the user's answer, and tally's the math
