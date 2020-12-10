@@ -75,8 +75,9 @@ def game(request):
 @csrf_exempt
 def submit_score_details(request):
     '''
-    Submits math problem details, the user's answer, and tally's the math
-    problem results.
+    Submits math problem details including: the math problem, the date and time
+    when the POST was made, the user's answer, the true answer, and the results
+    of the user as 'correct' or 'incorrect'.
     '''
 
     if request.method == 'POST':
