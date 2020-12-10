@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from game.models import SplashScreen, SplashScreenPreference, Record, Score
+from game.models import SplashScreen, SplashScreenPreference, Record
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
@@ -92,19 +92,6 @@ def submit_score_details(request):
         return JsonResponse({"status": "The score details were sent!"})
     else:
         return JsonResponse({"status": "That was not a valid request"})
-
-    # request.user.recompute_score(record)
-
-    if request.method == 'GET':
-        params = json.loads(request.body)
-        score = Score(user=request.user,
-                      number_of_correct_answers=params
-                      ['number_of_correct_answers'],
-                      number_of_incorrect_answers=params
-                      ['number_of_incorrect_answers'],
-                      total_questions_answered=params
-                      ['total_questions_answered'],
-                      )
 
     # Score(user=request.user,
     #       number_of_correct_answers=attempt_params
