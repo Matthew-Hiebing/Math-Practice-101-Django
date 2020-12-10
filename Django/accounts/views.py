@@ -32,6 +32,8 @@ def signup_view(request):
     else:
         form = UserCreationForm()
     return render(request, 'accounts/signup.html', {'form': form})
+    # Creat user splash screen preference when a new user signs up
+    # for an account.
 
 
 def login_view(request):
