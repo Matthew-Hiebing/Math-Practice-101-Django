@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from game.views import set_splash_screen_preference, submit_score_details
+from scores.views import request_scores
 
 
 # 'langingPageApp' can also be replaced by '.'
@@ -30,4 +31,5 @@ urlpatterns = [
     path('', include('homepage.urls')),
     path('api/user_preferences/set_preference', set_splash_screen_preference),
     path('api/scoring/submit_score_details', submit_score_details),
+    path('api/scoring/request_score_details', request_scores),
 ]
