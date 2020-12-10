@@ -17,7 +17,6 @@ const inputForm = document.getElementById('inputForm');
 const checkButton = document.querySelector('#result_check');
 const div = document.getElementById('check_button_alert');
 
-
 //---------------------------Check Button Actions----------------------------//
 let problem, userInput, correctAnswer, questionStatus;
 checkButton.addEventListener('click', function () {
@@ -51,14 +50,19 @@ checkButton.addEventListener('click', function () {
     if (userInput == "") {
         console.log("No input entered, POST not sent.")
     } else {
+        axios.defaults.xsrfCookieName = 'csrftoken';
+        axios.defaults.xsrfHeaderName = 'X-CSRFToken';
         axios.post('../api/scoring/submit_score_details', {
-            "X-CSRF-Token": CSRF_TOKEN,
             "math_problem": problem,
             "user_answer": userInput,
             "true_answer": correctAnswer,
             "question_status": questionStatus,
         });
-        console.log(CSRF_TOKEN, problem,userInput, correctAnswer, questionStatus);
+        console.log(`Problem:${problem},
+                     User Input: ${userInput},
+                     Correct Answer: ${correctAnswer},
+                     Question Status: ${questionStatus}`
+                     );
     };
 });
 
