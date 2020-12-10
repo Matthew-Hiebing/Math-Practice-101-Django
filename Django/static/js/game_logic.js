@@ -11,33 +11,19 @@ if (checkBox) {
 }
 
 
-//--------------------------querySelector Constants--------------------------//
-const newProblemBtn = document.querySelector('#start');
+//---------------------------------Constants---------------------------------//
+const newProblemBtn = document.querySelector('#new_problem_button');
 const inputForm = document.getElementById('inputForm');
 const checkButton = document.querySelector('#result_check');
 const div = document.getElementById('check_button_alert');
-
-
-//-----------------------------Check Button Alert----------------------------//
-function checkButtonAlertVisible() {
-    if (div.style.visibility = 'hidden') {
-        div.style.visibility = 'visible'
-    }
-};
-
-function checkButtonAlertNotVisible() {
-    if (div.style.visibility = 'visible') {
-        div.style.visibility = 'hidden'
-    }
-};
 
 
 //---------------------------Check Button Actions----------------------------//
 let problem, userInput, correctAnswer, questionStatus;
 checkButton.addEventListener('click', function () {
     if (document.querySelector('#user_input').value === "") {
-        console.log('No input from user')
-        checkButtonAlertVisible()
+        console.log('No input from user, alert shown')
+        div.style.visibility = 'visible'
 
     } else if (document.querySelector('#correct_answer').getAttribute
     ('value') === document.querySelector('#user_input').value) {
@@ -45,7 +31,8 @@ checkButton.addEventListener('click', function () {
         checkButton.classList.add('btn-success');
         checkButton.textContent = 'Correct!';
         questionStatus = 'Correct'
-        checkButtonAlertNotVisible()
+        div.style.visibility = 'hidden'
+        document.getElementById('new_problem_button').disabled = false;
 
     } else if (document.querySelector('#correct_answer').getAttribute
     ('value') !== document.querySelector('#user_input').value) {
@@ -53,7 +40,8 @@ checkButton.addEventListener('click', function () {
         checkButton.classList.add('btn-danger');
         checkButton.textContent = 'Incorrect';
         questionStatus = 'Incorrect'
-        checkButtonAlertNotVisible()
+        div.style.visibility = 'hidden'
+        document.getElementById('new_problem_button').disabled = false;
     }
 
     problem = document.querySelector('p#math_problem').innerText
@@ -61,7 +49,7 @@ checkButton.addEventListener('click', function () {
     correctAnswer = document.querySelector('input#correct_answer').value
 
     if (userInput == "") {
-        console.log("No input entered, request not sent.")
+        console.log("No input entered, POST not sent.")
     } else {
         let payload = {
             "csrfmiddlewaretoken": my_token,
@@ -78,6 +66,7 @@ checkButton.addEventListener('click', function () {
 
 //------------------------------Math Functions-------------------------------//
 newProblemBtn.addEventListener('click', function () {
+    document.getElementById('new_problem_button').disabled = true;
     let result = randomFunc[Math.floor(Math.random() * randomFunc.length)]();
     document.querySelector('#correct_answer').setAttribute('value', result);
     if (checkButton.textContent = 'Correct!') {
