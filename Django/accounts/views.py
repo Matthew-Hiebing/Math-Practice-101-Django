@@ -9,6 +9,9 @@ from game.models import Score
 # Email: Matthew.Hiebing@gmail.com
 # Password: testpass1029
 
+# User Mary.Hiebing
+# Password: 7ee5eap3npZeNZY
+
 
 # Create your views here.
 def signup_view(request):
