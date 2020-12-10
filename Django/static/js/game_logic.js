@@ -1,4 +1,5 @@
 // const axios = require('axios').default;
+
 const checkBox = document.querySelector('#splash_screen_preference_check_box');
 if (checkBox) {
     checkBox.addEventListener('change', function () {
@@ -14,6 +15,7 @@ if (checkBox) {
 const newProblemBtn = document.querySelector('#start');
 const inputForm = document.getElementById('inputForm');
 const checkButton = document.querySelector('#result_check');
+const div = document.getElementById('check_button_alert');
 
 newProblemBtn.addEventListener('click', function () {
     let result = randomFunc[Math.floor(Math.random() * randomFunc.length)]();
@@ -39,20 +41,40 @@ const randomFunc = [
     subtraction,
 ]
 
+function checkButtonAlertVisible() {
+    if (div.style.visibility = 'hidden') {
+        div.style.visibility = 'visible'
+    }
+};
+
+function checkButtonAlertNotVisible() {
+    if (div.style.visibility = 'visible') {
+        div.style.visibility = 'hidden'
+    }
+};
+
 let problem, userInput, correctAnswer, questionStatus;
 
 checkButton.addEventListener('click', function () {
-    if (document.querySelector('#correct_answer').getAttribute('value') === document.querySelector('#user_input').value) {
+    if (document.querySelector('#user_input').value === "") {
+        console.log('No input from user')
+        checkButtonAlertVisible()
+
+    } else if (document.querySelector('#correct_answer').getAttribute
+        ('value') === document.querySelector('#user_input').value) {
         checkButton.classList.remove('btn-primary','btn-lg','btn-danger');
         checkButton.classList.add('btn-success');
         checkButton.textContent = 'Correct!';
-        questionStatus = 'correct'
+        questionStatus = 'Correct'
+        checkButtonAlertNotVisible()
 
-    } else {
+    } else if (document.querySelector('#correct_answer').getAttribute
+        ('value') !== document.querySelector('#user_input').value) {
         checkButton.classList.remove('btn-primary','btn-lg');
         checkButton.classList.add('btn-danger');
         checkButton.textContent = 'Incorrect';
-        questionStatus = 'incorrect'
+        questionStatus = 'Incorrect'
+        checkButtonAlertNotVisible()
     }
 
     problem = document.querySelector('p#math_problem').innerText
@@ -60,14 +82,15 @@ checkButton.addEventListener('click', function () {
     correctAnswer = document.querySelector('input#correct_answer').value
 
     if (userInput == "") {
-        console.log("No answer provided yet")
+        console.log("No input entered, request not sent.")
         // Display an alert with class danger
     } else {
         let payload = {
+            "csrfmiddlewaretoken": my_token,
             "math_problem": problem,
             "user_answer": userInput,
             "true_answer": correctAnswer,
-            "question_status": questionStatus
+            "question_status": questionStatus,
         }
         console.log(payload);
         axios.post('../api/scoring/submit_score_details', payload)

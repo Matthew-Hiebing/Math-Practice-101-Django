@@ -42,3 +42,7 @@ label{
 #checkbox_location {
     text-align: right;
 }
+
+#check_button_alert {
+    visibility: hidden;
+}
