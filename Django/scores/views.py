@@ -11,7 +11,7 @@ def scores(request):
     return render(request, 'scores/scores.html')
 
 
-def request_scores(request):
+def request_score_details(request):
     if request.method == 'GET':
         params = json.loads(request.body)
         score = Score(user=request.user,
