@@ -43,7 +43,10 @@
     </nav>
     <div class='jumbotron'>
         <p id="logged_in_user">
-            {{ request.user.username }} is the current user.
+            {% if user.is_authenticated %}
+            {{ request.user.username }} is the logged in.
+            {% else %} Nobody is logged in at the moment.
+            {% endif %}
         </p>
         {% block content %}
         {% endblock %}
