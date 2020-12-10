@@ -22,3 +22,6 @@ def request_scores(request):
                       total_questions_answered=params
                       ['total_questions_answered'],
                       )
+        return JsonResponse({"status": "The score details were retrieved!"})
+    else:
+        return JsonResponse({"status": "That was not a valid request"})
