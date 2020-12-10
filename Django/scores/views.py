@@ -11,7 +11,28 @@ def scores(request):
     return render(request, 'scores/scores.html')
 
 
+def tally_results():
+    '''
+    Pulls the math_problem, user_answer, true_answer, and question_status from
+    each Record object in the Records class and tally's the number of
+    'correct' answers, 'incorrect' answers, and the 'total questions answered'
+    for the current user. Once this information is tally'd, the results are
+    sent to the Scores class and the Scores for the current user are updated.
+    '''
+    # if request.method == 'GET':
+        # set up for loop to retrieve info for each object
+        # count how many 'correct' answers there are
+        # count how many 'incorrect' answers there are
+        # sum counts of 'correct' and 'incorrect' answers to get
+        # total_questions_answered
+
+
 def request_score_details(request):
+    '''
+    Sends a GET request for the current number_of_correct_answers, the
+    number_of_incorrect_answers, and the total_questions_answered from the
+    Scores class.
+    '''
     if request.method == 'GET':
         params = json.loads(request.body)
         score = Score(user=request.user,
