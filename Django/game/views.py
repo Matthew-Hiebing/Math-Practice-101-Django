@@ -95,6 +95,17 @@ def submit_score_details(request):
 
     # request.user.recompute_score(record)
 
+    if request.method == 'GET':
+        params = json.loads(request.body)
+        score = Score(user=request.user,
+                      number_of_correct_answers=params
+                      ['number_of_correct_answers'],
+                      number_of_incorrect_answers=params
+                      ['number_of_incorrect_answers'],
+                      total_questions_answered=params
+                      ['total_questions_answered'],
+                      )
+
     # Score(user=request.user,
     #       number_of_correct_answers=attempt_params
     #       ['number_of_correct_answers'],
