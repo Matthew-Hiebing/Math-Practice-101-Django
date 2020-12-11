@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from homepage import views
-from game.models import Score
+from game.models import Score, SplashScreenPreference
 
 # Super User Information:
 # User Matthew.Hiebing
@@ -26,14 +26,17 @@ def signup_view(request):
                                    total_questions_answered=0
                                    )
             new_game_score.save()
-            # Log the user in
+            # Create a blank SplashScreenPreference for the user
+            SplashScreenPreference(user=user,
+                                   splash_screen="Math",
+                                   display_on_refresh=True
+                                   ).save()
             login(request, user)
+            # Log the user in
             return redirect(views.homepage)
     else:
         form = UserCreationForm()
     return render(request, 'accounts/signup.html', {'form': form})
-    # Creat user splash screen preference when a new user signs up
-    # for an account.
 
 
 def login_view(request):
