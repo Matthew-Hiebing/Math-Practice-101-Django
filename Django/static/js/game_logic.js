@@ -33,6 +33,7 @@ checkButton.addEventListener('click', function () {
         questionStatus = 'Correct'
         div.style.visibility = 'hidden'
         document.getElementById('new_problem_button').disabled = false;
+        document.getElementById('result_check').disabled = true;
 
     } else if (document.querySelector('#correct_answer').getAttribute
     ('value') !== document.querySelector('#user_input').value) {
@@ -42,6 +43,7 @@ checkButton.addEventListener('click', function () {
         questionStatus = 'Incorrect'
         div.style.visibility = 'hidden'
         document.getElementById('new_problem_button').disabled = false;
+        document.getElementById('result_check').disabled = true;
     }
 
     problem = document.querySelector('#math_problem').innerText
@@ -68,6 +70,7 @@ checkButton.addEventListener('click', function () {
 //--------------------------Random Math Function-----------------------------//
 newProblemBtn.addEventListener('click', function () {
     document.getElementById('new_problem_button').disabled = true;
+    document.getElementById('result_check').disabled = false;
     let result = randomFunc[Math.floor(Math.random() * randomFunc.length)]();
     document.querySelector('#correct_answer').setAttribute('value', result);
     if (checkButton.textContent = 'Correct!') {
