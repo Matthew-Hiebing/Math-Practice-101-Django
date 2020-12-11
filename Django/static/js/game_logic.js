@@ -58,16 +58,13 @@ checkButton.addEventListener('click', function () {
             "true_answer": correctAnswer,
             "question_status": questionStatus,
         });
-        console.log(`Problem:${problem},
-                     User Input: ${userInput},
-                     Correct Answer: ${correctAnswer},
-                     Question Status: ${questionStatus}`
-                     );
-    };
+        console.log(`Problem:${problem}, User Input: ${userInput},
+        Correct Answer: ${correctAnswer}, Question Status: ${questionStatus}`);
+    }
 });
 
 
-//------------------------------Math Functions-------------------------------//
+//--------------------------Random Math Function-----------------------------//
 newProblemBtn.addEventListener('click', function () {
     document.getElementById('new_problem_button').disabled = true;
     let result = randomFunc[Math.floor(Math.random() * randomFunc.length)]();
