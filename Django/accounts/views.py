@@ -26,7 +26,7 @@ def signup_view(request):
                                    total_questions_answered=0
                                    )
             new_game_score.save()
-            # Create a blank SplashScreenPreference for the user
+            # Create a SplashScreenPreference for the user on signup.
             SplashScreenPreference(user=user,
                                    splash_screen="Math",
                                    display_on_refresh=True

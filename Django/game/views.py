@@ -20,8 +20,8 @@ def get_splash_screen(request, name):
     user_splash_screen_preferences = logged_in_user.\
         splashscreenpreference_set.all()
     # Filter the splash screen preference by splash screen name
-    user_preference = user_splash_screen_preferences.\
-        filter(splash_screen=name)[0]
+    user_preference = user_splash_screen_preferences.filter(
+        splash_screen=name)[0]
     # Now we check what the user wants
     if user_preference.display_on_refresh is True:
         # If True, the user prefers to see the splash screen
