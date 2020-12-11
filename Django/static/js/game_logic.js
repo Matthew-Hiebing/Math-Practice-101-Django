@@ -13,9 +13,10 @@ if (checkBox) {
 
 //---------------------------------Constants---------------------------------//
 const newProblemBtn = document.querySelector('#new_problem_button');
-const inputForm = document.getElementById('inputForm');
+const input_form = document.getElementById('input_form');
 const checkButton = document.querySelector('#result_check');
 const div = document.getElementById('check_button_alert');
+
 
 //---------------------------Check Button Actions----------------------------//
 let problem, userInput, correctAnswer, questionStatus;
@@ -43,9 +44,9 @@ checkButton.addEventListener('click', function () {
         document.getElementById('new_problem_button').disabled = false;
     }
 
-    problem = document.querySelector('p#math_problem').innerText
-    userInput = document.querySelector('input#user_input').value
-    correctAnswer = document.querySelector('input#correct_answer').value
+    problem = document.querySelector('#math_problem').innerText
+    userInput = document.querySelector('#user_input').value
+    correctAnswer = document.querySelector('#correct_answer').value
 
     if (userInput == "") {
         console.log("No input entered, POST not sent.")
@@ -73,13 +74,13 @@ newProblemBtn.addEventListener('click', function () {
         checkButton.classList.remove('btn-success');
         checkButton.classList.add('btn', 'btn-primary', 'btn-lg');
         checkButton.textContent = 'Check';
-        inputForm.reset()
+        input_form.reset();
     }
     if (checkButton.textContent = 'Incorrect') {
         checkButton.classList.remove('btn-danger');
         checkButton.classList.add('btn', 'btn-primary', 'btn-lg');
         checkButton.textContent = 'Check';
-        inputForm.reset()
+        input_form.reset();
     }
 });
 
