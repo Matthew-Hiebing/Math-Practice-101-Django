@@ -27,16 +27,16 @@ checkButton.addEventListener('click', function () {
     correctAnswer = document.querySelector('#correct_answer').value
 
     if (document.querySelector('#user_input').value === "") {
-        noAnswerPrompts();
+        noAnswerPrompt();
 
     } else if (document.querySelector('#correct_answer').getAttribute
     ('value') === document.querySelector('#user_input').value) {
-        correctAnswerPrompts();
+        correctAnswerPrompt();
         sendMathResults();
 
     } else if (document.querySelector('#correct_answer').getAttribute
     ('value') !== document.querySelector('#user_input').value) {
-        incorrectAnswerPrompts();
+        incorrectAnswerPrompt();
         sendMathResults();
     }
 });
@@ -57,13 +57,13 @@ function sendMathResults() {
 }
 
 
-function noAnswerPrompts() {
+function noAnswerPrompt() {
     console.log('No input from user, alert shown')
     popUp.style.visibility = 'visible'
 }
 
 
-function incorrectAnswerPrompts() {
+function incorrectAnswerPrompt() {
     checkButton.classList.remove('btn-primary', 'btn-lg');
     checkButton.classList.add('btn-danger');
     checkButton.textContent = 'Incorrect';
@@ -74,7 +74,7 @@ function incorrectAnswerPrompts() {
 }
 
 
-function correctAnswerPrompts() {
+function correctAnswerPrompt() {
     checkButton.classList.remove('btn-primary', 'btn-lg', 'btn-danger');
     checkButton.classList.add('btn-success');
     checkButton.textContent = 'Correct!';
