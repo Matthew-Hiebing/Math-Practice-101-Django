@@ -15,15 +15,19 @@ if (checkBox) {
 const newProblemBtn = document.querySelector('#new_problem_button');
 const input_form = document.getElementById('input_form');
 const checkButton = document.querySelector('#result_check');
-const div = document.getElementById('check_button_alert');
+const popUp = document.getElementById('check_button_alert');
 
 
 //---------------------------Check Button Actions----------------------------//
 let problem, userInput, correctAnswer, questionStatus;
 checkButton.addEventListener('click', function () {
+    problem = document.querySelector('#math_problem').innerText
+    userInput = document.querySelector('#user_input').value
+    correctAnswer = document.querySelector('#correct_answer').value
+
     if (document.querySelector('#user_input').value === "") {
         console.log('No input from user, alert shown')
-        div.style.visibility = 'visible'
+        popUp.style.visibility = 'visible'
 
     } else if (document.querySelector('#correct_answer').getAttribute
     ('value') === document.querySelector('#user_input').value) {
@@ -31,9 +35,10 @@ checkButton.addEventListener('click', function () {
         checkButton.classList.add('btn-success');
         checkButton.textContent = 'Correct!';
         questionStatus = 'Correct'
-        div.style.visibility = 'hidden'
+        popUp.style.visibility = 'hidden'
         document.getElementById('new_problem_button').disabled = false;
         document.getElementById('result_check').disabled = true;
+        sendMathResults()
 
     } else if (document.querySelector('#correct_answer').getAttribute
     ('value') !== document.querySelector('#user_input').value) {
@@ -41,30 +46,25 @@ checkButton.addEventListener('click', function () {
         checkButton.classList.add('btn-danger');
         checkButton.textContent = 'Incorrect';
         questionStatus = 'Incorrect'
-        div.style.visibility = 'hidden'
+        popUp.style.visibility = 'hidden'
         document.getElementById('new_problem_button').disabled = false;
         document.getElementById('result_check').disabled = true;
-    }
-
-    problem = document.querySelector('#math_problem').innerText
-    userInput = document.querySelector('#user_input').value
-    correctAnswer = document.querySelector('#correct_answer').value
-
-    if (userInput == "") {
-        console.log("No input entered, POST not sent.")
-    } else {
-        axios.defaults.xsrfCookieName = 'csrftoken';
-        axios.defaults.xsrfHeaderName = 'X-CSRFToken';
-        axios.post('../api/scoring/submit_score_details', {
-            "math_problem": problem,
-            "user_answer": userInput,
-            "true_answer": correctAnswer,
-            "question_status": questionStatus,
-        });
-        console.log(`Problem:${problem}, User Input: ${userInput},
-        Correct Answer: ${correctAnswer}, Question Status: ${questionStatus}`);
+        sendMathResults()
     }
 });
+
+function sendMathResults() {
+    axios.defaults.xsrfCookieName = 'csrftoken';
+    axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+    axios.post('../api/scoring/submit_score_details', {
+        "math_problem": problem,
+        "user_answer": userInput,
+        "true_answer": correctAnswer,
+        "question_status": questionStatus,
+    });
+    console.log(`Problem:${problem}, User Input: ${userInput},
+        Correct Answer: ${correctAnswer}, Question Status: ${questionStatus}`);
+}
 
 
 //--------------------------Random Math Function-----------------------------//
@@ -89,7 +89,7 @@ newProblemBtn.addEventListener('click', function () {
 
 const randomFunc = [
     multiplication,
-    division,
+    popUpision,
     addition,
     subtraction,
 ]
@@ -105,7 +105,7 @@ function multiplication() {
 }
 
 
-function division() {
+function popUpision() {
     let num1 = Math.floor(Math.random() * 13);
     let num2 = Math.floor(Math.random() * 12) + 1;
     let problemResult = (num1 * num2) / num2;
