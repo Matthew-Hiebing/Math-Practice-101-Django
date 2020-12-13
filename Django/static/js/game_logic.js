@@ -9,7 +9,7 @@ const nonIntegerAlert = document.getElementById('non_integer_check_button_alert'
 let problem, userInput, correctAnswer, questionStatus;
 
 
-//-------------------Splash Screen Check & Axios Request---------------------//
+//------------------------------Event Listeners------------------------------//
 if (checkBox) {
     checkBox.addEventListener('change', function () {
         console.log(checkBox.checked)
@@ -21,7 +21,6 @@ if (checkBox) {
 }
 
 
-//---------------------------Check Button Actions----------------------------//
 checkButton.addEventListener('click', function () {
     problem = document.querySelector('#math_problem').innerText
     userInput = document.querySelector('#user_input').value
@@ -30,7 +29,6 @@ checkButton.addEventListener('click', function () {
     console.log(`The correct answer is: ${correctAnswer}`)
 
     if (isNaN(userInput)) {
-        console.log('User entered non-integer')
         nonIntegerPrompt()
 
     } else if (userInput === "") {
