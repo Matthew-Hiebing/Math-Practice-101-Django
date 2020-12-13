@@ -1,10 +1,11 @@
 //-------------------------------Variables-----------------------------------//
-const randomFunc = [multiplication, popUpision, addition, subtraction,]
+const randomFunc = [multiplication, division, addition, subtraction,]
 const checkBox = document.querySelector('#splash_screen_preference_check_box');
 const newProblemBtn = document.querySelector('#new_problem_button');
 const input_form = document.getElementById('input_form');
 const checkButton = document.querySelector('#result_check');
-const popUp = document.getElementById('check_button_alert');
+const noAnswerAlert = document.getElementById('no_answer_check_button_alert');
+const nonIntegerAlert = document.getElementById('non_integer_check_button_alert');
 let problem, userInput, correctAnswer, questionStatus;
 
 
@@ -25,24 +26,50 @@ checkButton.addEventListener('click', function () {
     problem = document.querySelector('#math_problem').innerText
     userInput = document.querySelector('#user_input').value
     correctAnswer = document.querySelector('#correct_answer').value
+    console.log(`User input is: ${userInput}`)
+    console.log(`The correct answer is: ${correctAnswer}`)
 
-    if (document.querySelector('#user_input').value === "") {
+    if (userInput === "") {
         noAnswerPrompt();
 
-    } else if (document.querySelector('#correct_answer').getAttribute
-    ('value') === document.querySelector('#user_input').value) {
+    } else if (userInput === correctAnswer) {
         correctAnswerPrompt();
         sendMathResults();
 
-    } else if (document.querySelector('#correct_answer').getAttribute
-    ('value') !== document.querySelector('#user_input').value) {
+    } else if (userInput !== correctAnswer) {
         incorrectAnswerPrompt();
         sendMathResults();
     }
 });
 
 
+//---------------------------New Problem Actions-----------------------------//
+newProblemBtn.addEventListener('click', function () {
+    newProblemPrompt()
+});
+
+
 //---------------------------------Functions---------------------------------//
+function newProblemPrompt() {
+    newProblemBtn.disabled = true;
+    checkButton.disabled = false;
+    let result = randomFunc[Math.floor(Math.random() * randomFunc.length)]();
+    document.querySelector('#correct_answer').setAttribute('value', result);
+    if (checkButton.textContent = 'Correct!') {
+        checkButton.classList.remove('btn-success');
+        checkButton.classList.add('btn', 'btn-primary', 'btn-lg');
+        checkButton.textContent = 'Check';
+        input_form.reset();
+    }
+    if (checkButton.textContent = 'Incorrect') {
+        checkButton.classList.remove('btn-danger');
+        checkButton.classList.add('btn', 'btn-primary', 'btn-lg');
+        checkButton.textContent = 'Check';
+        input_form.reset();
+    }
+}
+
+
 function sendMathResults() {
     axios.defaults.xsrfCookieName = 'csrftoken';
     axios.defaults.xsrfHeaderName = 'X-CSRFToken';
@@ -52,14 +79,20 @@ function sendMathResults() {
         "true_answer": correctAnswer,
         "question_status": questionStatus,
     });
-    console.log(`Problem: ${problem}, User Input: ${userInput},
+    console.log(`Axios sent: ${problem}, User Input: ${userInput},
         Correct Answer: ${correctAnswer}, Question Status: ${questionStatus}`);
 }
 
 
 function noAnswerPrompt() {
     console.log('No input from user, alert shown')
-    popUp.style.visibility = 'visible'
+    noAnswerAlert.style.visibility = 'visible'
+}
+
+
+function nonIntegerPrompt() {
+    console.log('Non-integer entered')
+    nonIntegerAlert.style.visibility = 'visible'
 }
 
 
@@ -68,7 +101,7 @@ function incorrectAnswerPrompt() {
     checkButton.classList.add('btn-danger');
     checkButton.textContent = 'Incorrect';
     questionStatus = 'Incorrect'
-    popUp.style.visibility = 'hidden'
+    noAnswerAlert.style.visibility = 'hidden'
     document.getElementById('new_problem_button').disabled = false;
     document.getElementById('result_check').disabled = true;
 }
@@ -79,7 +112,7 @@ function correctAnswerPrompt() {
     checkButton.classList.add('btn-success');
     checkButton.textContent = 'Correct!';
     questionStatus = 'Correct'
-    popUp.style.visibility = 'hidden'
+    noAnswerAlert.style.visibility = 'hidden'
     document.getElementById('new_problem_button').disabled = false;
     document.getElementById('result_check').disabled = true;
 }
@@ -96,7 +129,7 @@ function multiplication() {
 }
 
 
-function popUpision() {
+function division() {
     let num1 = Math.floor(Math.random() * 13);
     let num2 = Math.floor(Math.random() * 12) + 1;
     let problemResult = (num1 * num2) / num2;
@@ -133,25 +166,6 @@ function subtraction() {
 }
 
 
-//--------------------------Random Math Function-----------------------------//
-newProblemBtn.addEventListener('click', function () {
-    document.getElementById('new_problem_button').disabled = true;
-    document.getElementById('result_check').disabled = false;
-    let result = randomFunc[Math.floor(Math.random() * randomFunc.length)]();
-    document.querySelector('#correct_answer').setAttribute('value', result);
-    if (checkButton.textContent = 'Correct!') {
-        checkButton.classList.remove('btn-success');
-        checkButton.classList.add('btn', 'btn-primary', 'btn-lg');
-        checkButton.textContent = 'Check';
-        input_form.reset();
-    }
-    if (checkButton.textContent = 'Incorrect') {
-        checkButton.classList.remove('btn-danger');
-        checkButton.classList.add('btn', 'btn-primary', 'btn-lg');
-        checkButton.textContent = 'Check';
-        input_form.reset();
-    }
-});
 
 
 

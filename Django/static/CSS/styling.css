@@ -43,6 +43,10 @@ label{
     text-align: right;
 }
 
-#check_button_alert {
+#no_answer_check_button_alert {
+    visibility: hidden;
+}
+
+#non_integer_check_button_alert {
     visibility: hidden;
 }
