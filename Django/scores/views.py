@@ -13,11 +13,13 @@ def scores(request):
 
 def tally_results(request):
     '''
-    Counts the number of 'Correct' and 'Incorrect' answers, and sums the total
-    questions answered for the current user. Once this information is tally'd,
-    the results are sent to the Scores class where the Scores for the current
-    user are updated.
+    Identifies the current user, counts the number of 'Correct' and 'Incorrect'
+    answers, and sums the total questions answered for the current user. Once
+    this information is tally'd, the results are sent to the Scores class where
+    the Scores for the current user are updated.
     '''
+    logged_in_user = request.user
+
     correct_answer_count = Record.objects.all().filter(
         question_status='Correct').count()
 

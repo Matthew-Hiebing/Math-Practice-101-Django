@@ -45,7 +45,6 @@ checkButton.addEventListener('click', function () {
 });
 
 
-//---------------------------New Problem Actions-----------------------------//
 newProblemBtn.addEventListener('click', function () {
     newProblemPrompt()
 });

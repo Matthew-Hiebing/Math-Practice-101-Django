@@ -12,7 +12,7 @@ def get_splash_screen(request, name):
     Function identifies current user, grab's the user's preference to see
     the splash screen or not, filters down to the splash screen name, and
     check's the user's preference to 'display_on_refresh' or not.  If the user
-    doesn't want to see the splash screen 'False' is passed to 'presence'.
+    doesn't want to see the splash screen, 'False' is passed to 'presence'.
     """
     # Grab the user that is logeed in
     logged_in_user = request.user
