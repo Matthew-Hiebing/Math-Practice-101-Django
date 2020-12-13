@@ -29,7 +29,11 @@ checkButton.addEventListener('click', function () {
     console.log(`User input is: ${userInput}`)
     console.log(`The correct answer is: ${correctAnswer}`)
 
-    if (userInput === "") {
+    if (isNaN(userInput)) {
+        console.log('User entered non-integer')
+        nonIntegerPrompt()
+
+    } else if (userInput === "") {
         noAnswerPrompt();
 
     } else if (userInput === correctAnswer) {
@@ -87,12 +91,15 @@ function sendMathResults() {
 function noAnswerPrompt() {
     console.log('No input from user, alert shown')
     noAnswerAlert.style.visibility = 'visible'
+    noAnswerAlert.style.display = 'block'
 }
 
 
 function nonIntegerPrompt() {
     console.log('Non-integer entered')
     nonIntegerAlert.style.visibility = 'visible'
+    noAnswerAlert.style.visibility = 'hidden'
+    nonIntegerAlert.style.display = 'block'
 }
 
 
@@ -102,6 +109,9 @@ function incorrectAnswerPrompt() {
     checkButton.textContent = 'Incorrect';
     questionStatus = 'Incorrect'
     noAnswerAlert.style.visibility = 'hidden'
+    nonIntegerAlert.style.visibility = 'hidden'
+    noAnswerAlert.style.display = 'none'
+    nonIntegerAlert.style.display = 'none'
     document.getElementById('new_problem_button').disabled = false;
     document.getElementById('result_check').disabled = true;
 }
@@ -113,6 +123,9 @@ function correctAnswerPrompt() {
     checkButton.textContent = 'Correct!';
     questionStatus = 'Correct'
     noAnswerAlert.style.visibility = 'hidden'
+    nonIntegerAlert.style.visibility = 'hidden'
+    noAnswerAlert.style.display = 'none'
+    nonIntegerAlert.style.display = 'none'
     document.getElementById('new_problem_button').disabled = false;
     document.getElementById('result_check').disabled = true;
 }

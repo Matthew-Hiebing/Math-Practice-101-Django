@@ -45,8 +45,11 @@ label{
 
 #no_answer_check_button_alert {
     visibility: hidden;
+    display: none;
 }
 
 #non_integer_check_button_alert {
     visibility: hidden;
+    display: none;
 }
+
