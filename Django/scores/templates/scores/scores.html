@@ -9,48 +9,13 @@
 <p>
     Below is a representation of your math game results.
 </p>
-<!-- <p>
-    <li>Number of correct answers: {{ correct_answer_count }}</li>
-    <li>Number of incorrect answers: {{ incorrect_answer_count }}</li>
-    <li>Total questions answered: {{ total_questions_answered }}</li>
-</p> -->
-<br>
 
-<canvas id="myChart" width="400" height="200"></canvas>
-<script>
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Total Correct', 'Total Incorrect', 'Total Answered'],
-            datasets: [{
-                label: 'Math Results',
-                data: [{{ correct_answer_count }},
-                       {{ incorrect_answer_count }},
-                       {{ total_questions_answered }}
-                ],
-                backgroundColor: [
-                    'rgba(13, 222, 2, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                ],
-                borderColor: [
-                    'rgba(6, 127, 0, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-    });
-</script>
+<input type="hidden" id="correct_answer_count" name="variable" value="{{ correct_answer_count }}">
+<input type="hidden" id="incorrect_answer_count" name="variable" value="{{ incorrect_answer_count }}">
+<input type="hidden" id="total_questions_answered" name="variable" value="{{ total_questions_answered }}">
+
+<div>
+    <canvas id="myChart" width="400" height="200"></canvas>
+</div>
+<script src={% static 'js/scores_chart.js' %}></script>
 {% endblock %}
