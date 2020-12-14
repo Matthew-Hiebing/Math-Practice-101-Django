@@ -2,11 +2,11 @@
 const randomFunc = [multiplication, division, addition, subtraction,]
 const checkBox = document.querySelector('#splash_screen_preference_check_box');
 const newProblemBtn = document.querySelector('#new_problem_button');
-const input_form = document.getElementById('input_form');
 const checkButton = document.querySelector('#result_check');
+const input_form = document.getElementById('input_form');
 const noAnswerAlert = document.getElementById('no_answer_check_button_alert');
 const nonIntegerAlert = document.getElementById('non_integer_check_button_alert');
-let problem, userInput, correctAnswer, questionStatus;
+let problem, input, correctAnswer, questionStatus;
 
 
 //------------------------------Event Listeners------------------------------//
@@ -23,22 +23,22 @@ if (checkBox) {
 
 checkButton.addEventListener('click', function () {
     problem = document.querySelector('#math_problem').innerText
-    userInput = document.querySelector('#user_input').value
+    input = document.querySelector('#input').value
     correctAnswer = document.querySelector('#correct_answer').value
-    console.log(`User input is: ${userInput}`)
+    console.log(`User input is: ${input}`)
     console.log(`The correct answer is: ${correctAnswer}`)
 
-    if (isNaN(userInput)) {
+    if (isNaN(input)) {
         nonIntegerPrompt()
 
-    } else if (userInput === "") {
+    } else if (input === "") {
         noAnswerPrompt();
 
-    } else if (userInput === correctAnswer) {
+    } else if (input === correctAnswer) {
         correctAnswerPrompt();
         sendMathResults();
 
-    } else if (userInput !== correctAnswer) {
+    } else if (input !== correctAnswer) {
         incorrectAnswerPrompt();
         sendMathResults();
     }
@@ -76,11 +76,11 @@ function sendMathResults() {
     axios.defaults.xsrfHeaderName = 'X-CSRFToken';
     axios.post('../api/scoring/submit_score_details', {
         "math_problem": problem,
-        "user_answer": userInput,
+        "user_answer": input,
         "true_answer": correctAnswer,
         "question_status": questionStatus,
     });
-    console.log(`Axios sent: ${problem}, User Input: ${userInput},
+    console.log(`Axios sent: ${problem}, User Input: ${input},
         Correct Answer: ${correctAnswer}, Question Status: ${questionStatus}`);
 }
 
