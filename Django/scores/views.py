@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from game.models import Score, Record
+from game.models import Score
 from django.http import JsonResponse
 import json
 # Create your views here.
@@ -8,13 +8,12 @@ import json
 
 @login_required(login_url='/accounts/login/')
 def scores(request):
-    returned_tally_results = tally_results(request)
     return render(request, 'scores/scores.html', {
-        'correct_answer_count': returned_tally_results
+        'correct_answer_count': tally_results(request)
         ['correct_answer_count'],
-        'incorrect_answer_count': returned_tally_results
+        'incorrect_answer_count': tally_results(request)
         ['incorrect_answer_count'],
-        'total_questions_answered': returned_tally_results
+        'total_questions_answered': tally_results(request)
         ['total_questions_answered']
     })
 
