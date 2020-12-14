@@ -6,7 +6,10 @@ var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Total Correct', 'Total Incorrect', 'Total Answered'],
+        labels: [
+            `Total Correct: ${correct_answer_count}`,
+            `Total Incorrect: ${incorrect_answer_count}`,
+            `Total Answered: ${total_questions_answered}`],
         datasets: [{
             label: 'Math Results',
             data: [
