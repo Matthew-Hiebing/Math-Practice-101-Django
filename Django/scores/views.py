@@ -8,7 +8,15 @@ import json
 
 @login_required(login_url='/accounts/login/')
 def scores(request):
-    return render(request, 'scores/scores.html')
+    returned_tally_results = tally_results(request)
+    return render(request, 'scores/scores.html', {
+        'correct_answer_count': returned_tally_results
+        ['correct_answer_count'],
+        'incorrect_answer_count': returned_tally_results
+        ['incorrect_answer_count'],
+        'total_questions_answered': returned_tally_results
+        ['total_questions_answered']
+    })
 
 
 def tally_results(request):
@@ -18,15 +26,28 @@ def tally_results(request):
     this information is tally'd, the results are sent to the Scores class where
     the Scores for the current user are updated.
     '''
-    logged_in_user = request.user
+    current_user = request.user
 
-    correct_answer_count = Record.objects.all().filter(
+    correct_answer_count = current_user.record_set.all().filter(
         question_status='Correct').count()
 
-    incorrect_answer_count = Record.objects.all().filter(
+    incorrect_answer_count = current_user.record_set.all().filter(
         question_status='Incorrect').count()
 
     total_questions_answered = correct_answer_count + incorrect_answer_count
+
+    # Here we find the score for the user and update the values then save score
+    score = current_user.score_set.get(user=current_user)
+    score.number_of_correct_answers = correct_answer_count
+    score.number_of_incorrect_answers = incorrect_answer_count
+    score.total_questions_answered = total_questions_answered
+    score.save(update_fields=['number_of_correct_answers',
+                              'number_of_incorrect_answers',
+                              'total_questions_answered'])
+
+    return {'correct_answer_count': correct_answer_count,
+            'incorrect_answer_count': incorrect_answer_count,
+            'total_questions_answered': total_questions_answered}
 
 
 def request_score_details(request):
