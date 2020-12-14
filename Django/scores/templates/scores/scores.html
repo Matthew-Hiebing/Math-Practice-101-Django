@@ -7,19 +7,50 @@
 <h1>Scores and Results Analysis</h1>
 <hr class="my-2">
 <p>
-    Here you will find your math scores and a quick analysis of your results.
+    Below is a representation of your math game results.
 </p>
+<!-- <p>
+    <li>Number of correct answers: {{ correct_answer_count }}</li>
+    <li>Number of incorrect answers: {{ incorrect_answer_count }}</li>
+    <li>Total questions answered: {{ total_questions_answered }}</li>
+</p> -->
 <br>
-<br>
-<p>
-    {{ total_questions_answered }}
-</p>
-<br>
-<div class="chart-wrap vertical">
-    <div class="grid">
-        <div class="bar" style="--bar-value:85%;" data-name="Correct" title="Total Correct %"></div>
-        <div class="bar" style="--bar-value:23%;" data-name="Incorrect" title="Total Incorrect %"></div>
-        <div class="bar" style="--bar-value:7%;" data-name="Total Answered" title="Total Problems Answered %"></div>
-    </div>
-</div>
+
+<canvas id="myChart" width="400" height="200"></canvas>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Total Correct', 'Total Incorrect', 'Total Answered'],
+            datasets: [{
+                label: 'Math Results',
+                data: [{{ correct_answer_count }},
+                       {{ incorrect_answer_count }},
+                       {{ total_questions_answered }}
+                ],
+                backgroundColor: [
+                    'rgba(13, 222, 2, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(6, 127, 0, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
 {% endblock %}

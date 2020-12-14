@@ -6,11 +6,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
-
-    <!-- LESS -->
-    <link rel="stylesheet/less" type="text/css" href="{% static 'less/scores.less' %}" />
-    <script src="//cdn.jsdelivr.net/npm/less"></script>
-
     <!-- favicon image -->
     <link rel="shortcut icon" href="{% static 'images/Math.png' %}">
 
@@ -47,7 +42,7 @@
     <div class='jumbotron'>
         <p id="logged_in_user">
             {% if user.is_authenticated %}
-            {{ request.user.username }} is the logged in.
+            {{ request.user.username }} is the current user.
             {% else %} Nobody is logged in at the moment.
             {% endif %}
         </p>
