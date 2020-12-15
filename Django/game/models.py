@@ -13,8 +13,8 @@ class Score(models.Model):
     problems, and the total number of problems they attempted.
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    number_of_incorrect_answers = models.IntegerField(default=0, null=False)
     number_of_correct_answers = models.IntegerField(default=0, null=False)
+    number_of_incorrect_answers = models.IntegerField(default=0, null=False)
     total_questions_answered = models.IntegerField(default=0, null=False)
 
 
