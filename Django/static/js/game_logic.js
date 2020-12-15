@@ -29,7 +29,7 @@ checkButton.addEventListener('click', function () {
     console.log(`The correct answer is: ${correctAnswer}`)
 
     if (isNaN(input)) {
-        nonIntegerPrompt()
+        nonIntegerPrompt();
 
     } else if (input === "") {
         noAnswerPrompt();
@@ -89,14 +89,17 @@ function noAnswerPrompt() {
     console.log('No input from user, alert shown')
     noAnswerAlert.style.visibility = 'visible'
     noAnswerAlert.style.display = 'block'
+    nonIntegerAlert.style.visibility = 'hidden'
+    nonIntegerAlert.style.display = 'none'
 }
 
 
 function nonIntegerPrompt() {
     console.log('Non-integer entered')
     nonIntegerAlert.style.visibility = 'visible'
-    noAnswerAlert.style.visibility = 'hidden'
     nonIntegerAlert.style.display = 'block'
+    noAnswerAlert.style.visibility = 'hidden'
+    noAnswerAlert.style.display = 'none'
 }
 
 
