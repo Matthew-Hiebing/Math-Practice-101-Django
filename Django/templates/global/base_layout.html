@@ -48,7 +48,7 @@
         </p>
         {% block content %}
         {% endblock %}
-
+        <br>
         {% if user.is_authenticated %}
         <form class='logout-link' action="{% url 'accounts:logout' %}" method='POST'>
             {% csrf_token %}
