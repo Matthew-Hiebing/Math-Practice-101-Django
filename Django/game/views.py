@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from game.models import SplashScreen, SplashScreenPreference, Record
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from scores.views import tally_results
 import json
 import datetime
 
@@ -72,14 +73,12 @@ def game(request):
 
 
 @login_required(login_url='/accounts/login/')
-# @csrf_exempt
 def submit_score_details(request):
     '''
-    Submits math problem details including: the math problem, the date and time
+    Submits math problem details including the math problem, the date and time
     when the POST was made, the user's answer, the true answer, and the results
     of the user as 'correct' or 'incorrect'.
     '''
-
     if request.method == 'POST':
         params = json.loads(request.body)
         record = Record(user=request.user,
@@ -89,15 +88,8 @@ def submit_score_details(request):
                         true_answer=params['true_answer'],
                         question_status=params['question_status'])
         record.save()
+        tally_results(request)
+
         return JsonResponse({"status": "The score details were sent!"})
     else:
         return JsonResponse({"status": "That was not a valid request"})
-
-    # Score(user=request.user,
-    #       number_of_correct_answers=attempt_params
-    #       ['number_of_correct_answers'],
-    #       number_of_incorrect_answers=attempt_params
-    #       ['number_of_incorrect_answers'],
-    #       total_questions_answered=attempt_params
-    #       ['total_questions_answered'],
-    #       )

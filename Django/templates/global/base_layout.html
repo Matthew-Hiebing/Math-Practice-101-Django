@@ -50,8 +50,6 @@
         {% endblock %}
 
         {% if user.is_authenticated %}
-        <br>
-        <br>
         <form class='logout-link' action="{% url 'accounts:logout' %}" method='POST'>
             {% csrf_token %}
             <button id="logout" type='submit' class="btn btn-dark">Logout</button>

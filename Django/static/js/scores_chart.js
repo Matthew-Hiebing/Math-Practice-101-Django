@@ -2,9 +2,9 @@ var correct_answer_count = document.getElementById("correct_answer_count").value
 var incorrect_answer_count = document.getElementById("incorrect_answer_count").value;
 var total_questions_answered = document.getElementById("total_questions_answered").value;
 
-var ctx = document.getElementById('myChart').getContext('2d');
+var ctx = document.getElementById('scoresChart').getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'horizontalBar',
     data: {
         labels: [
             `Total Correct: ${correct_answer_count}`,

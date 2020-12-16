@@ -1,13 +1,14 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from game.models import Score
-from django.http import JsonResponse
-import json
 # Create your views here.
 
 
 @login_required(login_url='/accounts/login/')
 def scores(request):
+    '''
+    Returns the correct_answer_count, incorrect_answer_count, and
+    total_questions_answered from the tally_results function.
+    '''
     return render(request, 'scores/scores.html', {
         'correct_answer_count': tally_results(request)
         ['correct_answer_count'],
@@ -18,28 +19,24 @@ def scores(request):
     })
 
 
+@login_required(login_url='/accounts/login/')
 def tally_results(request):
     '''
     Identifies the current user, counts the number of 'Correct' and 'Incorrect'
     answers, and sums the total questions answered for the current user. Once
-    this information is tally'd, the results are sent to the Scores class where
-    the Scores for the current user are updated.
+    this information is tally'd, the results are updated in the Scores class.
     '''
-    current_user = request.user
-
-    correct_answer_count = current_user.record_set.all().filter(
+    correct_answer_count = request.user.record_set.all().filter(
         question_status='Correct').count()
-
-    incorrect_answer_count = current_user.record_set.all().filter(
+    incorrect_answer_count = request.user.record_set.all().filter(
         question_status='Incorrect').count()
-
     total_questions_answered = correct_answer_count + incorrect_answer_count
 
-    # Here we find the score for the user and update the values then save score
-    score = current_user.score_set.get(user=current_user)
+    score = request.user.score_set.get()
     score.number_of_correct_answers = correct_answer_count
     score.number_of_incorrect_answers = incorrect_answer_count
     score.total_questions_answered = total_questions_answered
+
     score.save(update_fields=['number_of_correct_answers',
                               'number_of_incorrect_answers',
                               'total_questions_answered'])
@@ -49,22 +46,16 @@ def tally_results(request):
             'total_questions_answered': total_questions_answered}
 
 
+@login_required(login_url='/accounts/login/')
 def request_score_details(request):
     '''
-    Sends a GET request for the current number_of_correct_answers, the
-    number_of_incorrect_answers, and the total_questions_answered from the
-    Scores class.
+    Identified the current user and returns the current
+    number_of_correct_answers, the number_of_incorrect_answers and the
+    total_questions_answered from the Scores class.
     '''
-    if request.method == 'GET':
-        params = json.loads(request.body)
-        score = Score(user=request.user,
-                      number_of_correct_answers=params
-                      ['number_of_correct_answers'],
-                      number_of_incorrect_answers=params
-                      ['number_of_incorrect_answers'],
-                      total_questions_answered=params
-                      ['total_questions_answered'],
-                      )
-        return JsonResponse({"status": "The score details were retrieved!"})
-    else:
-        return JsonResponse({"status": "That was not a valid request."})
+    score = request.user.score_set.get()
+    return render(request, 'scores/scores.html', {
+        'correct_answer_count': score.number_of_correct_answers,
+        'incorrect_answer_count': score.number_of_incorrect_answers,
+        'total_questions_answered': score.total_questions_answered
+    })

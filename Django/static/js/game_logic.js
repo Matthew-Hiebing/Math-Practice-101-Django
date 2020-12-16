@@ -7,6 +7,7 @@ const input_form = document.getElementById('input_form');
 const noAnswerAlert = document.getElementById('no_answer_check_button_alert');
 const nonIntegerAlert = document.getElementById('non_integer_check_button_alert');
 let problem, input, correctAnswer, questionStatus;
+let correctCounter = incorrectCounter = totalCounter = 0;
 
 
 //------------------------------Event Listeners------------------------------//
@@ -22,11 +23,11 @@ if (checkBox) {
 
 
 checkButton.addEventListener('click', function () {
-    problem = document.querySelector('#math_problem').innerText
-    input = document.querySelector('#input').value
-    correctAnswer = document.querySelector('#correct_answer').value
-    console.log(`User input is: ${input}`)
-    console.log(`The correct answer is: ${correctAnswer}`)
+    problem = document.querySelector('#math_problem').innerText;
+    input = document.querySelector('#input').value;
+    correctAnswer = document.querySelector('#correct_answer').value;
+    console.log(`User input is: ${input}`);
+    console.log(`The correct answer is: ${correctAnswer}`);
 
     if (isNaN(input)) {
         nonIntegerPrompt();
@@ -37,10 +38,12 @@ checkButton.addEventListener('click', function () {
     } else if (input === correctAnswer) {
         correctAnswerPrompt();
         sendMathResults();
+        answerCounter("correct");
 
     } else if (input !== correctAnswer) {
         incorrectAnswerPrompt();
         sendMathResults();
+        answerCounter("incorrect");
     }
 });
 
@@ -51,7 +54,29 @@ newProblemBtn.addEventListener('click', function () {
 
 
 //---------------------------------Functions---------------------------------//
+function answerCounter(status) {
+    switch (status) {
+        case "incorrect":
+            incorrectCounter += 1;
+            console.log(incorrectCounter);
+            break;
+        case "correct":
+            correctCounter += 1;
+            console.log(correctCounter);
+            break;
+        default:
+            break;
+    }
+    totalCounter += 1;
+
+    document.querySelector('#Correct_Answer_Count').innerText = `Correctly Answered: ${correctCounter}`;
+    document.querySelector('#Incorrect_Answer_Count').innerText = `Incorrectly Answered: ${incorrectCounter}`;
+    document.querySelector('#Total_Question_Count').innerText = `Total Questions Completed This Session: ${totalCounter}`;
+}
+
+
 function newProblemPrompt() {
+    document.querySelector("#input").focus();
     newProblemBtn.disabled = true;
     checkButton.disabled = false;
     let result = randomFunc[Math.floor(Math.random() * randomFunc.length)]();
@@ -68,6 +93,7 @@ function newProblemPrompt() {
         checkButton.textContent = 'Check';
         input_form.reset();
     }
+
 }
 
 
@@ -180,6 +206,44 @@ function subtraction() {
 
 
 
+// var ctx = document.getElementById('gameChart').getContext('2d');
+// var myChart = new Chart(ctx, {
+//     type: 'horizontalBar',
+//     data: {
+//         labels: [
+//             `Total Correct: ${correctCounter}`,
+//             `Total Incorrect: ${incorrectCounter}`,
+//             `Total Answered: ${totalCounter}`],
+//         datasets: [{
+//             label: 'Math Results',
+//             data: [
+//                 correctCounter,
+//                 incorrectCounter,
+//                 totalCounter
+//             ],
+//             backgroundColor: [
+//                 'rgba(13, 222, 2, 0.2)',
+//                 'rgba(250, 0, 0, 0.2)',
+//                 'rgba(10, 38, 255, 0.2)',
+//             ],
+//             borderColor: [
+//                 'rgba(7, 158, 0, 1)',
+//                 'rgba(225, 0, 0, 1)',
+//                 'rgba(30, 56, 255, 1)',
+//             ],
+//             borderWidth: 1.5
+//         }]
+//     },
+//     options: {
+//         scales: {
+//             yAxes: [{
+//                 ticks: {
+//                     beginAtZero: true
+//                 }
+//             }]
+//         }
+//     }
+// });
 
 
 

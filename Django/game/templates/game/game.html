@@ -34,9 +34,16 @@
     <br>
     <button id="result_check" type="button" class="btn btn-primary btn-lg">Check</button>
     <br>
-    <br>
-    <script src={% static 'js/game_logic.js' %}></script>
 </div>
+<div>
+    <div id="Correct_Answer_Count">Correctly Answered: 0</div>
+    <div id="Incorrect_Answer_Count">Incorrectly Answered: 0</div>
+    <div id="Total_Question_Count">Total Questions Completed This Session: 0</div>
+</div>
+<!-- <div>
+    <canvas id="gameChart" width="400" height="200"></canvas>
+</div> -->
+<script src={% static 'js/game_logic.js' %}></script>
 {% endblock %}
 
 
