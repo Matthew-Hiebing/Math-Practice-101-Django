@@ -27,7 +27,7 @@ STATIC_DIR = BASE_DIR / 'static'
 SECRET_KEY = 't*4aq%7nb^136u98+@&$4dy17fn71xl7@l^b(6vo$s&674xb&@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '.herokuapp.com',
