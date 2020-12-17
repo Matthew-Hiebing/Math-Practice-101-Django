@@ -32,7 +32,7 @@ var myChart = new Chart(ctx, {
     },
 options: {
     scales: {
-        yAxes: [{
+        xAxes: [{
             ticks: {
                 beginAtZero: true
             }
