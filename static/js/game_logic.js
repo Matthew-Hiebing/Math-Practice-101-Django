@@ -73,45 +73,45 @@ function answerCounter(status) {
     document.querySelector('#Incorrect_Answer_Count').innerText = `Incorrectly Answered: ${incorrectCounter}`;
     document.querySelector('#Total_Question_Count').innerText = `Total Questions Completed This Session: ${totalCounter}`;
 
-//     var ctx = document.getElementById('gameChart').getContext('2d');
-//     var myChart = new Chart(ctx, {
-//         type: 'horizontalBar',
-//         data: {
-//             labels: [
-//                 `Correct: ${correctCounter}`,
-//                 `Incorrect: ${incorrectCounter}`,
-//                 `Answered: ${totalCounter}`],
-//             datasets: [{
-//                 label: 'Current Results',
-//                 data: [
-//                     correctCounter,
-//                     incorrectCounter,
-//                     totalCounter
-//                 ],
-//                 backgroundColor: [
-//                     'rgba(13, 222, 2, 0.2)',
-//                     'rgba(250, 0, 0, 0.2)',
-//                     'rgba(10, 38, 255, 0.2)',
-//                 ],
-//                 borderColor: [
-//                     'rgba(7, 158, 0, 1)',
-//                     'rgba(225, 0, 0, 1)',
-//                     'rgba(30, 56, 255, 1)',
-//                 ],
-//                 borderWidth: 1.5
-//             }]
-//         },
-//         options: {
-//             scales: {
-//                 yAxes: [{
-//                     ticks: {
-//                         beginAtZero: true
-//                     }
-//                 }]
-//             }
-//         }
-//     });
-// }
+    var ctx = document.getElementById('gameChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'horizontalBar',
+        data: {
+            labels: [
+                `Correct: ${correctCounter}`,
+                `Incorrect: ${incorrectCounter}`,
+                `Answered: ${totalCounter}`],
+            datasets: [{
+                label: 'Current Results',
+                data: [
+                    correctCounter,
+                    incorrectCounter,
+                    totalCounter
+                ],
+                backgroundColor: [
+                    'rgba(13, 222, 2, 0.2)',
+                    'rgba(250, 0, 0, 0.2)',
+                    'rgba(10, 38, 255, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(7, 158, 0, 1)',
+                    'rgba(225, 0, 0, 1)',
+                    'rgba(30, 56, 255, 1)',
+                ],
+                borderWidth: 1.5
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+}
 
 
 function newProblemPrompt() {
