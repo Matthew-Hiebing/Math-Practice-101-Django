@@ -15,17 +15,14 @@ label{
     color: white;
 }
 
-#new_problem_button {
-    font-size: 150%;
-}
-
 #math_problem {
     color: #036daa;
     font-size: 700%;
 }
 
-#result_check {
-    height: 75px;
+#result_check,
+#new_problem_button {
+    height: 60;
     width: 205px;
     color: white;
     font-size: 150%;
