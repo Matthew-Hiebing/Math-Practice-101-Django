@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,9 +27,13 @@ STATIC_DIR = BASE_DIR / 'static'
 SECRET_KEY = 't*4aq%7nb^136u98+@&$4dy17fn71xl7@l^b(6vo$s&674xb&@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'https://math-game-practice.herokuapp.com/',
+    'localhost',
+    '127.0.0.1'
+]
 
 
 # Application definition
@@ -133,7 +139,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS = [
     STATIC_DIR,
 ]
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
