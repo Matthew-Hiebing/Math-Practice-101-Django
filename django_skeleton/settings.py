@@ -30,7 +30,7 @@ SECRET_KEY = 't*4aq%7nb^136u98+@&$4dy17fn71xl7@l^b(6vo$s&674xb&@'
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'https://math-game-practice.herokuapp.com/',
+    '.herokuapp.com',
     'localhost',
     '127.0.0.1'
 ]
