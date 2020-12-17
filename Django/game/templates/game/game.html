@@ -23,7 +23,7 @@
         Please enter an integer!
     </div>
     <button id="new_problem_button" type="button" class="btn btn-primary btn-lg">
-        New Problem
+        Start
     </button>
     <p id="math_problem"></p>
     <form id="input_form" onsubmit="return false" method="POST">
@@ -35,10 +35,13 @@
     <button id="result_check" type="button" class="btn btn-primary btn-lg">Check</button>
     <br>
 </div>
+<!-- <div>
+    <canvas id="gameChart" width="400" height="100"></canvas>
+</div> -->
 <div>
-    <div id="Correct_Answer_Count">Correctly Answered: 0</div>
-    <div id="Incorrect_Answer_Count">Incorrectly Answered: 0</div>
-    <div id="Total_Question_Count">Total Questions Completed This Session: 0</div>
+    <div id="Correct_Answer_Count" style="visibility: visible">Correctly Answered: 0</div>
+    <div id="Incorrect_Answer_Count" style="visibility: visible">Incorrectly Answered: 0</div>
+    <div id="Total_Question_Count" style="visibility: visible">Total Questions Completed This Session: 0</div>
 </div>
 <script src={% static 'js/game_logic.js' %}></script>
 {% endblock %}
