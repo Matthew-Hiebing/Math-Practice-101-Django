@@ -1,6 +1,8 @@
 # Math Game Website :woman_teacher:
 This repo contains Python code for a simple math game using Django as the backend.  The goal is to create a website that hots a simple math game for Mary's 3rd grade students.  The website will allow them to login, play the game, and see their stats.
 
+Click [here](https://math-game-practice.herokuapp.com/) to visit the in-production site hosted on Heroku.
+
 ## Installation
 ```bash
 pip install django # You will need Django for the web development part of this project
