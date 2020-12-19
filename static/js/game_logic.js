@@ -5,9 +5,12 @@ const newProblemBtn = document.querySelector('#new_problem_button');
 const checkButton = document.querySelector('#result_check');
 const input_form = document.getElementById('input_form');
 const noAnswerAlert = document.getElementById('no_answer_check_button_alert');
+const inputLengthAlert = document.getElementById('input_length_alert');
 const nonIntegerAlert = document.getElementById('non_integer_check_button_alert');
 let problem, input, correctAnswer, questionStatus;
-let correctCounter = incorrectCounter = totalCounter = 0;
+let correctCounter = 0;
+let incorrectCounter = 0;
+let totalCounter = 0;
 
 
 //------------------------------Event Listeners------------------------------//
@@ -26,8 +29,8 @@ checkButton.addEventListener('click', function () {
     problem = document.querySelector('#math_problem').innerText;
     input = document.querySelector('#input').value;
     correctAnswer = document.querySelector('#correct_answer').value;
-    console.log(`User input is: ${input}`);
-    console.log(`The correct answer is: ${correctAnswer}`);
+    console.log(`User's answer: ${input}`);
+    console.log(`Correct answer: ${correctAnswer}`);
 
     if (isNaN(input)) {
         nonIntegerPrompt();
@@ -42,6 +45,7 @@ checkButton.addEventListener('click', function () {
 
     } else if (input !== correctAnswer) {
         incorrectAnswerPrompt();
+        inputLengthPrompt();
         sendMathResults();
         answerCounter("incorrect");
     }
@@ -54,15 +58,14 @@ newProblemBtn.addEventListener('click', function () {
 
 
 //---------------------------------Functions---------------------------------//
+
 function answerCounter(status) {
     switch (status) {
         case "incorrect":
             incorrectCounter += 1;
-            console.log(incorrectCounter);
             break;
         case "correct":
             correctCounter += 1;
-            console.log(correctCounter);
             break;
         default:
             break;
@@ -146,26 +149,41 @@ function sendMathResults() {
         "true_answer": correctAnswer,
         "question_status": questionStatus,
     });
-    console.log(`Axios sent: ${problem}, User Input: ${input},
-        Correct Answer: ${correctAnswer}, Question Status: ${questionStatus}`);
+    console.log(`Axios sent problem: ${problem}`);
+    console.log(`Axios sent iput: ${input}`);
+    console.log(`Axios sent correct answer: ${correctAnswer}`);
+    console.log(`Axios sent question status: ${questionStatus}`);
 }
 
+function inputLengthPrompt() {
+    console.log('User answer too long.')
+    inputLengthAlert.style.visibility = 'visible'
+    inputLengthAlert.style.display = 'block'
+    nonIntegerAlert.style.visibility = 'hidden'
+    nonIntegerAlert.style.display = 'none'
+    noAnswerAlert.style.visibility = 'hidden'
+    noAnswerAlert.style.display = 'none'
+}
 
 function noAnswerPrompt() {
-    console.log('No input from user, alert shown')
+    console.log('No input from user.')
     noAnswerAlert.style.visibility = 'visible'
     noAnswerAlert.style.display = 'block'
     nonIntegerAlert.style.visibility = 'hidden'
     nonIntegerAlert.style.display = 'none'
+    inputLengthAlert.style.visibility = 'hidden'
+    inputLengthAlert.style.display = 'none'
 }
 
 
 function nonIntegerPrompt() {
-    console.log('Non-integer entered')
+    console.log('Non-integer entered.')
     nonIntegerAlert.style.visibility = 'visible'
     nonIntegerAlert.style.display = 'block'
     noAnswerAlert.style.visibility = 'hidden'
     noAnswerAlert.style.display = 'none'
+    inputLengthAlert.style.visibility = 'hidden'
+    inputLengthAlert.style.display = 'none'
 }
 
 
@@ -175,9 +193,11 @@ function incorrectAnswerPrompt() {
     checkButton.textContent = 'Incorrect';
     questionStatus = 'Incorrect'
     noAnswerAlert.style.visibility = 'hidden'
-    nonIntegerAlert.style.visibility = 'hidden'
     noAnswerAlert.style.display = 'none'
+    nonIntegerAlert.style.visibility = 'hidden'
     nonIntegerAlert.style.display = 'none'
+    inputLengthAlert.style.visibility = 'hidden'
+    inputLengthAlert.style.display = 'none'
     document.getElementById('new_problem_button').disabled = false;
     document.getElementById('result_check').disabled = true;
 }
@@ -189,9 +209,11 @@ function correctAnswerPrompt() {
     checkButton.textContent = 'Correct!';
     questionStatus = 'Correct'
     noAnswerAlert.style.visibility = 'hidden'
-    nonIntegerAlert.style.visibility = 'hidden'
     noAnswerAlert.style.display = 'none'
+    nonIntegerAlert.style.visibility = 'hidden'
     nonIntegerAlert.style.display = 'none'
+    inputLengthAlert.style.visibility = 'hidden'
+    inputLengthAlert.style.display = 'none'
     document.getElementById('new_problem_button').disabled = false;
     document.getElementById('result_check').disabled = true;
 }
