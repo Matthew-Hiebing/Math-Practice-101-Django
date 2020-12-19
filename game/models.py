@@ -17,6 +17,9 @@ class Score(models.Model):
     number_of_incorrect_answers = models.IntegerField(default=0, null=False)
     total_questions_answered = models.IntegerField(default=0, null=False)
 
+    def __str__(self):
+        return str(self.user)
+
 
 class Record(models.Model):
     """
@@ -35,6 +38,15 @@ class Record(models.Model):
     true_answer = models.IntegerField(null=False)
     question_status = models.CharField(null=False, max_length=10,
                                        default='unknown')
+
+    def __str__(self):
+        return (
+            str(self.user)
+            + ' '
+            + self.math_problem
+            + ' '
+            + self.question_status
+        )
 
 
 class SplashScreenPreference(models.Model):
@@ -77,6 +89,9 @@ class SplashScreenPreference(models.Model):
 
         splash_screen_preference_object.save()
 
+    def __str__(self):
+        return f"{self.user} Display on refresh: {'Yes' if self.display_on_refresh else 'No'}"
+
 
 class SplashScreen(models.Model):
     """
@@ -89,4 +104,8 @@ class SplashScreen(models.Model):
     splash_screen_message = models.CharField(max_length=500)
 
     def __str__(self):
-        return self.splash_screen_name + ': ' + self.splash_screen_message
+        return (
+            self.splash_screen_name
+            + ': '
+            + self.splash_screen_message
+        )
