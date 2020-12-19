@@ -43,7 +43,8 @@ label{
 
 #no_answer_check_button_alert,
 #non_integer_check_button_alert,
-#input_length_alert {
+#input_length_alert,
+#decimal_alert {
     visibility: hidden;
     display: none;
 }

@@ -6,6 +6,7 @@ const checkButton = document.querySelector('#result_check');
 const input_form = document.getElementById('input_form');
 const noAnswerAlert = document.getElementById('no_answer_check_button_alert');
 const inputLengthAlert = document.getElementById('input_length_alert');
+const decimalAlert = document.getElementById('decimal_alert');
 const nonIntegerAlert = document.getElementById('non_integer_check_button_alert');
 let problem, input, correctAnswer, questionStatus;
 let correctCounter = 0;
@@ -38,6 +39,12 @@ checkButton.addEventListener('click', function () {
     } else if (input === "") {
         noAnswerPrompt();
 
+    } else if (input.length > 3) {
+        inputLengthPrompt();
+
+    } else if (input.includes('.')) {
+        decimalPrompt();
+
     } else if (input === correctAnswer) {
         correctAnswerPrompt();
         sendMathResults();
@@ -45,7 +52,6 @@ checkButton.addEventListener('click', function () {
 
     } else if (input !== correctAnswer) {
         incorrectAnswerPrompt();
-        inputLengthPrompt();
         sendMathResults();
         answerCounter("incorrect");
     }
@@ -175,6 +181,15 @@ function noAnswerPrompt() {
     inputLengthAlert.style.display = 'none'
 }
 
+function decimalPrompt() {
+    console.log('User entered decimal')
+    decimalAlert.style.visibility = 'visible'
+    decimalAlert.style.display = 'block'
+    nonIntegerAlert.style.visibility = 'hidden'
+    nonIntegerAlert.style.display = 'none'
+    inputLengthAlert.style.visibility = 'hidden'
+    inputLengthAlert.style.display = 'none'
+}
 
 function nonIntegerPrompt() {
     console.log('Non-integer entered.')
@@ -198,6 +213,8 @@ function incorrectAnswerPrompt() {
     nonIntegerAlert.style.display = 'none'
     inputLengthAlert.style.visibility = 'hidden'
     inputLengthAlert.style.display = 'none'
+    decimalAlert.style.visibility = 'hidden'
+    decimalAlert.style.display = 'none'
     document.getElementById('new_problem_button').disabled = false;
     document.getElementById('result_check').disabled = true;
 }
@@ -214,6 +231,8 @@ function correctAnswerPrompt() {
     nonIntegerAlert.style.display = 'none'
     inputLengthAlert.style.visibility = 'hidden'
     inputLengthAlert.style.display = 'none'
+    decimalAlert.style.visibility = 'hidden'
+    decimalAlert.style.display = 'none'
     document.getElementById('new_problem_button').disabled = false;
     document.getElementById('result_check').disabled = true;
 }

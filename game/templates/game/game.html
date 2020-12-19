@@ -16,6 +16,10 @@
 {% endif %}
 
 <div class="col text-center">
+    <div id="decimal_alert" class="alert alert-warning" role="alert">
+        None of the answers require a decimal, please try again.
+    </div>
+
     <div id="no_answer_check_button_alert" class="alert alert-warning" role="alert">
         Please enter an answer before clicking "Check"!
     </div>
@@ -25,7 +29,7 @@
     </div>
 
     <div id="input_length_alert" class="alert alert-warning" role="alert">
-        Sorry, the answer you entered has too many integers.  None of the problems require an answer beyond 3 digits.
+        Sorry, the answer you entered has too many digits.  None of the problems require an answer beyond 3 digits.
     </div>
 
     <button id="new_problem_button" type="button" class="btn btn-primary btn-lg">
