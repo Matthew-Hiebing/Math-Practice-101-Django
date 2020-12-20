@@ -40,13 +40,7 @@ class Record(models.Model):
                                        default='unknown')
 
     def __str__(self):
-        return (
-            str(self.user)
-            + ' '
-            + self.math_problem
-            + ' '
-            + self.question_status
-        )
+        return f"{self.user}, {self.math_problem}, {self.question_status}"
 
 
 class SplashScreenPreference(models.Model):
@@ -104,8 +98,4 @@ class SplashScreen(models.Model):
     splash_screen_message = models.CharField(max_length=500)
 
     def __str__(self):
-        return (
-            self.splash_screen_name
-            + ': '
-            + self.splash_screen_message
-        )
+        return f"{self.splash_screen_name}: {self.splash_screen_message}"
