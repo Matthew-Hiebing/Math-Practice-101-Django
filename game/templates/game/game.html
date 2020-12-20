@@ -47,14 +47,14 @@
     </button>
     <br>
 </div>
-<div>
-    <canvas id="gameChart" width="400" height="100"></canvas>
+<div class="table-responsive">
+    <canvas id="gameChart" style="height: 400px" class="table"></canvas>
 </div>
 <script src={% static 'js/game_logic.js' %}></script>
 <div>
-    <div id="Correct_Answer_Count" style="visibility: hidden">Correctly Answered: 0</div>
-    <div id="Incorrect_Answer_Count" style="visibility: hidden">Incorrectly Answered: 0</div>
-    <div id="Total_Question_Count" style="visibility: hidden">Total Questions Completed This Session: 0</div>
+    <div id="Correct_Answer_Count">Correctly Answered: 0</div>
+    <div id="Incorrect_Answer_Count">Incorrectly Answered: 0</div>
+    <div id="Total_Question_Count">Total Questions Completed This Session: 0</div>
 </div>
 {% endblock %}
 

@@ -48,3 +48,10 @@ label{
     visibility: hidden;
     display: none;
 }
+
+#Correct_Answer_Count,
+#Incorrect_Answer_Count,
+#Total_Question_Count {
+    visibility: hidden;
+    display: none;
+}
