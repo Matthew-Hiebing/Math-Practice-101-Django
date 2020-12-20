@@ -111,12 +111,10 @@ function answerCounter(status) {
             }]
         },
         options: {
-            scales: {
-                xAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
+            responsive: false,
+            maintainAspectRatio: false,
+            legend: {display:false},
+            scales: {xAxes: [{ticks: {beginAtZero: true}}]
             }
         }
     });
