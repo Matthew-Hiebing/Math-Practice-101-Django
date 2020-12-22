@@ -55,3 +55,7 @@ label{
     visibility: hidden;
     display: none;
 }
+
+#gameChart{
+    height: 200px
+}
