@@ -48,12 +48,13 @@ checkButton.addEventListener('click', function () {
     } else if (input === correctAnswer) {
         correctAnswerPrompt();
         sendMathResults();
-        answerCounter("correct");
+        generateBarChart("correct");
 
     } else if (input !== correctAnswer) {
         incorrectAnswerPrompt();
         sendMathResults();
-        answerCounter("incorrect");
+        generateBarChart("incorrect");
+
     }
 });
 
@@ -65,7 +66,7 @@ newProblemBtn.addEventListener('click', function () {
 
 //---------------------------------Functions---------------------------------//
 
-function answerCounter(status) {
+function generateBarChart(status) {
     switch (status) {
         case "incorrect":
             incorrectCounter += 1;
@@ -82,8 +83,9 @@ function answerCounter(status) {
     document.querySelector('#Incorrect_Answer_Count').innerText = `Incorrectly Answered: ${incorrectCounter}`;
     document.querySelector('#Total_Question_Count').innerText = `Total Questions Completed This Session: ${totalCounter}`;
 
+
     var ctx = document.getElementById('gameChart').getContext('2d');
-    var myChart = new Chart(ctx, {
+    myBarChart = new Chart(ctx, {
         type: 'horizontalBar',
         data: {
             labels: [
@@ -91,7 +93,6 @@ function answerCounter(status) {
                 `Incorrect: ${incorrectCounter}`,
                 `Answered: ${totalCounter}`],
             datasets: [{
-                label: 'Current Results',
                 data: [
                     correctCounter,
                     incorrectCounter,
@@ -114,8 +115,7 @@ function answerCounter(status) {
             responsive: true,
             maintainAspectRatio: false,
             legend: {display:false},
-            scales: {xAxes: [{ticks: {beginAtZero: true}}]
-            }
+            scales: {xAxes: [{ticks: {beginAtZero: true}}]}
         }
     });
 }
