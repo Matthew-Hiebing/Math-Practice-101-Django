@@ -1,5 +1,11 @@
 # Math Game Website :woman_teacher:
-This repo contains Python code for a simple math game using Django as the backend.  The goal is to create a website that hots a simple math game for Mary's 3rd grade students.  The website will allow them to login, play the game, and see their stats.
+This project was created to help the 3rd graders at one my local elementary schools.  Typically, students have a hard time switching between operators (multiplication, division, addition, and subtraction).  The goal of the project was to get them accustomed to rapid math problem changes and practice their skills for the state's STAR tests.  The backend is handled by Django (Python) and the front is a combinatino of HTML, CSS, and JS.  Next steps will incorporate React as the frontend.
+
+Some improvements that I may implement at a later date:
+1.) Difficulty Selection
+2.) Operator Selection
+3.) Problem Batch Mode
+4.) Improved Stats Analysis
 
 Click [here](https://math-game-practice.herokuapp.com/) to visit the in-production site hosted on Heroku.
 
