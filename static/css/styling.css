@@ -15,9 +15,21 @@ label{
     color: white;
 }
 
-#math_problem {
+
+/* If the screen size is 601px wide or more */
+@media screen and (min-width: 601px) {
+  #math_problem {
     color: #036daa;
-    font-size: 700%;
+    font-size: 14vw;
+}
+}
+
+/* If the screen size is 600px wide or less*/
+@media screen and (max-width: 600px) {
+  #math_problem {
+    color: #036daa;
+    font-size: 10vw;
+}
 }
 
 #result_check,
