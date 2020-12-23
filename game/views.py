@@ -6,6 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 from scores.views import tally_results
 import json
 import datetime
+import pytz
 
 
 def get_splash_screen(request, name):
@@ -80,10 +81,12 @@ def submit_score_details(request):
     of the user as 'correct' or 'incorrect'.
     '''
     if request.method == 'POST':
+        timezone = pytz.timezone("US/Central")
+        date = timezone.localize(datetime.datetime.now())
         params = json.loads(request.body)
         record = Record(user=request.user,
                         math_problem=params['math_problem'],
-                        date_time=datetime.datetime.now(),
+                        date_time=date,
                         user_answer=params['user_answer'],
                         true_answer=params['true_answer'],
                         question_status=params['question_status'])
