@@ -11,7 +11,6 @@ var myChart = new Chart(ctx, {
             `Total Incorrect: ${incorrect_answer_count}`,
             `Total Answered: ${total_questions_answered}`],
         datasets: [{
-            label: 'Math Results',
             data: [
                 correct_answer_count,
                 incorrect_answer_count,
@@ -31,6 +30,7 @@ var myChart = new Chart(ctx, {
         }]
     },
 options: {
+    legend: { display: false},
     scales: {
         xAxes: [{
             ticks: {
