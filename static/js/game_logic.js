@@ -12,6 +12,7 @@ let problem, input, correctAnswer, questionStatus;
 let correctCounter = 0;
 let incorrectCounter = 0;
 let totalCounter = 0;
+let myBarChart = null;
 
 
 //------------------------------Event Listeners------------------------------//
@@ -64,7 +65,6 @@ newProblemBtn.addEventListener('click', function () {
 
 
 //---------------------------------Functions---------------------------------//
-let myBarChart = null;
 
 function generateBarChart(status) {
     switch (status) {
@@ -101,8 +101,6 @@ function generateBarChart(status) {
         chart.update();
     }
 
-    // If statement for chart
-    // If we have a existing instance of Chart class
     if (myBarChart == null) {
         myBarChart = new Chart(ctx, {
             type: 'horizontalBar',
