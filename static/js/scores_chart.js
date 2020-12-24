@@ -30,13 +30,7 @@ var myChart = new Chart(ctx, {
         }]
     },
 options: {
-    legend: { display: false},
-    scales: {
-        xAxes: [{
-            ticks: {
-                beginAtZero: true
-            }
-        }]
-    }
+    legend: {display: false},
+    scales: {xAxes: [{ticks: {beginAtZero: true}}]}
 }
     });

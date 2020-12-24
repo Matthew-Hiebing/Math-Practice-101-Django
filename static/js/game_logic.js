@@ -131,8 +131,8 @@ function generateBarChart(status) {
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                legend: { display: false },
-                scales: { xAxes: [{ ticks: { beginAtZero: true } }] }
+                legend: {display: false },
+                scales: {xAxes: [{ticks: {beginAtZero: true } }] }
             }
         });
     } else {
