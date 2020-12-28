@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import include, path
 from game.views import set_splash_screen_preference, submit_score_details
 from scores.views import request_score_details
+from rest_framework_simplejwt import views as jwt_views
+from accounts.views import ObtainTokenPairWithExtraInfo
 
 
 # 'langingPageApp' can also be replaced by '.'
@@ -32,4 +34,8 @@ urlpatterns = [
     path('api/user_preferences/set_preference', set_splash_screen_preference),
     path('api/scoring/submit_score_details', submit_score_details),
     path('api/scoring/request_score_details', request_score_details),
+    path('token/obtain/', ObtainTokenPairWithExtraInfo.as_view(),
+         name='token_create'),  # override sjwt stock token
+    path('token/refresh/', jwt_views.TokenRefreshView.as_view(),
+         name='token_refresh'),
 ]

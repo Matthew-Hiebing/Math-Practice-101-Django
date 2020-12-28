@@ -3,6 +3,9 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from homepage import views
 from game.models import Score, SplashScreenPreference
+from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework import permissions
+from .serializers import MyTokenObtainPairSerializer
 
 # Super User Information:
 # User Matthew.Hiebing
@@ -11,6 +14,11 @@ from game.models import Score, SplashScreenPreference
 
 # User Mary.Hiebing
 # Password: 7ee5eap3npZeNZY
+
+
+class ObtainTokenPairWithExtraInfo(TokenObtainPairView):
+    permission_classes = (permissions.AllowAny,)
+    serializer_class = MyTokenObtainPairSerializer
 
 
 # Create your views here.
