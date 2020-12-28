@@ -1,5 +1,4 @@
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-import json
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):

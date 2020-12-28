@@ -34,8 +34,6 @@ urlpatterns = [
     path('api/user_preferences/set_preference', set_splash_screen_preference),
     path('api/scoring/submit_score_details', submit_score_details),
     path('api/scoring/request_score_details', request_score_details),
-    path('token/obtain/', ObtainTokenPairWithExtraInfo.as_view(),
-         name='token_create'),  # override sjwt stock token
-    path('token/refresh/', jwt_views.TokenRefreshView.as_view(),
-         name='token_refresh'),
+    path('token/obtain/', ObtainTokenPairWithExtraInfo.as_view(), name='token_create'),
+    path('token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
 ]
