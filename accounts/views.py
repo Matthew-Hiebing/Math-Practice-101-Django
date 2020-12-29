@@ -3,9 +3,11 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from homepage import views
 from game.models import Score, SplashScreenPreference
+from rest_framework.views import APIView
+from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenObtainPairView
-from rest_framework import permissions
-from .serializers import MyTokenObtainPairSerializer
+from rest_framework import permissions, status
+from .serializers import MyTokenObtainPairSerializer, UserSerializer
 
 # Super User Information:
 # User Matthew.Hiebing
@@ -67,3 +69,18 @@ def logout_view(request):
     if request.method == 'POST':
         logout(request)
         return render(request, 'accounts/logout.html')
+
+
+class UserCreate(APIView):
+    permission_classes = (permissions.AllowAny,)
+    authentication_classes = ()
+
+    def post(self, request, format='json'):
+        serializer = UserSerializer(data=request.data)
+        if serializer.is_valid():
+            user = serializer.save()
+            if user:
+                json = serializer.data
+                json.pop("password")
+                return Response(json, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
