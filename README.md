@@ -1,5 +1,5 @@
 # Math Game Practice App :woman_teacher:
-This project was created to help the 3rd graders at one my local elementary schools.  Typically, students have a hard time switching between operators (multiplication, division, addition, and subtraction).  The goal of the project was to get them accustomed to rapid math problem changes and practice their skills for the state's STAR tests.  The backend is handled by Django (Python) and the front is a combinatino of HTML, CSS, and JS.  Next steps will incorporate React as the frontend.
+This project was created to help 3rd graders practice their math skills at one of my local elementary schools.  Typically, students have a hard time switching between operators (multiplication, division, addition, and subtraction).  The goal of the project was to get them accustomed to rapid math problem changes and practice their skills for the state's STAR tests.  The backend is handled by Django (Python) and the front is a combinatino of HTML, CSS, and JS.  Next steps will incorporate React as the frontend.
 
 Some improvements that I may implement at a later date:
 1.) Difficulty Selection
