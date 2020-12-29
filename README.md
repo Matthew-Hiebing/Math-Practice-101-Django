@@ -1,13 +1,13 @@
 # Math Game Practice App :woman_teacher:
 This project was created to help 3rd graders practice their math skills at one of my local elementary schools.  Typically, students have a hard time switching between operators (multiplication, division, addition, and subtraction).  The goal of the project was to get them accustomed to rapid math problem changes and practice their skills for the state's STAR tests.  
 
-The back-end is handled by Django (Python).  Currently, the front-end is also handled by Django (CSS, HTML, JS) but another project is being built to handle the front-end using React.  The repo for this project is called, "Python-Math-Game-Front-End".
+Currently, the back-end and front-end is handled by Django (Python, CSS, HTML, JS) but another project is being built to handle the front-end using React.  The repo for this project is called, "Python-Math-Game-Front-End".
 
 Some improvements that I may implement at a later date:
-1.) Difficulty Selection
-2.) Operator Selection
-3.) Problem Batch Mode
-4.) Improved Stats Analysis
+1.) Difficulty Selection - Increasee or decrease the random integers that are used in the math problems.
+2.) Operator Selection - Allow users to select what type of math problems they want to see.
+3.) Problem Batch Mode - Give the users pre-made batches of problems instead of one at a time.
+4.) Improved Stats Analysis - Give the teacher a better overview of the students performance using graphs/charts.
 
 Click [here](https://math-game-practice.herokuapp.com/) to visit the in-production site hosted on Heroku.
 
