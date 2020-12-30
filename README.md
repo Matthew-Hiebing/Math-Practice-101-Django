@@ -27,7 +27,7 @@ random.randint(0,12) # Returns a random number between 0 and 12
 random.choice([func1,func2,func3]) # Returns a random element from a non-empty sequence item from a list, set, tuple, or dictionary
 
 ```
-##License
+# License
 Copyright 2020 Hiebs915
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
