@@ -32,7 +32,7 @@ Matthew Hiebing: [Matthew-Hiebing](https://github.com/Matthew-Hiebing)\
 Guillermo Vargas: [gavargas22](https://github.com/gavargas22)
 
 ## Questions?
-Send me a message on GitHub (Matthew-Hiebing) or E-mail me at: Matthew.Hiebing@gmail.com.
+Send me a message on GitHub ([Matthew-Hiebing](https://github.com/Matthew-Hiebing) or E-mail me at: Matthew.Hiebing@gmail.com.
 
 ## License
 Copyright 2020
