@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from game.views import set_splash_screen_preference, submit_score_details
+from api.views import GamePropertiesView
 from scores.views import request_score_details
 from rest_framework_simplejwt import views as jwt_views
 from accounts.views import ObtainTokenPairWithExtraInfo
@@ -31,9 +32,15 @@ urlpatterns = [
     path('game/', include('game.urls')),
     path('scores/', include('scores.urls')),
     path('', include('homepage.urls')),
+
     path('api/user_preferences/set_preference', set_splash_screen_preference),
     path('api/scoring/submit_score_details', submit_score_details),
     path('api/scoring/request_score_details', request_score_details),
-    path('token/obtain/', ObtainTokenPairWithExtraInfo.as_view(), name='token_create'),
-    path('token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/game-properties/math', GamePropertiesView.as_view(),
+         name='game_properties'),
+
+    path('token/obtain/', ObtainTokenPairWithExtraInfo.as_view(),
+         name='token_create'),
+    path('token/refresh/', jwt_views.TokenRefreshView.as_view(),
+         name='token_refresh'),
 ]
