@@ -13,6 +13,8 @@ Click [here](https://math-game-practice.herokuapp.com/) to visit the in-producti
 
 ![Imgur](https://i.imgur.com/zvHq5js.png)
 
+![](name-of-giphy.gif)
+
 ## Installation
 ```bash
 pip install django # You will need Django for the web development part of this project
