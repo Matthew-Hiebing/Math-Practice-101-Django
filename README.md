@@ -9,11 +9,10 @@ Some improvements that I may implement at a later date:\
 3.) Problem Batch Mode - Give the users pre-made batches of problems instead of one at a time.\
 4.) Improved Stats Analysis - Give the teacher a better overview of the students performance using graphs/charts.\
 
-Click [here](https://math-game-practice.herokuapp.com/) to visit the in-production site hosted on Heroku.  Below is a screenshot from the game page, you should expect to see this after logging in.
+Click [here](https://math-game-practice.herokuapp.com/) to visit the in-production site hosted on Heroku.  Below is a short demonstration of the webpage.
 
-![Imgur](https://i.imgur.com/zvHq5js.png)
-
-![](name-of-giphy.gif)
+![Alt Text](https://media.giphy.com/media/emrnLZghQZUuxybzUD/giphy.gif)
+<img src="https://media.giphy.com/media/emrnLZghQZUuxybzUD/giphy.gif" width="250" height="250" />
 
 ## Installation
 ```bash
