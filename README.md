@@ -12,7 +12,6 @@ Some improvements that I may implement at a later date:\
 Click [here](https://math-game-practice.herokuapp.com/) to visit the in-production site hosted on Heroku.  Below is a short demonstration of the webpage.
 
 ![Alt Text](https://media.giphy.com/media/emrnLZghQZUuxybzUD/giphy.gif)
-<img src="https://media.giphy.com/media/emrnLZghQZUuxybzUD/giphy.gif" width="300" height="300" />
 
 ## Installation
 ```bash
