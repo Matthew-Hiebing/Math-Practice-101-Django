@@ -18,7 +18,7 @@ Click [here](https://math-game-practice.herokuapp.com/) to visit the in-producti
 ## Installation
 ```bash
 pip install django # You will need Django for the web development part of this project
-pip install -r requirements.txt # Run this command to install all the necessary packages
+pip install -r requirements.txt # Run this file to install all the necessary packages
 
 ```
 ## Usage
