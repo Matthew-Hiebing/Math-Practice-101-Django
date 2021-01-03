@@ -1,8 +1,9 @@
 from rest_framework.views import APIView
 from rest_framework import permissions, status, authentication
-from game.models import SplashScreen
+from game.models import SplashScreen, SplashScreenPreference
 from rest_framework.response import Response
 from .serializers import GamePropertiesSerializer
+import json
 
 
 class GamePropertiesView(APIView):
@@ -28,3 +29,18 @@ class GamePropertiesView(APIView):
         serializer = GamePropertiesSerializer(game_properties)
 
         return Response(data=serializer.data)
+
+
+class SetSplashScreenPreference(APIView):
+    """
+    This function sets the splash screen preference of the user
+    based on whether they clicked the checkbox or not.
+    """
+    def post(self, request, format='json'):
+        SplashScreenPreference.set_splash_screen_preference(
+            user=request.user,
+            params=json.loads(request.body)
+        )
+
+        return Response(data={"status": "success"},
+                        status=status.HTTP_202_ACCEPTED)
