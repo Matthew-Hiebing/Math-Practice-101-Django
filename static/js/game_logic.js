@@ -1,5 +1,5 @@
 //-------------------------------Variables-----------------------------------//
-const randomFunc = [multiplication, division, addition, subtraction,]
+const randomFunc = [multiplication, division, addition, subtraction]
 const checkBox = document.querySelector('#splash_screen_preference_check_box');
 const newProblemBtn = document.querySelector('#new_problem_button');
 const checkButton = document.querySelector('#result_check');
