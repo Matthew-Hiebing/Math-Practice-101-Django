@@ -6,6 +6,8 @@ from game.models import Score, SplashScreenPreference
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from rest_framework_simplejwt.tokens import AccessToken, RefreshToken
 from rest_framework import permissions, status
 from .serializers import MyTokenObtainPairSerializer, UserSerializer
 
@@ -80,7 +82,12 @@ class UserCreate(APIView):
         if serializer.is_valid():
             user = serializer.save()
             if user:
+                tokenr = TokenObtainPairSerializer().get_token(user)
+                tokena = AccessToken().for_user(user)
+
                 json = serializer.data
                 json.pop("password")
+                json['access'] = tokena.__str__()
+                json['refresh'] = tokenr.__str__()
                 return Response(json, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
