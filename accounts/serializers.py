@@ -1,6 +1,6 @@
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework import serializers
-from django.contrib.auth.models import User
+from game.models import GameUser
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -16,7 +16,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
+        model = GameUser
         fields = "__all__"
 
     def create(self, validated_data):
@@ -26,6 +26,7 @@ class UserSerializer(serializers.ModelSerializer):
 
         if password is not None:
             instance.set_password(password)
+            # Create a blank preference
         instance.save()
 
         return instance

@@ -44,7 +44,7 @@ def signup_view(request):
                                    display_on_refresh=True
                                    ).save()
             login(request, user)
-            # Log the user in
+            # Log the user in.
             return redirect(views.homepage)
     else:
         form = UserCreationForm()
@@ -75,13 +75,14 @@ def logout_view(request):
 
 class UserCreate(APIView):
     permission_classes = (permissions.AllowAny,)
-    authentication_classes = ()
 
     def post(self, request, format='json'):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
             user = serializer.save()
             if user:
+                user.create_blank_user_parameters()
+                # Create refresh and access tokens for user.
                 tokenr = TokenObtainPairSerializer().get_token(user)
                 tokena = AccessToken().for_user(user)
 
@@ -89,5 +90,6 @@ class UserCreate(APIView):
                 json.pop("password")
                 json['access'] = tokena.__str__()
                 json['refresh'] = tokenr.__str__()
+
                 return Response(json, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

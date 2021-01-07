@@ -12,7 +12,8 @@ class Score(models.Model):
     number of correctly answered problems, number of incorrectly answered
     problems, and the total number of problems they attempted.
     """
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE,
+                                primary_key=True,)
     number_of_correct_answers = models.IntegerField(default=0, null=False)
     number_of_incorrect_answers = models.IntegerField(default=0, null=False)
     total_questions_answered = models.IntegerField(default=0, null=False)
@@ -101,3 +102,28 @@ class SplashScreen(models.Model):
 
     def __str__(self):
         return f"{self.splash_screen_name}: {self.splash_screen_message}"
+
+
+class GameUser(User):
+    """
+    ===
+    Game User Class
+    ===
+    Creates initial user parameters for new users
+    """
+    class Meta:
+        proxy = True
+
+    def create_blank_user_parameters(self):
+        # Create a splash screen preference, default "Yes"
+        SplashScreenPreference(user=self,
+                               splash_screen="Math",
+                               display_on_refresh=True
+                               ).save()
+
+        # Create initial score of 0 for new users
+        Score(user=self,
+              number_of_correct_answers=0,
+              number_of_incorrect_answers=0,
+              total_questions_answered=0
+              ).save()

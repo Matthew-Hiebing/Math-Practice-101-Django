@@ -63,12 +63,12 @@ class SubmitScoreDetails(APIView):
         in the Scores class.
         '''
         correct_answer_count = request.user.record_set.all().filter(
-            question_status='Correct').count()
+            question_status='correct').count()
         incorrect_answer_count = request.user.record_set.all().filter(
-            question_status='Incorrect').count()
+            question_status='incorrect').count()
         total_questions_answered = correct_answer_count + incorrect_answer_count
 
-        score = request.user.score_set.get()
+        score = request.user.score
         score.number_of_correct_answers = correct_answer_count
         score.number_of_incorrect_answers = incorrect_answer_count
         score.total_questions_answered = total_questions_answered
@@ -111,7 +111,7 @@ class RequestScoreDetails(APIView):
         total_questions_answered from the Scores class.
         """
 
-        score = request.user.score_set.get()
+        score = request.user.score
 
         return Response(data={
             'correct_answer_count': score.number_of_correct_answers,
