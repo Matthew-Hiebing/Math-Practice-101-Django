@@ -1,5 +1,4 @@
 """django_skeleton URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
 Examples:
@@ -13,25 +12,21 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import include, path
-from game.views import set_splash_screen_preference, submit_score_details
-from api.views import GamePropertiesView, SetSplashScreenPreference, SubmitScoreDetails, RequestScoreDetails
-from scores.views import request_score_details
+from api.views import (
+    GamePropertiesView,
+    SetSplashScreenPreference,
+    SubmitScoreDetails,
+    RequestScoreDetails
+)
 from rest_framework_simplejwt import views as jwt_views
 from accounts.views import ObtainTokenPairWithExtraInfo
-
-
-# 'langingPageApp' can also be replaced by '.'
-#  indicating that the older is in the same directory.
-
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('accounts/', include('accounts.urls')),
-    path('game/', include('game.urls')),
-    path('scores/', include('scores.urls')),
-    path('', include('homepage.urls')),
     path('api/user_preferences/set_preference', SetSplashScreenPreference.as_view()),
     path('api/scoring/submit_score_details', SubmitScoreDetails.as_view()),
     path('api/scoring/request_score_details', RequestScoreDetails.as_view()),

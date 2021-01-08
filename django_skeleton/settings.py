@@ -52,10 +52,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'bootstrap4',
-    'homepage',
     'game',
     'accounts',
-    'scores',
 ]
 
 MIDDLEWARE = [
