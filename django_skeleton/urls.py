@@ -15,12 +15,16 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
+<<<<<<< HEAD
 from api.views import (
     GamePropertiesView,
     SetSplashScreenPreference,
     SubmitScoreDetails,
     RequestScoreDetails
 )
+=======
+from api.views import GamePropertiesView, SetSplashScreenPreference, SubmitScoreDetails, RequestScoreDetails
+>>>>>>> 81f851e762bedadf253d690e2e5ec50483013b19
 from rest_framework_simplejwt import views as jwt_views
 from accounts.views import ObtainTokenPairWithExtraInfo
 
