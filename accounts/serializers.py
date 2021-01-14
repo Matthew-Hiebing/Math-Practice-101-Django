@@ -10,6 +10,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 
         token["username"] = user.username
         token["last_login"] = user.last_login.__str__()
+        token["is_staff"] = user.is_staff
 
         return token
 

@@ -14,8 +14,7 @@ class GamePropertiesView(APIView):
         logged_in_user = request.user
 
         # Grab the user's splash screen preferences
-        user_splash_screen_preference = logged_in_user.\
-            splashscreenpreference_set.all().get(splash_screen='Math')
+        user_splash_screen_preference = logged_in_user.splashscreenpreference_set.all().get(splash_screen='Math')
 
         # Grab contents of splashscreen from 'Math'
         splash_screen = SplashScreen.objects.get(splash_screen_name='Math')
@@ -66,7 +65,9 @@ class SubmitScoreDetails(APIView):
             question_status='correct').count()
         incorrect_answer_count = request.user.record_set.all().filter(
             question_status='incorrect').count()
-        total_questions_answered = correct_answer_count + incorrect_answer_count
+        total_questions_answered = (
+            correct_answer_count + incorrect_answer_count
+        )
 
         score = request.user.score
         score.number_of_correct_answers = correct_answer_count
@@ -89,18 +90,22 @@ class SubmitScoreDetails(APIView):
         timezone = pytz.timezone("US/Central")
         date = timezone.localize(datetime.datetime.now())
         params = json.loads(request.body)
-        record = Record(user=request.user,
-                        math_problem=params['math_problem'],
-                        date_time=date,
-                        user_answer=params['user_answer'],
-                        true_answer=params['true_answer'],
-                        question_status=params['question_status'])
+        record = Record(
+            user=request.user,
+            math_problem=params['math_problem'],
+            date_time=date,
+            user_answer=params['user_answer'],
+            true_answer=params['true_answer'],
+            question_status=params['question_status']
+        )
         record.save()
 
         self.tally_results(request)
 
-        return Response(data={"status": "success"},
-                        status=status.HTTP_202_ACCEPTED)
+        return Response(data={
+            "status": "success"},
+            status=status.HTTP_202_ACCEPTED
+        )
 
 
 class RequestScoreDetails(APIView):
