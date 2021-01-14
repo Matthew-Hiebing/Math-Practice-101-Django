@@ -1,6 +1,3 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login, logout
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenObtainPairView
@@ -21,27 +18,6 @@ from .serializers import MyTokenObtainPairSerializer, UserSerializer
 class ObtainTokenPairWithExtraInfo(TokenObtainPairView):
     permission_classes = (permissions.AllowAny,)
     serializer_class = MyTokenObtainPairSerializer
-
-def login_view(request):
-    if request.method == 'POST':
-        form = AuthenticationForm(data=request.POST)
-        if form.is_valid():
-            # Log the user in
-            user = form.get_user()
-            login(request, user)
-            if 'next' in request.POST:
-                return redirect(request.POST.get('next'))
-            else:
-                return render(request, 'accounts/login_successful.html')
-    else:
-        form = AuthenticationForm(request.POST)
-    return render(request, 'accounts/login.html', {'form': form})
-
-
-def logout_view(request):
-    if request.method == 'POST':
-        logout(request)
-        return render(request, 'accounts/logout.html')
 
 
 class UserCreate(APIView):
