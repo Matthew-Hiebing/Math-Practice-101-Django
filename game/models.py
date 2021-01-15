@@ -85,9 +85,7 @@ class SplashScreenPreference(models.Model):
         return splash_screen_preference_object
 
     def __str__(self):
-        return (
-            f"{self.user} Display on refresh: {'Yes' if self.display_on_refresh else 'No'}"
-        )
+        return f"{self.user} Display on refresh: {'Yes' if self.display_on_refresh else 'No'}"
 
 
 class SplashScreen(models.Model):
@@ -116,14 +114,16 @@ class GameUser(User):
 
     def create_blank_user_parameters(self):
         # Create a splash screen preference, default "Yes"
-        SplashScreenPreference(user=self,
-                               splash_screen="Math",
-                               display_on_refresh=True
-                               ).save()
+        SplashScreenPreference(
+            user=self,
+            splash_screen="Math",
+            display_on_refresh=True
+            ).save()
 
         # Create initial score of 0 for new users
-        Score(user=self,
-              number_of_correct_answers=0,
-              number_of_incorrect_answers=0,
-              total_questions_answered=0
-              ).save()
+        Score(
+            user=self,
+            number_of_correct_answers=0,
+            number_of_incorrect_answers=0,
+            total_questions_answered=0
+            ).save()

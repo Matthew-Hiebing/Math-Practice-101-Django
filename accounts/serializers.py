@@ -1,11 +1,16 @@
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework import serializers
 from game.models import GameUser
+import datetime
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls, user):
+        # Set the date after login
+        user.last_login = datetime.datetime.now()
+        user.save()
+
         token = super(MyTokenObtainPairSerializer, cls).get_token(user)
 
         token["username"] = user.username
