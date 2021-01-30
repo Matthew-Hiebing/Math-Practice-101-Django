@@ -31,3 +31,6 @@ whitenoise
 gunicorn
 python-dotenv
 django-cors-headers
+djangorestframework
+django-filter
+markdown
