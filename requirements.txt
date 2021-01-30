@@ -30,3 +30,4 @@ django-heroku
 whitenoise
 gunicorn
 python-dotenv
+django-cors-headers
