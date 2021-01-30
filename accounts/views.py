@@ -6,6 +6,7 @@ from rest_framework_simplejwt.tokens import AccessToken
 from rest_framework import permissions, status
 from .serializers import MyTokenObtainPairSerializer, UserSerializer
 import datetime
+import json
 
 
 # Super User Information:
@@ -35,10 +36,10 @@ class UserCreate(APIView):
                 tokenr = TokenObtainPairSerializer().get_token(user)
                 tokena = AccessToken().for_user(user)
 
-                json = serializer.data
-                json.pop("password")
-                json['access'] = tokena.__str__()
-                json['refresh'] = tokenr.__str__()
+                json_object = serializer.data
+                json_object.pop("password")
+                json_object['access'] = json.dumps(tokena.__str__())
+                json_object['refresh'] = json.dumps(tokenr.__str__())
 
                 return Response(json, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
