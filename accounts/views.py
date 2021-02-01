@@ -6,16 +6,6 @@ from rest_framework_simplejwt.tokens import AccessToken
 from rest_framework import permissions, status
 from .serializers import MyTokenObtainPairSerializer, UserSerializer
 
-
-# Super User Information:
-# User Matthew.Hiebing
-# Email: Matthew.Hiebing@gmail.com
-# Password: testpass1029
-
-# User Mary.Hiebing
-# Password: 7ee5eap3npZeNZY
-
-
 class ObtainTokenPairWithExtraInfo(TokenObtainPairView):
     permission_classes = (permissions.AllowAny,)
     serializer_class = MyTokenObtainPairSerializer
