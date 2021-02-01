@@ -6,6 +6,7 @@ from rest_framework_simplejwt.tokens import AccessToken
 from rest_framework import permissions, status
 from .serializers import MyTokenObtainPairSerializer, UserSerializer
 
+
 class ObtainTokenPairWithExtraInfo(TokenObtainPairView):
     permission_classes = (permissions.AllowAny,)
     serializer_class = MyTokenObtainPairSerializer
