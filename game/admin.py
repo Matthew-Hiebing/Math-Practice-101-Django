@@ -8,4 +8,4 @@ admin.site.register(models.Record)
 admin.site.register(models.SplashScreen)
 admin.site.register(models.SplashScreenPreference)
 
-# admin.site.site_url = 'https://math-game-react-frontend.herokuapp.com/'
+admin.site.site_url = 'https://math-game-react-frontend.herokuapp.com/'
