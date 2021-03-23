@@ -37,4 +37,3 @@ Guillermo Vargas: [gavargas22](https://github.com/gavargas22)
 
 ## Questions?
 Send me a message on GitHub ([Matthew-Hiebing](https://github.com/Matthew-Hiebing)) or E-mail me at: Matthew.Hiebing@gmail.com.
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
