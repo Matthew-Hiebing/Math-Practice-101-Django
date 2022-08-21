@@ -52,11 +52,11 @@ class SplashScreenPreference(models.Model):
     This stores the user's preferences for splash screen visibility.  After
     the user logs in and navigates to the math page they will be presented a
     splash screen that will introduce them to the game and a
-    general outline of the game.  The spashscreen will continue to
+    general outline of the game.  The splash screen will continue to
     display after each refresh unless the user checks a box saying, "Don't
     show this message again.".
 
-    The 'display_on_refresh' will reamin 'True' until the user ops out of the
+    The 'display_on_refresh' will remain 'True' until the user ops out of the
     splash screen.  Once they opt out, the boolean will flip to 'False' and
     they won't see the splash screen anymore.
     """
@@ -93,7 +93,8 @@ class SplashScreen(models.Model):
     ===
     Splash Screen Class
     ===
-    Defines splash screen's characteristics.
+    Defines splash screen's characteristics.  Multiple splash screen
+    names and messages can be created.
     """
     splash_screen_name = models.CharField(max_length=100)
     splash_screen_message = models.CharField(max_length=500)

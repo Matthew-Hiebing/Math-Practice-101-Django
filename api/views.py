@@ -16,14 +16,14 @@ class GamePropertiesView(APIView):
         # Grab the user's splash screen preferences
         user_splash_screen_preference = logged_in_user.splashscreenpreference_set.all().get(splash_screen='Math')
 
-        # Grab contents of splashscreen from 'Math'
+        # Grab contents of splashscreen from 'Math'.
         splash_screen = SplashScreen.objects.get(splash_screen_name='Math')
 
         # Dictionary containing preference and splash screen message
         game_properties = {
             'splash_screen': {
-                'preference': user_splash_screen_preference,
-                'content': splash_screen
+                'content': splash_screen,
+                'preference': user_splash_screen_preference
             }
         }
 
@@ -111,9 +111,9 @@ class SubmitScoreDetails(APIView):
 class RequestScoreDetails(APIView):
     def get(self, request, format='json'):
         """
-        Identified the current user and returns the current
-        number_of_correct_answers, the number_of_incorrect_answers and the
-        total_questions_answered from the Scores class.
+        Identified the current user and returns that user's current
+        number_of_correct_answers, number_of_incorrect_answers, and
+        total_questions_answered from the Score class.
         """
 
         score = request.user.score

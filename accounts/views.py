@@ -24,11 +24,9 @@ class UserCreate(APIView):
                 # Create refresh and access tokens for user.
                 tokenr = TokenObtainPairSerializer().get_token(user)
                 tokena = AccessToken().for_user(user)
-
                 json_object = serializer.data
                 json_object.pop("password")
                 json_object['access'] = tokena.__str__()
                 json_object['refresh'] = tokenr.__str__()
-
                 return Response(json_object, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

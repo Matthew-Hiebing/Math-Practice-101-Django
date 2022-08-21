@@ -3,8 +3,8 @@ from rest_framework import serializers
 
 class GamePropertiesSerializer(serializers.BaseSerializer):
     def to_representation(self, instance):
-        preference = instance['splash_screen']['preference']
         content = instance['splash_screen']['content']
+        preference = instance['splash_screen']['preference']
 
         return {
             'splash_screen': {
