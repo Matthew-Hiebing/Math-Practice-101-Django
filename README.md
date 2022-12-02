@@ -1,4 +1,7 @@
 # Math Game Using Django :woman_teacher:
+
+*Heroku stopped hosting this project for free.  Until I figure out where to host this next, the links do not work.*
+
 This project was created to help 3rd graders practice their math skills at one of my local elementary schools.  Typically, students have a hard time switching between operators (multiplication, division, addition, and subtraction).  The goal of the project was to get them accustomed to rapid math problem changes and practice their skills for the state's STAR tests.
 
 Currently, the back-end and front-end is handled by Django (Python, CSS, HTML, JS) but another project is being built to handle the front-end using React.  The repo for this project is called, "Python-Math-Game-Front-End".
